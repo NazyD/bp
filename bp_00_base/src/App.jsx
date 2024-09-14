@@ -1,21 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {Route, Routes} from 'react-router-dom';
+
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer.jsx';
+
+import Home from './Home';
+import Articles from "./articles/Articles";
+import Article from "./articles/article/Article.jsx";
+import Movies from './movies/Movies';
+import Shows from './shows/Shows';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1>BP</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-        <div>in progress ... </div>
-    </>
+      <>
+          <Navbar />
+          <div className="container">
+              <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/articles-list" element={<Articles />} />
+                  <Route path="/movies-articles" element={<Movies />} />
+                  <Route path="/shows-articles" element={<Shows />} />
+                  <Route path="/articles-list/article" element={<Article />} />
+              </Routes>
+          </div>
+          <Footer />
+      </>
   )
 }
 
