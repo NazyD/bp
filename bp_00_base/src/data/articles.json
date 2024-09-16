@@ -1,0 +1,40 @@
+[
+  {
+    "idArticle": 1,
+    "title": "Nízev článku mockup",
+    "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Ut tempus purus at lorem. Maecenas aliquet accumsan leo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Sed elit dui, pellentesque",
+    "author": "author",
+    "creationDate": "date c",
+    "editDate": "date e",
+    "review": "1/5",
+    "topics": [
+      {
+        "idTopic": 1,
+        "topicName": "filmy"
+      },
+      {
+        "idTopic": 2,
+        "topicName": "komedie"
+      }
+    ]
+  },
+  {
+    "idArticle": 2,
+    "title": "Nízev článku 2 mockup",
+    "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Ut tempus purus at lorem. Maecenas aliquet accumsan leo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Sed elit dui, pellentesque",
+    "author": "author 2",
+    "creationDate": "date c2",
+    "editDate": "date e2",
+    "review": "2/5",
+    "topics": [
+      {
+        "idTopic": 3,
+        "topicName": "serialy"
+      },
+      {
+        "idTopic": 4,
+        "topicName": "horor"
+      }
+    ]
+  }
+]

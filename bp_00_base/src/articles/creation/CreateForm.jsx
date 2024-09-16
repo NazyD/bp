@@ -18,8 +18,6 @@ function CreateForm(showModal) {
         alert(`Title: ${formData.title}, Text: ${formData.text}, Topics: ${formData.topics}`);
     }
 
-    console.log(showModal);
-
     return(
         <div className="create-form-popup" id="createForm" hidden={true}>
             <form className="create-form" onSubmit={handleSubmit}>
