@@ -1,16 +1,10 @@
-import {useState} from "react";
 import ShortArticle from '../article/ShortArticle.jsx';
 import CreateForm from "../creation/CreateForm.jsx";
 
 const ArticlesList = (props) => {
-    const [showModal, setShowModal] = useState({state: true});
 
-    const showCreateForm = () => {
-        return setShowModal({state: true});
-    }
-
-    function getArticlesList(articlesList) {
-        return articlesList.map((article) => {
+    function getArticlesList(articlesData) {
+        return articlesData.map((article) => {
             return <ShortArticle article={article}/>
         })
     }
@@ -18,10 +12,12 @@ const ArticlesList = (props) => {
     return (
         <div>
 
-            <button className="create-article-button" onClick={showCreateForm}>vytvořit článek</button>
-            <CreateForm showModal={showModal.state} />
+            <button className="create-article-button" onClick={props.setVisibility}>vytvořit článek</button>
+
+            {props.visiblePopUp ? <CreateForm articlesData={props.articlesData} setVisibility={props.setVisibility} setArticlesData={props.setArticlesData}/> : null}
+
             <div className="articles-list">
-                {getArticlesList(props.articlesList)}
+                {getArticlesList(props.articlesData)}
             </div>
         </div>
     );

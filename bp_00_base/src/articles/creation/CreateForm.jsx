@@ -1,25 +1,49 @@
 import {useState} from "react";
+import {v4 as uuidv4} from "uuid";
 
 const defaultForm = {
     title: "",
     text: "",
-    topics: ""
+    author: "",
+    creationDate: "",
+    editDate: "",
+    review: "",
+    topics: []
 };
-function CreateForm(showModal) {
-    const [formData, setFormData] = useState(defaultForm);
+function CreateForm(props) {
+    const [newArticle, setNewArticle] = useState(defaultForm);
 
     const handleChange = (event) => {
         const {name, value} = event.target;
-        setFormData((prevFormData) => ({...prevFormData, [name]: value}));
+        setNewArticle((prevFormData) => ({...prevFormData, [name]: value}));
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(`Title: ${formData.title}, Text: ${formData.text}, Topics: ${formData.topics}`);
+        alert(`Title: ${newArticle.title}, Text: ${newArticle.text}, Topics: ${newArticle.topics}`);
+
+        // find the last id
+        const maxId = props.articlesData.length > 0 ?
+            Math.max(...props.articlesData.map(article => article.idArticle)) : 0;
+
+        console.log(Math.max(...props.articlesData.map(article => article.idArticle)));
+        const newArticleData = {
+            ...newArticle,
+            idArticle: maxId + 1,
+        };
+
+        // add new article to the list of articles in local storage
+        const updatedArticles = [...props.articlesData, newArticleData];
+        props.setArticlesData(updatedArticles);
+        localStorage.setItem("articles.json", JSON.stringify(updatedArticles));
+
+        setNewArticle(defaultForm);
+
+        console.log(JSON.parse(localStorage.getItem("articles.json")));
     }
 
     return(
-        <div className="create-form-popup" id="createForm" hidden={true}>
+        <div className="create-form-popup" id="createForm">
             <form className="create-form" onSubmit={handleSubmit}>
                 <h1>Nový článek</h1>
 
@@ -28,7 +52,7 @@ function CreateForm(showModal) {
                        id="title"
                        name="title"
                        placeholder="název článku"
-                       value={formData.title}
+                       value={newArticle.title}
                        onChange={handleChange}
                        required/>
 
@@ -37,7 +61,7 @@ function CreateForm(showModal) {
                        id="text"
                        name="text"
                        placeholder="text článku"
-                       value={formData.text}
+                       value={newArticle.text}
                        onChange={handleChange}
                        required/>
 
@@ -46,9 +70,8 @@ function CreateForm(showModal) {
                        id="topics"
                        name="topics"
                        placeholder="topic článku"
-                       value={formData.topics}
-                       onChange={handleChange}
-                       required/>
+                       value={newArticle.topics}
+                       onChange={handleChange}/>
 
                 <button type="submit">Vytvořit</button>
             </form>

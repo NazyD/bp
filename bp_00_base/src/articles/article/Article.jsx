@@ -1,12 +1,24 @@
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 
 import Comment from "../comment/Comment.jsx";
 import TopicsList from "../../topics/TopicsList.jsx";
 
 const Article = (props) => {
-    let {id} = useParams();
+    const {id} = useParams();
+    const navigate = useNavigate();
 
-    const article = props.articles.find(article => article.idArticle === parseInt(id));
+    const article = props.articlesData.find(article => article.idArticle === parseInt(id));
+
+    const handleDelete = () => {
+        const updatedArticles = props.articlesData.filter(
+            (article) => article.idArticle !== parseInt(id)
+        );
+
+        props.setArticlesData(updatedArticles);
+        localStorage.setItem("articles.json", JSON.stringify(updatedArticles));
+
+        navigate("/articles-list")
+    }
 
     return (
         <div className="article">
@@ -33,6 +45,7 @@ const Article = (props) => {
             <div className="article-comments">
                 <Comment />
             </div>
+            <button className="article-delete-button" onClick={handleDelete}>odstranit</button>
         </div>
     );
 

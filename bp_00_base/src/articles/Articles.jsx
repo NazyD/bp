@@ -7,7 +7,7 @@ const Articles = (props) => {
     return (
         <div className="articles">
             <h2>Seznam článků</h2>
-            <ArticlesList articlesList={props.articles}/>
+            <ArticlesList articlesData={props.articlesData} visiblePopUp={props.visiblePopUp} setVisibility={props.setVisibility} setArticlesData={props.setArticlesData}/>
         </div>
     );
 

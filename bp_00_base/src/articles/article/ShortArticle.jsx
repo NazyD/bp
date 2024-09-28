@@ -5,7 +5,7 @@ const ShortArticle = (props) => {
     return(
         <div className="short-article">
             <div className="short-article-title">
-                <h3><Link to={`/articles-list/article/${props.article.idArticle}`} >{props.article.title}</Link></h3>
+                <h3><Link to={`/articles-list/article/${props.article.idArticle}`}>{props.article.title}</Link></h3>
             </div>
             <div className="short-article-text">
                 <p>{props.article.text} <Link to={`/articles-list/article/${props.article.idArticle}`}>více</Link></p>
