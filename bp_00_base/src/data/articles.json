@@ -4,37 +4,39 @@
     "title": "Nízev článku mockup",
     "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Ut tempus purus at lorem. Maecenas aliquet accumsan leo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Sed elit dui, pellentesque",
     "author": "author",
-    "creationDate": "date c",
-    "editDate": "date e",
+    "creationDate": "30/8/2024 19:42:29",
+    "editDate": "",
     "review": "1/5",
-    "topics": [
-      {
-        "idTopic": 1,
-        "topicName": "filmy"
-      },
-      {
-        "idTopic": 2,
-        "topicName": "komedie"
-      }
-    ]
+    "topics": [1,2]
   },
   {
     "idArticle": 2,
     "title": "Nízev článku 2 mockup",
     "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Ut tempus purus at lorem. Maecenas aliquet accumsan leo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Sed elit dui, pellentesque",
     "author": "author 2",
-    "creationDate": "date c2",
-    "editDate": "date e2",
+    "creationDate": "3/9/2024 15:49:29",
+    "editDate": "",
     "review": "2/5",
-    "topics": [
-      {
-        "idTopic": 3,
-        "topicName": "serialy"
-      },
-      {
-        "idTopic": 4,
-        "topicName": "horor"
-      }
-    ]
+    "topics": [3, 4]
+  },
+  {
+    "idArticle": 2,
+    "title": "Nízev článku 3 mockup",
+    "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Ut tempus purus at lorem. Maecenas aliquet accumsan leo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Sed elit dui, pellentesque",
+    "author": "au 2",
+    "creationDate": "3/1/2024 15:49:29",
+    "editDate": "",
+    "review": "",
+    "topics": [1, 4]
+  },
+  {
+    "idArticle": 2,
+    "title": "Nízev článku 4 mockup",
+    "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Ut tempus purus at lorem. Maecenas aliquet accumsan leo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Sed elit dui, pellentesque",
+    "author": "authsdfsdfor 2",
+    "creationDate": "3/9/2021 15:49:29",
+    "editDate": "",
+    "review": "",
+    "topics": [3, 5]
   }
 ]

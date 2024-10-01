@@ -36,7 +36,7 @@ const Article = (props) => {
                     {article.creationDate}
                 </div>
                 <div className="article-topics">
-                    <TopicsList topicsList={article.topics} />
+                    <TopicsList topicsList={article.topics} topicsData={props.topicsData} />
                 </div>
                 <div className="article-review">
                     {article.review}

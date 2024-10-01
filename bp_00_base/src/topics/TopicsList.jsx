@@ -4,7 +4,8 @@ const TopicsList = (props) => {
 
     function getTopicsList(topicsList) {
         return topicsList.map((topic) => {
-            return <Topic topic={topic}/>
+            const top = props.topicsData.find(top => top.idTopic === topic);
+            return <Topic topic={top}/>
         })
     }
 

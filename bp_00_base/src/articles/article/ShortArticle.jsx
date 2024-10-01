@@ -18,7 +18,7 @@ const ShortArticle = (props) => {
                     {props.article.creationDate}
                 </div>
                 <div className="short-article-topics">
-                    <TopicsList topicsList={props.article.topics} />
+                    <TopicsList topicsList={props.article.topics} topicsData={props.topicsData} />
                 </div>
                 <div className="short-article-review">
                     {props.article.review}
