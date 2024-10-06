@@ -10,25 +10,28 @@ const ArticlesList = (props) => {
         })
     }
 
-    console.log(props.topicsData, props.articlesData);
+    console.log(props.articlesData);
 
     return (
         <div>
+            {props.creationForms ?
+            <div className="creation-forms">
+                <button className="create-article-button" onClick={props.setVisibility}>vytvořit článek</button>
+                {props.visiblePopUp ? <CreateForm
+                    articlesData={props.articlesData}
+                    setVisibility={props.setVisibility}
+                    setArticlesData={props.setArticlesData}
+                    topicsData={props.topicsData}/> : null}
 
-            <button className="create-article-button" onClick={props.setVisibility}>vytvořit článek</button>
-            {props.visiblePopUp ? <CreateForm
-                articlesData={props.articlesData}
-                setVisibility={props.setVisibility}
-                setArticlesData={props.setArticlesData}
-                topicsData={props.topicsData}/> : null}
+                <button className="manage-topics" onClick={props.setTopVisibility}>topics</button>
+                {props.topVisibility ? <TopicManagement
+                    setTopVisibility={props.setTopVisibility}
+                    setTopicsData={props.setTopicsData}
+                    setArticlesData={props.setArticlesData}
+                    articlesData={props.articlesData}
+                    topicsData={props.topicsData}/> : null}
+            </div> : null}
 
-            <button className="manage-topics" onClick={props.setTopVisibility}>topics</button>
-            {props.topVisibility ? <TopicManagement
-                setTopVisibility={props.setTopVisibility}
-                setTopicsData={props.setTopicsData}
-                setArticlesData={props.setArticlesData}
-                articlesData={props.articlesData}
-                topicsData={props.topicsData}/> : null}
 
             <div className="articles-list">
                 {getArticlesList(props.articlesData)}

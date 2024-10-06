@@ -18,10 +18,14 @@ function App() {
     const [articlesData, setArticlesData] = useState(articles);
     const [topicsData, setTopicsData] = useState(topics);
     const [visiblePopUp, setVisiblePopup] = useState(false);
+    const [visibleEdiPopUp, setVisibleEditPopup] = useState(false);
     const [topVisibility, setTopVisibilityPopup] = useState(false);
 
     function setVisibility () {
         setVisiblePopup(!visiblePopUp);
+    }
+    function setEditVisibility () {
+        setVisibleEditPopup(!visibleEdiPopUp);
     }
     function setTopVisibility () {
         setTopVisibilityPopup(!topVisibility);
@@ -42,12 +46,30 @@ function App() {
                       setTopVisibility={setTopVisibility}
                       setArticlesData={setArticlesData}
                       setTopicsData={setTopicsData}/>} />
-                  <Route path="/movies-articles" element={<Movies />} />
-                  <Route path="/shows-articles" element={<Shows />} />
+                  <Route path="/articles-list/movies" element={<Movies
+                      articlesData={articlesData}
+                      topicsData={topicsData}
+                      visiblePopUp={visiblePopUp}
+                      setVisibility={setVisibility}
+                      topVisibility={topVisibility}
+                      setTopVisibility={setTopVisibility}
+                      setArticlesData={setArticlesData}
+                      setTopicsData={setTopicsData}/>} />
+                  <Route path="/articles-list/shows" element={<Shows
+                      articlesData={articlesData}
+                      topicsData={topicsData}
+                      visiblePopUp={visiblePopUp}
+                      setVisibility={setVisibility}
+                      topVisibility={topVisibility}
+                      setTopVisibility={setTopVisibility}
+                      setArticlesData={setArticlesData}
+                      setTopicsData={setTopicsData}/>} />
                   <Route path="/articles-list/article/:id" element={<Article
                       articlesData={articlesData}
                       setArticlesData={setArticlesData}
-                      topicsData={topicsData}/>} />
+                      topicsData={topicsData}
+                      visibleEdiPopUp={visibleEdiPopUp}
+                      setVisibleEditPopup={setEditVisibility}/>} />
               </Routes>
           </div>
           <Footer />

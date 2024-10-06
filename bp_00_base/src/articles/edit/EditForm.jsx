@@ -1,21 +1,15 @@
 import {useState} from "react";
 
-const defaultForm = {
-    title: "",
-    text: "",
-    author: "",
-    creationDate: "",
-    editDate: "",
-    review: "",
-    topics: []
-};
-function CreateForm(props) {
-    const [newArticle, setNewArticle] = useState(defaultForm);
-    const [selectedTopics, setSelectedTopics] = useState([]);
+function EditForm(props) {
+    const [editedArticle, setEditedArticle] = useState(props.article);
+    const [selectedTopics, setSelectedTopics] = useState(props.articleTopics);
 
     const handleChange = (event) => {
         const {name, value} = event.target;
-        setNewArticle((prevFormData) => ({...prevFormData, [name]: value}));
+        setEditedArticle({
+            ...editedArticle,
+            [name]: value,
+        });
     }
 
     const handleTopicChange = (e) => {
@@ -29,11 +23,7 @@ function CreateForm(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(`Title: ${newArticle.title}, Text: ${newArticle.text}, Topics: ${newArticle.topics}`);
-
-        // find the last id
-        const maxId = props.articlesData.length > 0 ?
-            Math.max(...props.articlesData.map(article => article.idArticle)) : 0;
+        alert(`Title: ${editedArticle.title}, Text: ${editedArticle.text}, Topics: ${editedArticle.topics}`);
 
         // current date
         const currentdate = new Date();
@@ -42,33 +32,31 @@ function CreateForm(props) {
             + currentdate.getHours() + ":"
             + currentdate.getMinutes() + ":" + currentdate.getSeconds();
 
-        const newArticleData = {
-            ...newArticle,
-            idArticle: maxId + 1,
-            creationDate: datetime,
-            topics: selectedTopics,
-        };
+        const updatedArticle = {
+            ...editedArticle,
+            editDate: datetime
+        }
 
-        // add new article to the list of articles in local storage
-        const updatedArticles = [...props.articlesData, newArticleData];
+        const updatedArticles = props.articlesData.map((a) =>
+            a.idArticle === props.article.idArticle ? updatedArticle : a);
+
         props.setArticlesData(updatedArticles);
         localStorage.setItem("articles.json", JSON.stringify(updatedArticles));
 
-        setNewArticle(defaultForm);
-        props.setVisibility();
+        props.setVisibleEditPopup();
     }
 
     return(
-        <div className="create-form-popup" id="createForm">
-            <form className="create-form" onSubmit={handleSubmit}>
-                <h1>Nový článek</h1>
+        <div className="edit-form-popup" id="editForm">
+            <form className="edit-form" onSubmit={handleSubmit}>
+                <h1>edit článek</h1>
 
                 <label htmlFor="title">Název: </label>
                 <input type="text"
                        id="title"
                        name="title"
                        placeholder="název článku"
-                       value={newArticle.title}
+                       value={editedArticle.title}
                        onChange={handleChange}
                        required/>
 
@@ -78,7 +66,7 @@ function CreateForm(props) {
                           rows="5"
                           cols="40"
                           placeholder="text článku - je resizable, to se upraví/odebere při stylování"
-                          value={newArticle.text}
+                          value={editedArticle.text}
                           onChange={handleChange}
                           required/>
 
@@ -87,7 +75,7 @@ function CreateForm(props) {
                        id="author"
                        name="author"
                        placeholder="autor článku"
-                       value={newArticle.author}
+                       value={editedArticle.author}
                        onChange={handleChange} required/>
 
                 <label htmlFor="topics">Topic: </label>
@@ -97,18 +85,19 @@ function CreateForm(props) {
                             <input
                                 type="checkbox"
                                 value={topic.idTopic}
+                                checked={editedArticle.topics.includes(topic.idTopic)}
                                 onChange={handleTopicChange}/>
                             {topic.topicName}
                         </label>
                     </div>
                 ))}
 
-                <button type="submit">Vytvořit</button>
-                <button className="create-form-close" onClick={props.setVisibility}>storno</button>
+                <button type="submit">upravit</button>
+                <button className="edit-form-close" onClick={props.setVisibleEditPopup}>storno</button>
             </form>
         </div>
     );
 
 }
 
-export default CreateForm;
+export default EditForm;

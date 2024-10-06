@@ -15,7 +15,8 @@ const Articles = (props) => {
                 setTopVisibility={props.setTopVisibility}
                 setArticlesData={props.setArticlesData}
                 topicsData={props.topicsData}
-                setTopicsData={props.setTopicsData}/>
+                setTopicsData={props.setTopicsData}
+                creationForms={true}/>
         </div>
     );
 

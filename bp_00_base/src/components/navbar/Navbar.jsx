@@ -14,12 +14,14 @@ const Navbar = () => {
                 <ul className="navbar-links">
                     <li>
                         <Link to="/articles-list">Seznam článků</Link>
-                    </li>
-                    <li>
-                        <Link to="/movies-articles">Filmy</Link>
-                    </li>
-                    <li>
-                        <Link to="/shows-articles">Seriály</Link>
+                        <ul className="articles-categories">
+                            <li>
+                                <Link to="/articles-list/movies">Filmy</Link>
+                            </li>
+                            <li>
+                                <Link to="/articles-list/shows">Seriály</Link>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
