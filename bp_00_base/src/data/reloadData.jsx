@@ -23,7 +23,7 @@ const articles = [
         "topics": [3, 4]
     },
     {
-        "idArticle": 2,
+        "idArticle": 3,
         "title": "Nízev článku 3 mockup",
         "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Ut tempus purus at lorem. Maecenas aliquet accumsan leo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Sed elit dui, pellentesque",
         "author": "petr horejs",
@@ -33,7 +33,7 @@ const articles = [
         "topics": [1, 4]
     },
     {
-        "idArticle": 2,
+        "idArticle": 4,
         "title": "Nízev článku 4 mockup",
         "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Ut tempus purus at lorem. Maecenas aliquet accumsan leo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Sed elit dui, pellentesque",
         "author": "petr lubas",
@@ -65,6 +65,31 @@ const topics = [
         "topicName": "drama"
     }
 ];
+const movies = [
+    {
+        "idMovie": 1,
+        "movieTitle": "Tenet",
+        "director": "Christopher Nolan",
+        "writer": "Christopher Nolan",
+        "genre": ["Akční", "Drama", "Sci-Fi"],
+        "yearOfRelease": "2020",
+        "actors": ["John David Washington", "Robert Pattinson", "Elizabeth Debicki"],
+        "reviews": [10, 7, 8],
+        "picture": "/assets/images/tenet.jpg"
+    },
+    {
+        "idMovie": 2,
+        "movieTitle": "Interstellar",
+        "director": "Christopher Nolan",
+        "writer": "Christopher Nolan",
+        "genre": ["Sci-Fi", "Dobrodružný", "Drama"],
+        "yearOfRelease": "2014",
+        "actors": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
+        "reviews": [10, 9, 8],
+        "picture": "/assets/images/interstellar.jpg"
+    }
+];
+const shows = [];
 
 localStorage.setItem("articles.json", JSON.stringify(articles));
 localStorage.setItem("topics.json", JSON.stringify(topics));

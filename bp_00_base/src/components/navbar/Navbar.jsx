@@ -23,6 +23,17 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <Link to="/ranking">Žebříčky</Link>
+                        <ul className="ranking-categories">
+                            <li>
+                                <Link to="/ranking/movies">Top filmy</Link>
+                            </li>
+                            <li>
+                                <Link to="/ranking/shows">Top seriály</Link>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div className="navbar-right">

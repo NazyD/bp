@@ -9,18 +9,24 @@ import Articles from "./articles/Articles";
 import Article from "./articles/article/Article.jsx";
 import Movies from './movies/Movies';
 import Shows from './shows/Shows';
+import Rank from "./rank/Rank.jsx";
+import RankMovies from "./rank/RankMovies.jsx";
+import RankShows from "./rank/RankShows.jsx";
 
 const articles = JSON.parse(localStorage.getItem("articles.json"));
 const topics = JSON.parse(localStorage.getItem("topics.json"));
+const movies = JSON.parse(localStorage.getItem("movies.json"));
 
 
 function App() {
     const [articlesData, setArticlesData] = useState(articles);
     const [topicsData, setTopicsData] = useState(topics);
+    const [moviesData, setMoviesData] = useState(movies);
     const [visiblePopUp, setVisiblePopup] = useState(false);
     const [visibleEdiPopUp, setVisibleEditPopup] = useState(false);
     const [topVisibility, setTopVisibilityPopup] = useState(false);
 
+    console.log(topics, movies);
     function setVisibility () {
         setVisiblePopup(!visiblePopUp);
     }
@@ -70,6 +76,9 @@ function App() {
                       topicsData={topicsData}
                       visibleEdiPopUp={visibleEdiPopUp}
                       setVisibleEditPopup={setEditVisibility}/>} />
+                  <Route path="/ranking" element={<Rank/>} />
+                  <Route path="/ranking/movies" element={<RankMovies moviesData={moviesData}/>} />
+                  <Route path="/ranking/shows" element={<RankShows/>} />
               </Routes>
           </div>
           <Footer />

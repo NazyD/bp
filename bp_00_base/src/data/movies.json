@@ -1,0 +1,24 @@
+[
+  {
+    "idMovie": 1,
+    "movieTitle": "Tenet",
+    "director": "Christopher Nolan",
+    "writer": "Christopher Nolan",
+    "genre": ["Akční", "Drama", "Sci-Fi"],
+    "yearOfRelease": "2020",
+    "actors": ["John David Washington", "Robert Pattinson", "Elizabeth Debicki"],
+    "reviews": [10, 7, 8],
+    "picture": "/assets/images/tenet.jpg"
+  },
+  {
+    "idMovie": 2,
+    "movieTitle": "Interstellar",
+    "director": "Christopher Nolan",
+    "writer": "Christopher Nolan",
+    "genre": ["Sci-Fi", "Dobrodružný", "Drama"],
+    "yearOfRelease": "2014",
+    "actors": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
+    "reviews": [10, 9, 8],
+    "picture": "/assets/images/interstellar.jpg"
+  }
+]
