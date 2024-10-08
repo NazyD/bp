@@ -12,6 +12,17 @@
   },
   {
     "idMovie": 2,
+    "movieTitle": "Sedm",
+    "director": "David Fincher",
+    "writer": "Andrew Kevin Walker",
+    "genre": ["Thriller", "Krimi", "Mysteriózní", "Psychologický", "Drama"],
+    "yearOfRelease": "1995",
+    "actors": ["Brad Pitt", "Morgan Freeman", "Gwyneth Paltrow"],
+    "reviews": [10, 10, 9],
+    "picture": "/assets/images/seven.jpg"
+  },
+  {
+    "idMovie": 3,
     "movieTitle": "Interstellar",
     "director": "Christopher Nolan",
     "writer": "Christopher Nolan",
@@ -20,5 +31,82 @@
     "actors": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
     "reviews": [10, 9, 8],
     "picture": "/assets/images/interstellar.jpg"
+  },
+  {
+    "idMovie": 4,
+    "movieTitle": "Pulp Fiction: Historky z podsvětí",
+    "director": "Quentin Tarantino",
+    "writer": "Quentin Tarantino",
+    "genre": ["Krimi","Drama"],
+    "yearOfRelease": "1994",
+    "actors": ["John Travolta", "Samuel L. Jackson", "Uma Thurman"],
+    "reviews": [10, 9, 8],
+    "picture": "/assets/images/pulpfiction.jpg"
+  },
+  {
+    "idMovie": 5,
+    "movieTitle": "Osm hrozných",
+    "director": "Quentin Tarantino",
+    "writer": "Quentin Tarantino",
+    "genre": ["Western","Drama", "Thriller"],
+    "yearOfRelease": "2015",
+    "actors": ["Samuel L. Jackson", "Kurt Russell", "Jennifer Jason Leigh"],
+    "reviews": [9, 9, 7],
+    "picture": "/assets/images/eightful.jpg"
+  },
+  {
+    "idMovie": 6,
+    "movieTitle": "Přelet nad kukaččím hnízdem",
+    "director": "Miloš Forman",
+    "writer": "Ken Kesey",
+    "genre": ["Drama"],
+    "yearOfRelease": "1975",
+    "actors": ["Jack Nicholson", "Louise Fletcher", "William Redfield"],
+    "reviews": [9, 9, 8],
+    "picture": "/assets/images/kukacka.jpg"
+  },
+  {
+    "idMovie": 7,
+    "movieTitle": "Spider-Man: Paralelní světy",
+    "director": "Bob Persichetti",
+    "writer": "Phil Lord",
+    "genre": ["Animovaný", "Akční", "Dobrodružný", "Sci-Fi"],
+    "yearOfRelease": "2018",
+    "actors": ["Shameik Moore", "Jake Johnson", "Hailee Steinfeld"],
+    "reviews": [9, 9, 9],
+    "picture": "/assets/images/spidey.jpg"
+  },
+  {
+    "idMovie": 8,
+    "movieTitle": "Gladiátor",
+    "director": "Ridley Scott",
+    "writer": "David Franzoni",
+    "genre": ["Akční", "Dobrodružný", "Drama"],
+    "yearOfRelease": "2000",
+    "actors": ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
+    "reviews": [10, 9, 9],
+    "picture": "/assets/images/gladiator.jpg"
+  },
+  {
+    "idMovie": 9,
+    "movieTitle": "Troja",
+    "director": "Wolfgang Petersen",
+    "writer": "David Benioff",
+    "genre": ["Drama", "Historický", "Romantický"],
+    "yearOfRelease": "2004",
+    "actors": ["Brad Pitt", "Eric Bana", "Orlando Bloom"],
+    "reviews": [9, 9, 7],
+    "picture": "/assets/images/troja.jpg"
+  },
+  {
+    "idMovie": 10,
+    "movieTitle": "Duna: Část druhá",
+    "director": "Denis Villeneuve",
+    "writer": "Jon Spaihts",
+    "genre": ["Sci-Fi", "Akční", "Drama"],
+    "yearOfRelease": "2024",
+    "actors": ["Timothée Chalamet", "Zendaya", "Rebecca Ferguson"],
+    "reviews": [10, 10, 8],
+    "picture": "/assets/images/dune.jpg"
   }
 ]
