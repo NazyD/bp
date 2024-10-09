@@ -19,11 +19,12 @@ const Footer = () => {
 
     return(
         <div className="footer">
-             <div className="footer-left">
-                 <span> &copy; Bakalářká práce - ..., Nazy, 2024</span>
-             </div>
-            <div className="footer-right">
+            <div className="footer-left">
+                <span> &copy; Bakalářká práce - ..., Nazy, 2024 </span>
                 <span>{time}</span>
+            </div>
+            <div className="footer-right">
+
             </div>
         </div>
     );

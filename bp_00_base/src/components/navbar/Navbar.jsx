@@ -37,7 +37,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-right">
-                <p>darkmode</p>
+                <button>darkmode (ikona)</button>
             </div>
         </div>
     );
