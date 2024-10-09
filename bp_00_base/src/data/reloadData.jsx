@@ -179,7 +179,7 @@ const movies = [
 ];
 const shows = [
     {
-        "idMovie": 1,
+        "idShow": 1,
         "movieTitle": "Jak jsem poznal vaši matku",
         "director": "Carter Bays",
         "writer": "Carter Bays",
@@ -190,7 +190,7 @@ const shows = [
         "picture": "/assets/images/himym.jpg"
     },
     {
-        "idMovie": 2,
+        "idShow": 2,
         "movieTitle": "Hra o trůny",
         "director": "David Benioff",
         "writer": "George R.R. Martin",
@@ -201,7 +201,7 @@ const shows = [
         "picture": "/assets/images/got.jpg"
     },
     {
-        "idMovie": 3,
+        "idShow": 3,
         "movieTitle": "Šógun",
         "director": "Justin Marks",
         "writer": "Justin Marks",
@@ -212,7 +212,7 @@ const shows = [
         "picture": "/assets/images/shogun.jpg"
     },
     {
-        "idMovie": 4,
+        "idShow": 4,
         "movieTitle": "Kimecu no jaiba",
         "director": "Haruo Sotozaki",
         "writer": "Kojoharu Gotóge",
@@ -223,7 +223,7 @@ const shows = [
         "picture": "/assets/images/demon.jpg"
     },
     {
-        "idMovie": 5,
+        "idShow": 5,
         "movieTitle": "Arcane ",
         "director": "Christian Linke",
         "writer": "Christian Linke",
@@ -234,7 +234,7 @@ const shows = [
         "picture": "/assets/images/arcane.jpg"
     },
     {
-        "idMovie": 6,
+        "idShow": 6,
         "movieTitle": "Temný případ",
         "director": "Nic Pizzolatto",
         "writer": "Nic Pizzolatto",
@@ -245,7 +245,7 @@ const shows = [
         "picture": "/assets/images/detective.jpg"
     },
     {
-        "idMovie": 7,
+        "idShow": 7,
         "movieTitle": "Dr. House",
         "director": "David Shore",
         "writer": "Garrett Lerner",

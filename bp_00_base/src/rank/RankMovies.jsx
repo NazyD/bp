@@ -1,24 +1,17 @@
-import moviesData from '../data/movies.json';
 import {useState} from "react";
-import TopicManagement from "../topics/TopicManagement.jsx";
 import Review from "./Review.jsx";
 const RankMovies = (props) => {
-    const [visibleReview, setVisibleReview] = useState(false);
-
-    function setReviewVisibility () {
-        setVisibleReview(!visibleReview);
-    }
-    console.log(props.moviesData, moviesData, visibleReview);
 
     const getAverageReview = (revs) => {
         const total = revs.reduce((acc, score) => acc + score, 0);
-        console.log(total, (total / revs.length).toFixed(1));
         return (total / revs.length).toFixed(1);
     }
 
-    const openReview = () => {
-        return;
-    }
+    const sortedMovies = [...props.moviesData].sort((a, b) => {
+        const avgA = parseFloat(getAverageReview(a.reviews));
+        const avgB = parseFloat(getAverageReview(b.reviews));
+        return avgB - avgA;
+    });
 
     const tableStyle = {
         border: '1px solid black',
@@ -48,9 +41,9 @@ const RankMovies = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {props.moviesData.map((movie, index) => (
+                {sortedMovies.map((movie, index) => (
                     <tr key={movie.idMovie}>
-                        <td style={cellStyle}>poradi</td>
+                        <td style={cellStyle}>{index + 1}</td>
                         <td style={cellStyle}>
                             <img
                                 src={movie.picture}
@@ -68,13 +61,12 @@ const RankMovies = (props) => {
                         <td style={cellStyle}>ocenění</td>
                         <td style={cellStyle}>{getAverageReview(movie.reviews)}</td>
                         <td style={cellStyle}>
-                            <button className="review-show-button" onClick={setReviewVisibility} hidden={false}>ohodnotit</button>
-                            {visibleReview ? <Review
-                                movie={movie.idMovie}
-                                moviesData={props.moviesData}
-                                setMoviesData={props.setMoviesData}
-                                visibleReview={visibleReview}
-                                setVisibleReview={setReviewVisibility}/> : null}
+                            <Review
+                                revType="movies"
+                                dataId={movie.idMovie}
+                                data={props.moviesData}
+                                setData={props.setMoviesData}
+                            />
                         </td>
                     </tr>
                 ))}

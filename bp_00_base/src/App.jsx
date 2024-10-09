@@ -28,7 +28,6 @@ function App() {
     const [visibleEdiPopUp, setVisibleEditPopup] = useState(false);
     const [topVisibility, setTopVisibilityPopup] = useState(false);
 
-    console.log(topics, moviesData, showsData);
     function setVisibility () {
         setVisiblePopup(!visiblePopUp);
     }
@@ -45,7 +44,8 @@ function App() {
           <div className="container">
               <Routes>
                   <Route path="/" element={<Home />} />
-                  <Route path="/articles-list" element={<Articles
+                  <Route path="/articles-list" element={
+                      <Articles
                       articlesData={articlesData}
                       topicsData={topicsData}
                       visiblePopUp={visiblePopUp}
@@ -53,8 +53,10 @@ function App() {
                       topVisibility={topVisibility}
                       setTopVisibility={setTopVisibility}
                       setArticlesData={setArticlesData}
-                      setTopicsData={setTopicsData}/>} />
-                  <Route path="/articles-list/movies" element={<Movies
+                      setTopicsData={setTopicsData}/>
+                  } />
+                  <Route path="/articles-list/movies" element={
+                      <Movies
                       articlesData={articlesData}
                       topicsData={topicsData}
                       visiblePopUp={visiblePopUp}
@@ -62,8 +64,10 @@ function App() {
                       topVisibility={topVisibility}
                       setTopVisibility={setTopVisibility}
                       setArticlesData={setArticlesData}
-                      setTopicsData={setTopicsData}/>} />
-                  <Route path="/articles-list/shows" element={<Shows
+                      setTopicsData={setTopicsData}/>
+                  } />
+                  <Route path="/articles-list/shows" element={
+                      <Shows
                       articlesData={articlesData}
                       topicsData={topicsData}
                       visiblePopUp={visiblePopUp}
@@ -71,16 +75,27 @@ function App() {
                       topVisibility={topVisibility}
                       setTopVisibility={setTopVisibility}
                       setArticlesData={setArticlesData}
-                      setTopicsData={setTopicsData}/>} />
-                  <Route path="/articles-list/article/:id" element={<Article
+                      setTopicsData={setTopicsData}/>
+                  } />
+                  <Route path="/articles-list/article/:id" element={
+                      <Article
                       articlesData={articlesData}
                       setArticlesData={setArticlesData}
                       topicsData={topicsData}
                       visibleEdiPopUp={visibleEdiPopUp}
-                      setVisibleEditPopup={setEditVisibility}/>} />
+                      setVisibleEditPopup={setEditVisibility}/>
+                  } />
                   <Route path="/ranking" element={<Rank/>} />
-                  <Route path="/ranking/movies" element={<RankMovies moviesData={moviesData} setMoviesData={setMoviesData}/>} />
-                  <Route path="/ranking/shows" element={<RankShows showsData={showsData} setShowsData={setShowsData}/>} />
+                  <Route path="/ranking/movies" element={
+                      <RankMovies
+                      moviesData={moviesData}
+                      setMoviesData={setMoviesData}/>
+                  } />
+                  <Route path="/ranking/shows" element={
+                      <RankShows
+                      showsData={showsData}
+                      setShowsData={setShowsData}/>
+                  } />
               </Routes>
           </div>
           <Footer />
