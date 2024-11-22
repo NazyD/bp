@@ -56,6 +56,7 @@ function TopicManagement(props) {
                        required/>
 
                 <button type="submit">Vytvořit</button>
+                <button className="topic-management-close" onClick={props.setTopVisibility}>storno</button>
             </form>
 
             <div className="manage-topics-list">

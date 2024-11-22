@@ -1,6 +1,7 @@
 import ShortArticle from '../article/ShortArticle.jsx';
 import CreateForm from "../creation/CreateForm.jsx";
 import TopicManagement from "../../topics/TopicManagement.jsx";
+import SearchPanel from "../../components/search/SearchPanel.jsx";
 
 const ArticlesList = (props) => {
 
@@ -14,6 +15,9 @@ const ArticlesList = (props) => {
 
     return (
         <div>
+            <div className="search-place">
+                <SearchPanel artData={props.articlesData}/>
+            </div>
             {props.creationForms ?
             <div className="creation-forms">
                 <button className="create-article-button" onClick={props.setVisibility}>vytvořit článek</button>

@@ -22,6 +22,8 @@ const Article = (props) => {
         localStorage.setItem("articles.json", JSON.stringify(updatedArticles));
 
         navigate("/articles-list")
+        // upravit a nastavit do contextu, odebrat z komponentu, vytvořit zvlášt práci s datama
+        // doplnit vyhledavani clanku
     }
 
     return (
