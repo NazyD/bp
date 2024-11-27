@@ -1,9 +1,20 @@
 import ShortArticle from '../article/ShortArticle.jsx';
 import CreateForm from "../creation/CreateForm.jsx";
 import TopicManagement from "../../topics/TopicManagement.jsx";
-import SearchPanel from "../../components/search/SearchPanel.jsx";
+import {useState} from "react";
 
 const ArticlesList = (props) => {
+    const [searchString , setSearchString] = useState("");
+
+    const normalizeString = (str) => {
+        return str
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase();
+    }
+
+    const filteredArticles = props.articlesData.filter((article) =>
+        normalizeString(article.title).includes(normalizeString(searchString)));
 
     function getArticlesList(articlesData) {
         return articlesData.map((article) => {
@@ -16,11 +27,16 @@ const ArticlesList = (props) => {
     return (
         <div>
             <div className="search-place">
-                <SearchPanel artData={props.articlesData}/>
+                <input
+                    type="text"
+                    placeholder="hledat..."
+                    value={searchString}
+                    onChange={(e) => setSearchString(e.target.value)}
+                />
             </div>
             {props.creationForms ?
-            <div className="creation-forms">
-                <button className="create-article-button" onClick={props.setVisibility}>vytvořit článek</button>
+                <div className="creation-forms">
+                    <button className="create-article-button" onClick={props.setVisibility}>vytvořit článek</button>
                 {props.visiblePopUp ? <CreateForm
                     articlesData={props.articlesData}
                     setVisibility={props.setVisibility}
@@ -38,7 +54,7 @@ const ArticlesList = (props) => {
 
 
             <div className="articles-list">
-                {getArticlesList(props.articlesData)}
+                {getArticlesList(filteredArticles)}
             </div>
         </div>
     );

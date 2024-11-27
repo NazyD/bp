@@ -1,0 +1,8 @@
+{
+  "name": "bp-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "bp_00_base"
+  ]
+}
