@@ -13,6 +13,8 @@ import Rank from "./rank/Rank.jsx";
 import RankMovies from "./rank/RankMovies.jsx";
 import RankShows from "./rank/RankShows.jsx";
 
+import "./App.css";
+
 const articles = JSON.parse(localStorage.getItem("articles.json"));
 const topics = JSON.parse(localStorage.getItem("topics.json"));
 const movies = JSON.parse(localStorage.getItem("movies.json"));

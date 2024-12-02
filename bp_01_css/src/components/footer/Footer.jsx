@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import {useState} from "react";
+import "./css/footer.css"
 
 const Footer = () => {
     const [time, setTime] = useState();
@@ -24,7 +25,7 @@ const Footer = () => {
                 <span>{time}</span>
             </div>
             <div className="footer-right">
-
+                logo uni ?
             </div>
         </div>
     );

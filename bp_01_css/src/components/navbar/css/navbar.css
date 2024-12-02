@@ -1,0 +1,142 @@
+/* Reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Container */
+.navbar {
+    width: 100%;
+    height: 60px;
+    background-color: var(--component-background);
+    border-bottom: 1px solid var(--border-color);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Navbar Sections */
+.navbar-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.navbar-title {
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--text-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* Center Navigation (Main Links) */
+.navbar-center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.navbar-center ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.navbar-center .nav-item {
+    position: relative;
+    margin: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar-center .nav-item a {
+    text-decoration: none;
+    font-size: 16px;
+    color: var(--text-color);
+    padding: 0 10px;
+    height: 100%;
+    min-width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--component-background);
+    transition: background-color 0.2s ease;
+}
+.navbar-center .nav-item a:hover {
+    background-color: var(--component-background-hover);
+    border-radius: 5px;
+}
+/* Submenu (Hidden by Default) */
+.navbar-center .submenu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Align below navbar */
+    left: 50%;
+    transform: translate(-50%);
+    background-color: var(--component-background);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    list-style: none;
+    padding: 0;
+    z-index: 20;
+    min-width: 100%;
+}
+.navbar-center .submenu li {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+}
+.navbar-center .submenu li a {
+    text-decoration: none;
+    color: var(--text-color);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+.navbar-center .submenu li a:hover {
+    background-color: var(--component-background-hover);
+}
+/* Show Submenu on Hover */
+.navbar-center .nav-item:hover .submenu {
+    display: block;
+    height: auto;
+}
+
+/* Right Section */
+.navbar-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+.navbar-right .theme-toggle {
+    padding: 5px 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--button-background-color);
+    color: var(--text-color);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+.navbar-right .theme-toggle:hover {
+    background-color: var(--button-background-color-hover);
+}

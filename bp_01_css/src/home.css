@@ -1,0 +1,52 @@
+/* Home Component */
+.home {
+    width: 100%;
+    margin: 30px auto;
+    background-color: var(--component-background);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+/* Welcome Title Animation*/
+.home-title {
+    font-size: 36px;
+    margin: 0 0 20px;
+    color: var(--text-color);
+    opacity: 0;
+    transform: translateY(30px); /* Start slightly below its final position */
+    animation: slideUpFade 1s ease forwards; /* Apply animation */
+}
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Description Animation */
+.home-description {
+    font-size: 18px;
+    margin: 0;
+    color: var(--text-color);
+    opacity: 0; /* Start fully transparent */
+    transform: translateY(20px); /* Start slightly below its final position */
+    animation: fadeIn 1s ease 0.5s forwards; /* Delay to play after title */
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
