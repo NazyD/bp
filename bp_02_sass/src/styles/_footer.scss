@@ -1,0 +1,42 @@
+@use './variables' as *;
+
+.footer {
+  width: 100%;
+  @include theme($light-component-bg, $light-border, $light-text-color);
+
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-radius: $border-radius;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 14px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  // Left Section
+  &-left {
+    text-align: left;
+
+    p {
+      margin: 0;
+      line-height: 1.5;
+    }
+  }
+
+  // Right Section
+  &-right {
+    text-align: right;
+
+    .uni-logo {
+      max-width: 100px;
+      height: auto;
+    }
+  }
+
+  // Dark Theme Styles
+  [data-theme='dark'] & {
+    @include theme($dark-component-bg, $dark-border, $dark-text-color); // Apply dark theme
+  }
+}

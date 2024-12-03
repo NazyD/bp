@@ -1,0 +1,22 @@
+[
+  {
+    "idTopic": 1,
+    "topicName": "film"
+  },
+  {
+    "idTopic": 2,
+    "topicName": "komedie"
+  },
+  {
+    "idTopic": 3,
+    "topicName": "serial"
+  },
+  {
+    "idTopic": 4,
+    "topicName": "horor"
+  },
+  {
+    "idTopic": 5,
+    "topicName": "drama"
+  }
+]

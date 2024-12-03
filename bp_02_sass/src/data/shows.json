@@ -1,0 +1,79 @@
+[
+  {
+    "idShow": 1,
+    "movieTitle": "Jak jsem poznal vaši matku",
+    "director": "Carter Bays",
+    "writer": "Carter Bays",
+    "genre": ["Komedie", "Romantický"],
+    "yearOfRelease": "2005-2014",
+    "actors": ["Josh Radnor", " Jason Segel", "Neil Patrick Harris"],
+    "reviews": [10, 9, 8],
+    "picture": "/assets/images/himym.jpg"
+  },
+  {
+    "idShow": 2,
+    "movieTitle": "Hra o trůny",
+    "director": "David Benioff",
+    "writer": "George R.R. Martin",
+    "genre": ["Fantasy", "Akční", "Dobrodružný", "Drama"],
+    "yearOfRelease": "2011-2019",
+    "actors": ["Peter Dinklage", "Lena Headey", "Kit Harington"],
+    "reviews": [10, 9, 9],
+    "picture": "/assets/images/got.jpg"
+  },
+  {
+    "idShow": 3,
+    "movieTitle": "Šógun",
+    "director": "Justin Marks",
+    "writer": "Justin Marks",
+    "genre": ["Drama", "Dobrodružný", "Historický", "Válečný"],
+    "yearOfRelease": "2024-2025",
+    "actors": ["Cosmo Jarvis", "Hirojuki Sanada", "Júka Kóri"],
+    "reviews": [9, 9, 8],
+    "picture": "/assets/images/shogun.jpg"
+  },
+  {
+    "idShow": 4,
+    "movieTitle": "Kimecu no jaiba",
+    "director": "Haruo Sotozaki",
+    "writer": "Kojoharu Gotóge",
+    "genre": ["Animovaný","Akční","Drama"],
+    "yearOfRelease": "2019-2024",
+    "actors": ["Akari Kitó", "Nacuki Hanae", "Hiro Šimono"],
+    "reviews": [10, 9, 8],
+    "picture": "/assets/images/demon.jpg"
+  },
+  {
+    "idShow": 5,
+    "movieTitle": "Arcane ",
+    "director": "Christian Linke",
+    "writer": "Christian Linke",
+    "genre": ["Animovaný","Akční", "Drama"],
+    "yearOfRelease": "2021-2024",
+    "actors": ["Hailee Steinfeld", "Kevin Alejandro", "Ella Purnell"],
+    "reviews": [10,9,9],
+    "picture": "/assets/images/arcane.jpg"
+  },
+  {
+    "idShow": 6,
+    "movieTitle": "Temný případ",
+    "director": "Nic Pizzolatto",
+    "writer": "Nic Pizzolatto",
+    "genre": ["Krimi", "Drama", "Thriller"],
+    "yearOfRelease": "2014-2025",
+    "actors": ["Matthew McConaughey", "Woody Harrelson", "Michelle Monaghan"],
+    "reviews": [9, 9, 8],
+    "picture": "/assets/images/detective.jpg"
+  },
+  {
+    "idShow": 7,
+    "movieTitle": "Dr. House",
+    "director": "David Shore",
+    "writer": "Garrett Lerner",
+    "genre": ["Drama"],
+    "yearOfRelease": "2004-2012",
+    "actors": ["Hugh Laurie", "Omar Epps", "Robert Sean Leonard"],
+    "reviews": [9, 9, 9],
+    "picture": "/assets/images/house.jpg"
+  }
+]

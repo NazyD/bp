@@ -1,0 +1,20 @@
+@use 'styles/variables' as *;
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  @include mainTheme($light-bg, $light-text-color); // Apply the current theme
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+
+  // Dark Theme Styles
+  [data-theme='dark'] & {
+    @include mainTheme($dark-bg, $dark-text-color); // Apply dark theme
+  }
+}

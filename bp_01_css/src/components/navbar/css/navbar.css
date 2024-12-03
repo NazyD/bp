@@ -1,9 +1,3 @@
-/* Reset */
-html, body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 /* Navbar Container */
 .navbar {
@@ -14,6 +8,7 @@ html, body {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     display: flex;
+    box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;

@@ -4,6 +4,7 @@
   "private": true,
   "workspaces": [
     "bp_00_base",
-    "bp_01_css"
+    "bp_01_css",
+    "bp_02_sass"
   ]
 }
