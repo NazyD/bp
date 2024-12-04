@@ -1,0 +1,71 @@
+@use './variables' as *;
+
+.home {
+  width: 100%;
+  margin: 30px auto;
+  @include theme($light-component-bg, $light-text-color); // Use light theme
+  border-top: 1px solid $light-border;
+  border-bottom: 1px solid $light-border;
+  border-radius: 5px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+
+  // Welcome Title Animation
+  &-title {
+    font-size: 36px;
+    margin: 0 0 20px;
+    color: $light-text-color;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUpFade 1s ease forwards;
+  }
+
+  // Description Animation
+  &-description {
+    font-size: 18px;
+    margin: 0;
+    color: $light-text-color;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease 0.5s forwards;
+  }
+}
+
+// dark theme
+[data-theme='dark'] .home {
+  @include theme($dark-component-bg, $dark-text-color);
+  border-top: 1px solid $dark-border;
+  border-bottom: 1px solid $dark-border;
+
+  &-title {
+    color: $dark-text-color;
+  }
+  &-description {
+    color: $dark-text-color;
+  }
+}
+
+// Keyframes for Animations
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

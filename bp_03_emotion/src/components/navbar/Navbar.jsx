@@ -1,25 +1,9 @@
-import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import '../../styles/styles.scss'
+import {useTheme} from "@emotion/react";
+import ThemeToggleButton from "../../styles/NavbarStyle.jsx";
 
-const Navbar = () => {
-    const [theme, setTheme] = useState("light");
-
-    useEffect(() => {
-        const savedTheme = localStorage.getItem("theme");
-        if(savedTheme) {
-            setTheme(savedTheme);
-            document.documentElement.setAttribute("data-theme", savedTheme);
-        }
-    }, []);
-
-    const toggleTheme = () => {
-        const newTheme = theme === "light" ? "dark" :"light";
-        setTheme(newTheme);
-        document.documentElement.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-        // we can use sessionStorage... instead of localStorage just for the session until the tab is closed
-    }
+const Navbar = (props) => {
+    const currentTheme = useTheme();
 
     return (
         <div className="navbar">
@@ -55,7 +39,9 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-right">
-                <button className="theme-toggle" onClick={toggleTheme}>{theme === "light" ? "Temný motiv" : "Světlý motiv"}</button>
+                <ThemeToggleButton theme={currentTheme} onClick={props.toggleTheme}>
+                    {props.theme === "light" ? "Temný motiv" : "Světlý motiv"}
+                </ThemeToggleButton>
             </div>
         </div>
     );

@@ -5,6 +5,11 @@
   "workspaces": [
     "bp_00_base",
     "bp_01_css",
-    "bp_02_sass"
-  ]
+    "bp_02_sass",
+    "bp_03_emotion"
+  ],
+  "dependencies": {
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5"
+  }
 }

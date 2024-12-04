@@ -1,30 +1,28 @@
 // _variables.scss
+
+// light
 $light-bg: #ffffff;
-$dark-bg: #121212;
 $light-component-bg: #d9d9d9;
-$dark-component-bg: #1e1e1e;
 $light-component-bg-hover: #f1f1f1;
-$dark-component-bg-hover: #2e2e2e;
 $light-border: #b3b3b3;
-$dark-border: #3a3a3a;
 $light-text-color: #000000;
-$dark-text-color: #e0e0e0;
 $light-button-bg: #ffffff;
+$light-button-bg-hover: #dddddd;
+// dark
+$dark-bg: #121212;
+$dark-component-bg: #1e1e1e;
+$dark-component-bg-hover: #2e2e2e;
+$dark-border: #3a3a3a;
+$dark-text-color: #e0e0e0;
 $dark-button-bg: #393939;
-$light-button-bg-hover: #f1f1f1;
 $dark-button-bg-hover: #2e2e2e;
 
+
 $navbar-height: 60px;
-$border-radius: 10px;
+$border-radius: 5px;
 
 // Mixin for Theming
-@mixin theme($bg, $border, $text) {
-  background-color: $bg;
-  border-color: $border;
-  color: $text;
-}
-
-@mixin mainTheme($bg, $text) {
+@mixin theme($bg, $text) {
   background-color: $bg;
   color: $text;
 }

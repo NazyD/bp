@@ -2,10 +2,9 @@
 
 .footer {
   width: 100%;
-  @include theme($light-component-bg, $light-border, $light-text-color);
-
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+  @include theme($light-component-bg, $light-text-color);
+  border-top: 1px solid $light-border;
+  border-bottom: 1px solid $light-border;
   border-radius: $border-radius;
   padding: 10px 20px;
   text-align: center;
@@ -37,6 +36,8 @@
 
   // Dark Theme Styles
   [data-theme='dark'] & {
-    @include theme($dark-component-bg, $dark-border, $dark-text-color); // Apply dark theme
+    @include theme($dark-component-bg, $dark-text-color); // Apply dark theme
+    border-top: 1px solid $dark-border;
+    border-bottom: 1px solid $dark-border;
   }
 }

@@ -5,8 +5,8 @@
     height: 60px;
     background-color: var(--component-background);
     border-bottom: 1px solid var(--border-color);
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     display: flex;
     box-sizing: border-box;
     justify-content: space-between;
