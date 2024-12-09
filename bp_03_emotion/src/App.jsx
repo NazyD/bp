@@ -15,9 +15,6 @@ import RankShows from "./rank/RankShows.jsx";
 import {Global, ThemeProvider} from "@emotion/react";
 import {dark, light} from "./styles/theme.jsx";
 import globalStyles from "./styles/globalStyles.jsx";
-import styled from "@emotion/styled";
-
-
 
 const articles = JSON.parse(localStorage.getItem("articles.json"));
 const topics = JSON.parse(localStorage.getItem("topics.json"));

@@ -6,10 +6,15 @@
     "bp_00_base",
     "bp_01_css",
     "bp_02_sass",
-    "bp_03_emotion"
+    "bp_03_emotion",
+    "bp_04_mui"
   ],
   "dependencies": {
     "@emotion/react": "^11.13.5",
-    "@emotion/styled": "^11.13.5"
+    "@emotion/styled": "^11.13.5",
+    "@mui/material": "^6.1.10",
+    "@mui/system": "^6.1.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }
