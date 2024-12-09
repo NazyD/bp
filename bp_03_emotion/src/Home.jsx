@@ -1,12 +1,13 @@
 import React from "react";
+import {HomeContainer, HomeTitle, HomeDescription} from "./HomeStyle.jsx";
 
 const Home = () => {
 
     return (
-        <div className="home">
-            <h1 className="home-title">Vítejte</h1>
-            <p className="home-description">Stránka obsahuje články o novinkách z filmového a seriálového světa.</p>
-        </div>
+        <HomeContainer>
+            <HomeTitle>Vítejte</HomeTitle>
+            <HomeDescription>Stránka obsahuje články o novinkách z filmového a seriálového světa.</HomeDescription>
+        </HomeContainer>
     );
 
 };

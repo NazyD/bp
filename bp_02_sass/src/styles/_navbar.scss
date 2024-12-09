@@ -70,10 +70,11 @@
         align-items: center;
         justify-content: center;
         background-color: $light-component-bg;
-        @include transition(background-color, 0.2s);
+        transition: background-color 0.5s ease, color 0.5s ease;
 
         &:hover {
           background-color: $light-component-bg-hover;
+          transition: background-color 0.5s ease, color 0.5s ease;
           border-radius: $border-radius;
         }
       }
@@ -86,6 +87,7 @@
         left: 50%;
         transform: translate(-50%);
         background-color: $light-component-bg;
+        transition: background-color 0.5s ease, color 0.5s ease;
         @include border-style($light-border);
         list-style: none;
         padding: 0;
@@ -106,10 +108,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            @include transition(background-color, 0.2s);
+            transition: background-color 0.5s ease, color 0.5s ease;
 
             &:hover {
               background-color: $light-component-bg-hover;
+              transition: background-color 0.5s ease, color 0.5s ease;
             }
           }
         }
@@ -134,13 +137,14 @@
       padding: 5px 10px;
       @include border-style($light-border);
       background-color: $light-button-bg;
+      transition: background-color 0.5s ease, color 0.5s ease;
       color: $light-text-color;
       cursor: pointer;
       border-radius: $border-radius;
-      @include transition(background-color, 0.2s);
 
       &:hover {
         background-color: $light-button-bg-hover;
+        transition: background-color 0.5s ease, color 0.5s ease;
       }
     }
   }
@@ -157,23 +161,27 @@
 
   .nav-item a {
     background-color: $dark-component-bg;
+    transition: background-color 0.5s ease, color 0.5s ease;
     color: $dark-text-color;
 
     &:hover {
       background-color: $dark-component-bg-hover;
+      transition: background-color 0.5s ease, color 0.5s ease;
     }
   }
 
   .submenu {
     @include border-style($dark-border);
     background-color: $dark-component-bg;
+    transition: background-color 0.5s ease, color 0.5s ease;
 
     li {
       a {
         color: $dark-text-color;
 
         &:hover {
-          background-color: $dark-button-bg-hover
+          background-color: $dark-button-bg-hover;
+          transition: background-color 0.5s ease, color 0.5s ease;
         }
       }
     }
@@ -181,11 +189,13 @@
 
   .theme-toggle {
     background-color: $dark-button-bg;
+    transition: background-color 0.5s ease, color 0.5s ease;
     color: $dark-text-color;
     @include border-style($dark-border);
 
     &:hover {
       background-color: $dark-button-bg-hover;
+      transition: background-color 0.5s ease, color 0.5s ease;
     }
   }
 }

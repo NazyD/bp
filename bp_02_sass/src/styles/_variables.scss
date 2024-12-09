@@ -24,6 +24,7 @@ $border-radius: 5px;
 // Mixin for Theming
 @mixin theme($bg, $text) {
   background-color: $bg;
+  transition: background-color 0.5s ease, color 0.5s ease;
   color: $text;
 }
 
@@ -31,9 +32,4 @@ $border-radius: 5px;
 @mixin border-style($color) {
   border: 1px solid $color;
   border-radius: $border-radius;
-}
-
-//mixin for transtiion
-@mixin transition($property, $time: 0.3s) {
-  transition: $property $time ease;
 }

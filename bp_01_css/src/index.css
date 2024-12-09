@@ -33,6 +33,7 @@ html {
 }
 body {
   background-color: var(--background-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
   color: var(--text-color);
   margin: 0;
   padding: 0;

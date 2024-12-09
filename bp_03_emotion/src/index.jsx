@@ -4,12 +4,10 @@ import { BrowserRouter} from 'react-router-dom';
 import globalStyles from "./styles/globalStyles.jsx";
 
 import App from './App.jsx'
-import {Global, ThemeProvider} from "@emotion/react";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
       <BrowserRouter>
-          <Global styles={globalStyles} />
           <App />
       </BrowserRouter>
   </StrictMode>
