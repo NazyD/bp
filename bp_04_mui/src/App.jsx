@@ -12,8 +12,7 @@ import Rank from "./rank/Rank.jsx";
 import RankMovies from "./rank/RankMovies.jsx";
 import RankShows from "./rank/RankShows.jsx";
 
-import {ThemeProvider} from "@mui/material/styles";
-import {styled} from "@mui/system";
+import {ThemeProvider, CssBaseline} from "@mui/material";
 import {light, dark} from './styles/createTheme.jsx'
 
 const articles = JSON.parse(localStorage.getItem("articles.json"));
@@ -21,12 +20,6 @@ const topics = JSON.parse(localStorage.getItem("topics.json"));
 const movies = JSON.parse(localStorage.getItem("movies.json"));
 const shows = JSON.parse(localStorage.getItem("shows.json"));
 
-const StyledBody = styled('html')(({theme}) => ({
-    margin: 0,
-    padding: 0,
-    backgroundColor: theme.palette.background.default,
-    fontFamily: 'Arial',
-}));
 
 function App() {
     const [articlesData, setArticlesData] = useState(articles);
@@ -68,67 +61,66 @@ function App() {
     return (
         <>
             <ThemeProvider theme={theme === "light" ? light : dark}>
-                <StyledBody>
-                    <Navbar theme={theme} toggleTheme={toggleTheme}/>
-                    <div className="container">
-                        <Routes>
-                            <Route path="/" element={<Home/>}/>
-                            <Route path="/articles-list" element={
-                                <Articles
-                                    articlesData={articlesData}
-                                    topicsData={topicsData}
-                                    visiblePopUp={visiblePopUp}
-                                    setVisibility={setVisibility}
-                                    topVisibility={topVisibility}
-                                    setTopVisibility={setTopVisibility}
-                                    setArticlesData={setArticlesData}
-                                    setTopicsData={setTopicsData}/>
-                            }/>
-                            <Route path="/articles-list/movies" element={
-                                <Movies
-                                    articlesData={articlesData}
-                                    topicsData={topicsData}
-                                    visiblePopUp={visiblePopUp}
-                                    setVisibility={setVisibility}
-                                    topVisibility={topVisibility}
-                                    setTopVisibility={setTopVisibility}
-                                    setArticlesData={setArticlesData}
-                                    setTopicsData={setTopicsData}/>
-                            }/>
-                            <Route path="/articles-list/shows" element={
-                                <Shows
-                                    articlesData={articlesData}
-                                    topicsData={topicsData}
-                                    visiblePopUp={visiblePopUp}
-                                    setVisibility={setVisibility}
-                                    topVisibility={topVisibility}
-                                    setTopVisibility={setTopVisibility}
-                                    setArticlesData={setArticlesData}
-                                    setTopicsData={setTopicsData}/>
-                            }/>
-                            <Route path="/articles-list/article/:id" element={
-                                <Article
-                                    articlesData={articlesData}
-                                    setArticlesData={setArticlesData}
-                                    topicsData={topicsData}
-                                    visibleEdiPopUp={visibleEdiPopUp}
-                                    setVisibleEditPopup={setEditVisibility}/>
-                            }/>
-                            <Route path="/ranking" element={<Rank/>}/>
-                            <Route path="/ranking/movies" element={
-                                <RankMovies
-                                    moviesData={moviesData}
-                                    setMoviesData={setMoviesData}/>
-                            }/>
-                            <Route path="/ranking/shows" element={
-                                <RankShows
-                                    showsData={showsData}
-                                    setShowsData={setShowsData}/>
-                            }/>
-                        </Routes>
-                    </div>
-                    <Footer/>
-                </StyledBody>
+                <CssBaseline/>
+                <Navbar theme={theme} toggleTheme={toggleTheme}/>
+                <div className="container">
+                    <Routes>
+                        <Route path="/" element={<Home/>}/>
+                        <Route path="/articles-list" element={
+                            <Articles
+                                articlesData={articlesData}
+                                topicsData={topicsData}
+                                visiblePopUp={visiblePopUp}
+                                setVisibility={setVisibility}
+                                topVisibility={topVisibility}
+                                setTopVisibility={setTopVisibility}
+                                setArticlesData={setArticlesData}
+                                setTopicsData={setTopicsData}/>
+                        }/>
+                        <Route path="/articles-list/movies" element={
+                            <Movies
+                                articlesData={articlesData}
+                                topicsData={topicsData}
+                                visiblePopUp={visiblePopUp}
+                                setVisibility={setVisibility}
+                                topVisibility={topVisibility}
+                                setTopVisibility={setTopVisibility}
+                                setArticlesData={setArticlesData}
+                                setTopicsData={setTopicsData}/>
+                        }/>
+                        <Route path="/articles-list/shows" element={
+                            <Shows
+                                articlesData={articlesData}
+                                topicsData={topicsData}
+                                visiblePopUp={visiblePopUp}
+                                setVisibility={setVisibility}
+                                topVisibility={topVisibility}
+                                setTopVisibility={setTopVisibility}
+                                setArticlesData={setArticlesData}
+                                setTopicsData={setTopicsData}/>
+                        }/>
+                        <Route path="/articles-list/article/:id" element={
+                            <Article
+                                articlesData={articlesData}
+                                setArticlesData={setArticlesData}
+                                topicsData={topicsData}
+                                visibleEdiPopUp={visibleEdiPopUp}
+                                setVisibleEditPopup={setEditVisibility}/>
+                        }/>
+                        <Route path="/ranking" element={<Rank/>}/>
+                        <Route path="/ranking/movies" element={
+                            <RankMovies
+                                moviesData={moviesData}
+                                setMoviesData={setMoviesData}/>
+                        }/>
+                        <Route path="/ranking/shows" element={
+                            <RankShows
+                                showsData={showsData}
+                                setShowsData={setShowsData}/>
+                        }/>
+                    </Routes>
+                </div>
+                <Footer/>
             </ThemeProvider>
         </>
     )
