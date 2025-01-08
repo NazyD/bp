@@ -1,0 +1,83 @@
+.articles-container{
+    padding: 0 30px;
+}
+
+/* Main tools */
+.tools-container {
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Search input */
+.search-input {
+    width: 400px;
+    height: 36px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: var(--text-color);
+    background-color: var(--component-background);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+.search-input:focus {
+    outline: none;
+    border-color: var(--text-color);
+    box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* View buttons and Action buttons */
+.view-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 2px;
+    border: 1px solid var(--border-color);
+    background-color: var(--button-background-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+.action-button {
+    height: auto;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    background-color: var(--button-background-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+.view-button:hover, .action-button:hover {
+    background-color: var(--button-background-color-hover);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+.view-button img {
+    height: 40px;
+    width: 40px;
+}
+
+
+/* Button sections */
+.view-buttons, .creation-forms {
+    height: 50px;
+    display: flex;
+    gap: 5px;
+}
+
+/* articles list section */
+.articles-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to next line for small cards */
+    gap: 10px; /* Space between articles */
+    justify-content: center; /* Center articles on the page */
+}

@@ -1,0 +1,7 @@
+.edit-topic {
+    margin: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 55px;
+}

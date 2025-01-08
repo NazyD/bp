@@ -2,6 +2,8 @@ import React from "react";
 
 import ArticlesList from './articles-list/ArticlesList.jsx';
 
+import './Articles.css';
+
 const Articles = (props) => {
 
     return (

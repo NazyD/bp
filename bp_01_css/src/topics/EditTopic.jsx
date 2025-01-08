@@ -1,3 +1,5 @@
+import './EditTopic.css';
+
 const EditTopic = (props) => {
 
     const handleDelete = () => {

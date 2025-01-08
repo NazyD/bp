@@ -1,0 +1,94 @@
+.short-article {
+
+    background-color: var(--short-article-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+/* Default Card (Small) */
+.short-article.small-card {
+    width: 400px;
+    height: 300px;
+}
+/* Big Card */
+.short-article.big-card {
+    width: 100%; /* Full width */
+    height: 300px; /* Let height adjust based on content */
+}
+
+/* Hover Effect */
+.short-article:hover {
+    background-color: var(--short-article-bg-hover);
+    border-color: var(--text-color);
+}
+
+/* Title Section */
+.short-article-title h3 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text-color);
+    text-align: left;
+}
+.short-article-title a {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+.short-article-title a:visited {
+    color: var(--text-color);
+}
+.short-article-title a:hover {
+    color: var(--text-color);
+}
+
+.short-article-text {
+    flex: 1;
+    margin: 10px 0;
+    color: var(--text-color);
+    overflow: hidden; /* Enforce content clipping */
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-height: 1.5; /* Match the line height */
+    max-height: calc(1.5em * 9); /* Max height = 6 lines */
+    white-space: normal;
+}
+/* Text Section */
+.short-article-text p{
+    margin: 0;
+    font-size: 14px;
+    overflow: inherit;
+    text-overflow: inherit; /* Add "..." for long text */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-height: 1.5;
+    max-height: calc(1.5em * 9);
+    white-space: normal; /* Wrap text to multiple lines */
+}
+
+/* Footer Section */
+.short-article-footer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-color);
+}
+
+/* Footer Subsections */
+.short-article-footer > div {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    transition: color 0.5s ease;
+}
+
+[data-theme="dark"] .short-article-footer > div {
+    color: rgba(255, 255, 255, 0.6);
+}
