@@ -2,3 +2,9 @@
 @use './footer';
 @use './navbar';
 @use './home';
+
+@use './popup';
+@use './article/articleslist';
+@use './article/articles';
+@use './article/shortarticle';
+@use './topic/edittopic';

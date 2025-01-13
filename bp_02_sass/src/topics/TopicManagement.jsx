@@ -1,6 +1,8 @@
 import {useState} from "react";
 import EditTopic from "./EditTopic.jsx";
 
+import '../styles/styles.scss';
+
 const defaultTopicForm = {
     topicName: ""
 };

@@ -21,6 +21,8 @@ const Navbar = () => {
         // we can use sessionStorage... instead of localStorage just for the session until the tab is closed
     }
 
+    //NAVBAR ROZDELIT NA VICE COMPONENT (3, TITLE, CENTER SUBMENU, ACTION BUTTON)
+
     return (
         <div className="navbar">
             <div className="navbar-left">

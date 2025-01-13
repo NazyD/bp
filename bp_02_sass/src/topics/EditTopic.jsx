@@ -1,3 +1,5 @@
+import '../styles/styles.scss';
+
 const EditTopic = (props) => {
 
     const handleDelete = () => {

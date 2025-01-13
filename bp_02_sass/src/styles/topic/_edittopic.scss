@@ -1,0 +1,16 @@
+@use '../variables' as *;
+
+.edit-topic {
+  margin: 10px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 55px;
+}
+
+// Dark Theme Overrides
+[data-theme="dark"] {
+  .edit-topic {
+    color: $dark-text-color;
+  }
+}

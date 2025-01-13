@@ -4,6 +4,8 @@
 $light-bg: #ffffff;
 $light-component-bg: #d9d9d9;
 $light-component-bg-hover: #f1f1f1;
+$light-short-article-bg: #c7c7c7;
+$light-short-article-bg-hover: #e3e3e3;
 $light-border: #b3b3b3;
 $light-text-color: #000000;
 $light-button-bg: #ffffff;
@@ -12,6 +14,8 @@ $light-button-bg-hover: #dddddd;
 $dark-bg: #121212;
 $dark-component-bg: #1e1e1e;
 $dark-component-bg-hover: #2e2e2e;
+$dark-short-article-bg: #2a2a2a;
+$dark-short-article-bg-hover: #3a3a3a;
 $dark-border: #3a3a3a;
 $dark-text-color: #e0e0e0;
 $dark-button-bg: #393939;
@@ -32,4 +36,47 @@ $border-radius: 5px;
 @mixin border-style($color) {
   border: 1px solid $color;
   border-radius: $border-radius;
+}
+
+// Centering Flex Items
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+// ?? will this work ?
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 15px; /* Match your border-radius */
+}
+
+/* Thumb (the scroll handle) */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  border: 2px solid transparent;
+  background-clip: padding-box; /* Clip the background to create spacing */
+}
+
+/* Thumb on Hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* For Dark Theme */
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.4);
 }

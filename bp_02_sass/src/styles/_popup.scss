@@ -1,0 +1,123 @@
+@use './variables' as *;
+
+/* Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Popup Window */
+.popup-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: auto;
+  max-height: 78%;
+  padding: 15px;
+  background-color: $light-component-bg;
+  border-radius: $border-radius;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+  /* Close Button */
+  .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    color: $light-text-color;
+    cursor: pointer;
+    transition: color 0.5s ease;
+  }
+}
+
+/* Form Elements Styling */
+.create-form,
+.topic-management {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  label {
+    font-weight: bold;
+    color: $light-text-color;
+  }
+
+  input, textarea {
+    padding: 8px;
+    font-size: 14px;
+    color: $light-text-color;
+    background-color: $light-short-article-bg;
+    border: 1px solid $light-border;
+    border-radius: 5px;
+    resize: none;
+  }
+
+  button {
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid $light-border;
+    border-radius: 5px;
+    background-color: $light-button-bg;
+    color: $light-text-color;
+    cursor: pointer;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+
+    &:hover {
+      background-color: $light-button-bg-hover;
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+  }
+}
+
+
+// dark theme updates
+[data-theme='dark'] .popup-window {
+  background-color: $dark-component-bg;
+
+  /* Close Button */
+  .popup-close {
+    color: $dark-text-color;
+  }
+}
+
+[data-theme='dark'] .create-form,
+.topic-management {
+
+  label {
+    color: $dark-text-color;
+  }
+
+  input, textarea {
+    color: $dark-text-color;
+    background-color: $dark-short-article-bg;
+    border: 1px solid $dark-border;
+  }
+
+  button {
+    border: 1px solid $dark-border;
+    background-color: $dark-button-bg;
+    color: $dark-text-color;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+
+    &:hover {
+      background-color: $dark-button-bg-hover;
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+  }
+}

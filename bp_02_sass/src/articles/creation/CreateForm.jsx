@@ -1,5 +1,7 @@
 import {useState} from "react";
 
+import '../../styles/styles.scss';
+
 const defaultForm = {
     title: "",
     text: "",
@@ -59,7 +61,7 @@ function CreateForm(props) {
     }
 
     return(
-        <div className="create-form-popup" id="createForm">
+        <div className="create-form" id="createForm">
             <form className="create-form" onSubmit={handleSubmit}>
                 <h1>Nový článek</h1>
 
