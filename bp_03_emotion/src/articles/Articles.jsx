@@ -1,11 +1,20 @@
 import React from "react";
 
 import ArticlesList from './articles-list/ArticlesList.jsx';
+import styled from "@emotion/styled";
+
+const ArticlesMainContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: ${({ theme }) => theme.textColor};
+`;
 
 const Articles = (props) => {
 
     return (
-        <div className="articles">
+        <ArticlesMainContainer>
             <h2>Seznam článků</h2>
             <ArticlesList
                 articlesData={props.articlesData}
@@ -17,7 +26,7 @@ const Articles = (props) => {
                 topicsData={props.topicsData}
                 setTopicsData={props.setTopicsData}
                 creationForms={true}/>
-        </div>
+        </ArticlesMainContainer>
     );
 
 };

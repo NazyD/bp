@@ -1,9 +1,59 @@
 import {useState} from "react";
 import EditTopic from "./EditTopic.jsx";
+import styled from "@emotion/styled";
 
 const defaultTopicForm = {
     topicName: ""
 };
+
+// Styled Components for Topic Form Elements
+const StyledForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+`;
+
+const FormLabel = styled.label`
+    font-weight: bold;
+    color: ${({ theme }) => theme.textColor};
+`;
+
+const FormInput = styled.input`
+    padding: 8px;
+    font-size: 14px;
+    color: ${({ theme }) => theme.textColor};
+    background-color: ${({ theme }) => theme.componentBackground};
+    border: 1px solid ${({ theme }) => theme.borderColor};
+    border-radius: 5px;
+`;
+
+const FormButton = styled.button`
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid ${({ theme }) => theme.borderColor};
+    border-radius: 5px;
+    background-color: ${({ theme }) => theme.buttonBackgroundColor};
+    color: ${({ theme }) => theme.textColor};
+    cursor: pointer;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+
+    &:hover {
+        background-color: ${({ theme }) => theme.buttonBackgroundColorHover};
+    }
+`;
+
+const TopicManagementContainer = styled.div`
+    margin-top: 20px;
+`;
+
+const TopicListContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+`;
+
 function TopicManagement(props) {
     const [newTopic, setNewTopic] = useState(defaultTopicForm);
 
@@ -43,27 +93,30 @@ function TopicManagement(props) {
         setNewTopic(defaultTopicForm);
     }
 
-    return(
-        <div className="topic-management" id="createForm">
-            <form className="create-form" onSubmit={handleSubmit}>
-                <label htmlFor="topicName">Název: </label>
-                <input type="text"
-                       id="topicName"
-                       name="topicName"
-                       placeholder="název topicu"
-                       value={newTopic.topicName}
-                       onChange={handleChange}
-                       required/>
+    return (
+        <div>
+            <StyledForm onSubmit={handleSubmit}>
+                <FormLabel htmlFor="topicName">Název:</FormLabel>
+                <FormInput
+                    type="text"
+                    id="topicName"
+                    name="topicName"
+                    placeholder="název topicu"
+                    value={newTopic.topicName}
+                    onChange={handleChange}
+                    required
+                />
 
-                <button type="submit">Vytvořit</button>
-                <button className="topic-management-close" onClick={props.setTopVisibility}>storno</button>
-            </form>
+                <FormButton type="submit">Vytvořit</FormButton>
+                <FormButton type="button" onClick={props.setTopVisibility}>
+                    storno
+                </FormButton>
+            </StyledForm>
 
-            <div className="manage-topics-list">
-                <div className="edit-topics-list">
-                    {getTopicsList(props.topicsData)}
-                </div>
-            </div>
+            <TopicManagementContainer>
+                <h3>Topics List</h3>
+                <TopicListContainer>{getTopicsList(props.topicsData)}</TopicListContainer>
+            </TopicManagementContainer>
         </div>
     );
 

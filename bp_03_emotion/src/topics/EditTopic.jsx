@@ -1,3 +1,15 @@
+
+// Styled Components for Topic Form Elements
+import styled from "@emotion/styled";
+
+const TopicCheckboxContainer = styled.div`
+    margin: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 55px;
+`;
+
 const EditTopic = (props) => {
 
     const handleDelete = () => {
@@ -25,10 +37,10 @@ const EditTopic = (props) => {
     }
 
     return(
-        <div className="edit-topic">
+        <TopicCheckboxContainer>
             {props.topic.topicName}
             <button className="topic-delete-button" onClick={handleDelete}>odstranit</button>
-        </div>
+        </TopicCheckboxContainer>
     );
 }
 
