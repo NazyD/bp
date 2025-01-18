@@ -1,4 +1,17 @@
-import {useState} from "react";
+import React, { useState } from "react";
+import {
+    Dialog,
+    DialogTitle,
+    DialogContent,
+    DialogActions,
+    TextField,
+    FormControl,
+    FormControlLabel,
+    Checkbox,
+    Button,
+    Box,
+    Typography,
+} from "@mui/material";
 
 const defaultForm = {
     title: "",
@@ -59,54 +72,144 @@ function CreateForm(props) {
     }
 
     return(
-        <div className="create-form-popup" id="createForm">
-            <form className="create-form" onSubmit={handleSubmit}>
-                <h1>Nový článek</h1>
+        <Dialog
+            open={true}
+            onClose={props.setVisibility}
+            fullWidth
+            maxWidth="md"
+            sx={{
+                "& .MuiDialog-paper": {
+                    backgroundColor: "background.paper",
+                    padding: "15px",
+                    borderRadius: 2,
+                },
+                "& .MuiPaper-root": {
+                    "--Paper-shadow": "none",
+                    "--Paper-overlay": "none",
+                    boxShadow: "none",
+                    backgroundImage: "none",
+                }
+            }}
+        >
+            <DialogTitle
+                sx={{
+                    padding: 0,
+                }}>
+                <Typography
+                    variant="h4"
+                    color="text.primary">
+                    Nový článek
+                </Typography>
+            </DialogTitle>
+            <form onSubmit={handleSubmit}>
+                <DialogContent
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 2,
+                    }}
+                >
+                    {/* Title Input */}
+                    <TextField
+                        label="Název"
+                        name="title"
+                        placeholder="název článku"
+                        value={newArticle.title}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                        variant="outlined"
+                    />
 
-                <label htmlFor="title">Název: </label>
-                <input type="text"
-                       id="title"
-                       name="title"
-                       placeholder="název článku"
-                       value={newArticle.title}
-                       onChange={handleChange}
-                       required/>
+                    {/* Text Input */}
+                    <TextField
+                        label="Text"
+                        name="text"
+                        placeholder="text článku"
+                        value={newArticle.text}
+                        onChange={handleChange}
+                        required
+                        multiline
+                        rows={5}
+                        fullWidth
+                        variant="outlined"
+                    />
 
-                <label htmlFor="text">Text: </label>
-                <textarea id="text"
-                          name="text"
-                          rows="5"
-                          cols="40"
-                          placeholder="text článku - je resizable, to se upraví/odebere při stylování"
-                          value={newArticle.text}
-                          onChange={handleChange}
-                          required/>
+                    {/* Author Input */}
+                    <TextField
+                        label="Autor"
+                        name="author"
+                        placeholder="autor článku"
+                        value={newArticle.author}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                        variant="outlined"
+                    />
 
-                <label htmlFor="author">Autor: </label>
-                <input type="text"
-                       id="author"
-                       name="author"
-                       placeholder="autor článku"
-                       value={newArticle.author}
-                       onChange={handleChange} required/>
+                    {/* Topics List */}
+                    <FormControl component="fieldset">
+                        <Typography variant="body1" sx={{ fontWeight: "bold", color: "text.primary" }}>
+                            Topics
+                        </Typography>
+                        {props.topicsData.map((topic) => (
+                            <FormControlLabel
+                                key={topic.idTopic}
+                                control={
+                                    <Checkbox
+                                        value={topic.idTopic}
+                                        onChange={handleTopicChange}
+                                        sx={{
+                                            color: "text.primary",
+                                            "&.Mui-checked": {
+                                                color: "primary.main",
+                                            },
+                                        }}
+                                    />
+                                }
+                                label={
+                                    <Typography variant="body2" color="text.primary">
+                                        {topic.topicName}
+                                    </Typography>
+                                }
+                            />
+                        ))}
+                    </FormControl>
+                </DialogContent>
+                <DialogActions>
+                    {/* Submit Button */}
+                    <Button
+                        type="submit"
+                        variant="contained"
+                        sx={{
+                            backgroundColor: "primary.main",
+                            color: "text.primary",
+                            "&:hover": {
+                                backgroundColor: "action.hover",
+                            },
+                        }}
+                    >
+                        Vytvořit
+                    </Button>
 
-                <label htmlFor="topics">Topic: </label>
-                {props.topicsData.map((topic) => (
-                    <div key={topic.idTopic}>
-                        <label>
-                            <input
-                                type="checkbox"
-                                value={topic.idTopic}
-                                onChange={handleTopicChange}/>
-                            {topic.topicName}
-                        </label>
-                    </div>
-                ))}
-
-                <button type="submit">Vytvořit</button>
-                <button className="create-form-close" onClick={props.setVisibility}>storno</button>
+                    {/* Close Button */}
+                    <Button
+                        onClick={props.setVisibility}
+                        variant="outlined"
+                        sx={{
+                            borderColor: "text.primary",
+                            color: "text.primary",
+                            "&:hover": {
+                                backgroundColor: "action.hover",
+                                borderColor: "text.primary",
+                            },
+                        }}
+                    >
+                        Storno
+                    </Button>
+                </DialogActions>
             </form>
-        </div>
+        </Dialog>
     );
 
 }

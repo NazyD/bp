@@ -14,6 +14,7 @@ import RankShows from "./rank/RankShows.jsx";
 
 import {ThemeProvider, CssBaseline} from "@mui/material";
 import {light, dark} from './styles/createTheme.jsx'
+import ScrollbarStyles from "./styles/ScrollbarStyles.jsx";
 
 const articles = JSON.parse(localStorage.getItem("articles.json"));
 const topics = JSON.parse(localStorage.getItem("topics.json"));
@@ -62,6 +63,7 @@ function App() {
         <>
             <ThemeProvider theme={theme === "light" ? light : dark}>
                 <CssBaseline/>
+                <ScrollbarStyles/>
                 <Navbar theme={theme} toggleTheme={toggleTheme}/>
                 <div className="container">
                     <Routes>
