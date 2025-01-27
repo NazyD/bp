@@ -12,7 +12,9 @@ const ArticlesMainContainer = styled.div`
 
 const Movies = (props) => {
 
-    const moviesArticlesData = props.articlesData.filter(article => article.topics.includes(1));
+    const movieTopicId = props.topicsData.find((topic) => topic.topicName === 'film')?.idTopic || 1;
+
+    const moviesArticlesData = props.articlesData.filter(article => article.topics.includes(movieTopicId));
 
     return (
         <ArticlesMainContainer>

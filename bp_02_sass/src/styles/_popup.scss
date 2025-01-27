@@ -1,5 +1,7 @@
 @use './variables' as *;
 
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
+
 /* Overlay */
 .popup-overlay {
   position: fixed;
@@ -20,7 +22,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
+  width: 85%;
+  max-width: 900px;
   height: auto;
   max-height: 78%;
   padding: 15px;
@@ -28,22 +31,20 @@
   border-radius: $border-radius;
   overflow-y: auto;
   z-index: 1000;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 
-  /* Close Button */
-  .popup-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    background: none;
-    border: none;
+  h1 {
+    font-size: 34px;
     color: $light-text-color;
-    cursor: pointer;
-    transition: color 0.5s ease;
+    margin: 0;
   }
 }
+
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
 
 /* Form Elements Styling */
 .create-form,
@@ -51,20 +52,54 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  padding: 10px 16px;
 
-  label {
-    font-weight: bold;
-    color: $light-text-color;
-  }
+  .input-form {
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px; /* Adjust as needed */
+    label {
+      position: absolute;
+      left: 10px;
+      top: 0;
+      background-color: $light-component-bg;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 5px;
+      font-size: 12px;
+      z-index: 999;
+      color: $light-text-color;
+    }
 
-  input, textarea {
-    padding: 8px;
-    font-size: 14px;
-    color: $light-text-color;
-    background-color: $light-short-article-bg;
-    border: 1px solid $light-border;
-    border-radius: 5px;
-    resize: none;
+    input {
+      width: 100%;
+      position: relative;
+      padding: 16px 14px;
+      background-color: $light-component-bg;
+      font-size: 16px;
+      border: 1px solid $light-border;
+      border-radius: 5px;
+      color: $light-text-color;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      width: 100%;
+      position: relative;
+      padding: 16px 14px;
+      background-color: $light-component-bg;
+      font-size: 16px;
+      border: 1px solid $light-border;
+      border-radius: 5px;
+      color: $light-text-color;
+      resize: none; /* Disable resizing */
+      min-height: 120px;
+      box-sizing: border-box;
+    }
   }
 
   button {
@@ -83,41 +118,210 @@
       transition: background-color 0.5s ease, color 0.5s ease;
     }
   }
+
+  .create-form-close,
+  .topic-management-close {
+    border: 1px solid white !important;
+    background-color: $light-component-bg !important;
+
+    &:hover {
+      background-color: $light-button-bg-hover !important;
+      transition: background-color 0.5s ease, color 0.5s ease !important;
+    }
+  }
+
+  .form-buttons {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Add spacing between buttons */
+  }
+
+  .autocomplete {
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px; /* Adjust as needed */
+    label {
+      position: absolute;
+      left: 10px;
+      top: 0;
+      background-color: $light-component-bg;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 5px;
+      color: $light-text-color;
+      font-size: 12px;
+      z-index: 999;
+    }
+  }
+
+  .input-with-dropdown {
+    input {
+      width: 100%;
+      position: relative;
+      padding: 16px 14px;
+      background-color: $light-component-bg;
+      font-size: 16px;
+      border: 1px solid $light-border;
+      border-radius: 5px;
+      color: $light-text-color;
+      box-sizing: border-box;
+    }
+  }
+
+  .selected-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    transform: translateY(-50%);
+    z-index: 999;
+
+    .topic-chip {
+      display: flex;
+      align-items: center;
+      background-color: $light-component-bg-hover;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 14px;
+      color: $light-text-color;
+      margin-right: 5px;
+
+      .remove {
+        margin-left: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .input-with-dropdown {
+    position: relative;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 90%;
+    left: 0;
+    right: 0;
+    background-color: $light-component-bg;
+    border: 1px solid $light-border;
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 10;
+
+    .dropdown-item {
+      padding: 10px;
+      cursor: pointer;
+      font-size: 14px;
+
+      &:hover {
+        background-color: $light-button-bg-hover;
+      }
+
+      .selected {
+        background-color: $light-button-bg-hover;
+      }
+    }
+  }
 }
 
 
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
 // dark theme updates
 [data-theme='dark'] .popup-window {
   background-color: $dark-component-bg;
 
   /* Close Button */
-  .popup-close {
-    color: $dark-text-color;
+  h1 {
+    color: $dark-text-color
   }
 }
 
 [data-theme='dark'] .create-form,
 .topic-management {
+  .input-form {
+    label {
+      background-color: $dark-component-bg;
+      color: $dark-text-color;
+    }
 
-  label {
-    color: $dark-text-color;
-  }
+    input {
+      background-color: $dark-component-bg;
+      border: 1px solid $dark-border;
+      color: $dark-text-color;
+    }
 
-  input, textarea {
-    color: $dark-text-color;
-    background-color: $dark-short-article-bg;
-    border: 1px solid $dark-border;
+    textarea {
+      background-color: $dark-component-bg;
+      border: 1px solid $dark-border;
+      color: $dark-text-color;
+    }
   }
 
   button {
     border: 1px solid $dark-border;
     background-color: $dark-button-bg;
     color: $dark-text-color;
-    transition: background-color 0.5s ease, border-color 0.5s ease;
 
     &:hover {
       background-color: $dark-button-bg-hover;
-      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+  }
+
+  .create-form-close,
+  .topic-management-close {
+    border: 1px solid white !important;
+    background-color: $dark-component-bg !important;
+
+    &:hover {
+      background-color: $dark-button-bg-hover !important;
+    }
+  }
+
+  .autocomplete {
+    label {
+      background-color: $dark-component-bg;
+      color: $dark-text-color;
+    }
+  }
+
+  .input-with-dropdown {
+    input {
+      background-color: $dark-component-bg;
+      border: 1px solid $dark-border;
+      color: $dark-text-color;
+    }
+  }
+
+  .selected-topics {
+    .topic-chip {
+      background-color: $dark-component-bg-hover;
+      color: $dark-text-color;
+    }
+  }
+
+  .dropdown {
+    background-color: $dark-component-bg;
+    border: 1px solid $dark-border;
+
+    .dropdown-item {
+
+      &:hover {
+        background-color: $dark-button-bg-hover;
+      }
+
+      .selected {
+        background-color: $dark-button-bg-hover;
+      }
     }
   }
 }

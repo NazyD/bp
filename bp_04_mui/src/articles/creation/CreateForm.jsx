@@ -10,7 +10,7 @@ import {
     Checkbox,
     Button,
     Box,
-    Typography,
+    Typography, Autocomplete, Chip,
 } from "@mui/material";
 
 const defaultForm = {
@@ -31,13 +31,13 @@ function CreateForm(props) {
         setNewArticle((prevFormData) => ({...prevFormData, [name]: value}));
     }
 
-    const handleTopicChange = (e) => {
-        const topicId = parseInt(e.target.value);
-        if(e.target.checked) {
-            setSelectedTopics([...selectedTopics, topicId]);
-        } else {
-            setSelectedTopics(selectedTopics.filter((id) => id !== topicId));
-        }
+    const handleTopicChange = (event, value) => {
+        setNewArticle((prevFormData) => ({ ...prevFormData, topics: value }));
+        const selectedTopicIds = value.map((topicName) =>
+            props.topicsData.find((topic) => topic.topicName === topicName).idTopic
+        );
+
+        setSelectedTopics(selectedTopicIds);
     }
 
     const handleSubmit = (event) => {
@@ -91,10 +91,7 @@ function CreateForm(props) {
                 }
             }}
         >
-            <DialogTitle
-                sx={{
-                    padding: 0,
-                }}>
+            <DialogTitle>
                 <Typography
                     variant="h4"
                     color="text.primary">
@@ -119,6 +116,11 @@ function CreateForm(props) {
                         required
                         fullWidth
                         variant="outlined"
+                        slotProps={{
+                            inputLabel: {
+                                shrink: true,
+                            },
+                        }}
                     />
 
                     {/* Text Input */}
@@ -133,6 +135,11 @@ function CreateForm(props) {
                         rows={5}
                         fullWidth
                         variant="outlined"
+                        slotProps={{
+                            inputLabel: {
+                                shrink: true,
+                            },
+                        }}
                     />
 
                     {/* Author Input */}
@@ -145,36 +152,51 @@ function CreateForm(props) {
                         required
                         fullWidth
                         variant="outlined"
+                        slotProps={{
+                            inputLabel: {
+                                shrink: true,
+                            },
+                        }}
                     />
 
-                    {/* Topics List */}
-                    <FormControl component="fieldset">
-                        <Typography variant="body1" sx={{ fontWeight: "bold", color: "text.primary" }}>
-                            Topics
-                        </Typography>
-                        {props.topicsData.map((topic) => (
-                            <FormControlLabel
-                                key={topic.idTopic}
-                                control={
-                                    <Checkbox
-                                        value={topic.idTopic}
-                                        onChange={handleTopicChange}
-                                        sx={{
-                                            color: "text.primary",
-                                            "&.Mui-checked": {
-                                                color: "primary.main",
-                                            },
-                                        }}
-                                    />
-                                }
-                                label={
-                                    <Typography variant="body2" color="text.primary">
-                                        {topic.topicName}
-                                    </Typography>
-                                }
+                    {/* Topics Multi-Select */}
+                    <Autocomplete
+                        multiple
+                        options={props.topicsData.map((topic) => topic.topicName)}
+                        value={newArticle.topics}
+                        onChange={handleTopicChange}
+                        renderTags={(value, getTagProps) =>
+                            value.map((option, index) => (
+                                <Chip
+                                    key={option}
+                                    label={option}
+                                    {...getTagProps({ index })}
+                                    sx={{
+                                        backgroundColor: "action.hover",
+                                        color: "text.primary",
+                                    }}
+                                />
+                            ))
+                        }
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                label="Topics"
+                                placeholder="Choose topics"
+                                variant="outlined"
+                                slotProps={{
+                                    inputLabel: {
+                                        shrink: true,
+                                    },
+                                }}
                             />
-                        ))}
-                    </FormControl>
+                        )}
+                        sx={{
+                            "& .MuiOutlinedInput-root": {
+                                backgroundColor: "background.paper",
+                            },
+                        }}
+                    />
                 </DialogContent>
                 <DialogActions>
                     {/* Submit Button */}
@@ -187,6 +209,7 @@ function CreateForm(props) {
                             "&:hover": {
                                 backgroundColor: "action.hover",
                             },
+                            textTransform: 'none',
                         }}
                     >
                         Vytvořit
@@ -203,6 +226,7 @@ function CreateForm(props) {
                                 backgroundColor: "action.hover",
                                 borderColor: "text.primary",
                             },
+                            textTransform: 'none',
                         }}
                     >
                         Storno

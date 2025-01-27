@@ -48,17 +48,23 @@ function TopicManagement(props) {
     return(
         <div className="topic-management" id="createForm">
             <form className="create-form" onSubmit={handleSubmit}>
-                <label htmlFor="topicName">Název: </label>
-                <input type="text"
-                       id="topicName"
-                       name="topicName"
-                       placeholder="název topicu"
-                       value={newTopic.topicName}
-                       onChange={handleChange}
-                       required/>
+                <h1>Nový topic</h1>
 
-                <button type="submit">Vytvořit</button>
-                <button className="topic-management-close" onClick={props.setTopVisibility}>storno</button>
+                <div className="input-form">
+                    <label htmlFor="topicName">Název</label>
+                    <input type="text"
+                           id="topicName"
+                           name="topicName"
+                           placeholder="název topicu"
+                           value={newTopic.topicName}
+                           onChange={handleChange}
+                           required/>
+                </div>
+
+                <div className="form-buttons">
+                    <button type="submit">Vytvořit</button>
+                    <button className="topic-management-close" onClick={props.setTopVisibility}>Storno</button>
+                </div>
             </form>
 
             <div className="manage-topics-list">

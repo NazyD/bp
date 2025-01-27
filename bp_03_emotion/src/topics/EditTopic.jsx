@@ -10,6 +10,22 @@ const TopicCheckboxContainer = styled.div`
     gap: 55px;
 `;
 
+const DeleteButton = styled.button`
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid ${({ theme }) => theme.borderColor};
+    border-radius: 5px;
+    background-color: ${({ theme }) => theme.buttonBackgroundColor};
+    color: ${({ theme }) => theme.textColor};
+    cursor: pointer;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+
+    &:hover {
+        background-color: ${({ theme }) => theme.buttonBackgroundColorHover};
+    }
+`;
+
 const EditTopic = (props) => {
 
     const handleDelete = () => {
@@ -39,7 +55,7 @@ const EditTopic = (props) => {
     return(
         <TopicCheckboxContainer>
             {props.topic.topicName}
-            <button className="topic-delete-button" onClick={handleDelete}>odstranit</button>
+            <DeleteButton className="topic-delete-button" onClick={handleDelete}>odstranit</DeleteButton>
         </TopicCheckboxContainer>
     );
 }

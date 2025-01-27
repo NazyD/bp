@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 import '../../styles/styles.scss';
 
@@ -14,20 +14,46 @@ const defaultForm = {
 function CreateForm(props) {
     const [newArticle, setNewArticle] = useState(defaultForm);
     const [selectedTopics, setSelectedTopics] = useState([]);
+    const [dropdownVisible, setDropdownVisible] = useState(false);
+
+    const inputRef = useRef(null);
+    const dropdownRef = useRef(null);
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (inputRef.current && !inputRef.current.contains(event.target) &&
+                dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setDropdownVisible(false); // Close dropdown
+            }
+        };
+
+        // Add event listener to the document
+        document.addEventListener("mousedown", handleClickOutside);
+
+        // Clean up the event listener
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    const handleInputFocus = () => {
+        setDropdownVisible(true); // Open dropdown when the input is clicked
+    };
 
     const handleChange = (event) => {
         const {name, value} = event.target;
         setNewArticle((prevFormData) => ({...prevFormData, [name]: value}));
     }
 
-    const handleTopicChange = (e) => {
-        const topicId = parseInt(e.target.value);
-        if(e.target.checked) {
-            setSelectedTopics([...selectedTopics, topicId]);
+    const handleTopicToggle = (topic) => {
+        if (selectedTopics.includes(topic.idTopic)) {
+            setSelectedTopics(selectedTopics.filter((id) => id !== topic.idTopic));
         } else {
-            setSelectedTopics(selectedTopics.filter((id) => id !== topicId));
+            setSelectedTopics([...selectedTopics, topic.idTopic]);
         }
-    }
+    };
+
+    const handleTopicRemove = (topicId) => {
+        setSelectedTopics(selectedTopics.filter((id) => id !== topicId));
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -65,48 +91,83 @@ function CreateForm(props) {
             <form className="create-form" onSubmit={handleSubmit}>
                 <h1>Nový článek</h1>
 
-                <label htmlFor="title">Název: </label>
-                <input type="text"
-                       id="title"
-                       name="title"
-                       placeholder="název článku"
-                       value={newArticle.title}
-                       onChange={handleChange}
-                       required/>
+                <div className="input-form">
+                    <label htmlFor="title">Název</label>
+                    <input type="text"
+                           id="title"
+                           name="title"
+                           placeholder="název článku"
+                           value={newArticle.title}
+                           onChange={handleChange}
+                           required/>
+                </div>
 
-                <label htmlFor="text">Text: </label>
-                <textarea id="text"
-                          name="text"
-                          rows="5"
-                          cols="40"
-                          placeholder="text článku - je resizable, to se upraví/odebere při stylování"
-                          value={newArticle.text}
-                          onChange={handleChange}
-                          required/>
+                <div className="input-form">
+                    <label htmlFor="text">Text</label>
+                    <textarea id="text"
+                              name="text"
+                              rows="5"
+                              cols="40"
+                              placeholder="text článku - je resizable, to se upraví/odebere při stylování"
+                              value={newArticle.text}
+                              onChange={handleChange}
+                              required/>
+                </div>
 
-                <label htmlFor="author">Autor: </label>
-                <input type="text"
-                       id="author"
-                       name="author"
-                       placeholder="autor článku"
-                       value={newArticle.author}
-                       onChange={handleChange} required/>
+                <div className="input-form">
+                    <label htmlFor="author">Autor</label>
+                    <input type="text"
+                           id="author"
+                           name="author"
+                           placeholder="autor článku"
+                           value={newArticle.author}
+                           onChange={handleChange} required/>
+                </div>
 
-                <label htmlFor="topics">Topic: </label>
-                {props.topicsData.map((topic) => (
-                    <div key={topic.idTopic}>
-                        <label>
-                            <input
-                                type="checkbox"
-                                value={topic.idTopic}
-                                onChange={handleTopicChange}/>
-                            {topic.topicName}
-                        </label>
+                <div className="autocomplete">
+                    <label htmlFor="topics">Topics</label>
+                    <div className="selected-topics">
+                        {selectedTopics.map((topicId) => {
+                            const topic = props.topicsData.find(t => t.idTopic === topicId);
+                            return (
+                                <div key={topicId} className="topic-chip">
+                                    {topic.topicName}
+                                    <span className="remove" onClick={() => handleTopicRemove(topicId)}>×</span>
+                                </div>
+                            );
+                        })}
                     </div>
-                ))}
+                    <div className="input-with-dropdown">
+                        <input
+                            type="text"
+                            id="autocomplete-input"
+                            ref={inputRef}
+                            placeholder="..."
+                            readOnly
+                            onClick={handleInputFocus}
+                        />
+                        {dropdownVisible && (
+                            <div className="dropdown" ref={dropdownRef}>
+                                {props.topicsData.map((topic) => (
+                                    <div
+                                        key={topic.idTopic}
+                                        className={`dropdown-item ${selectedTopics.includes(topic.idTopic) ? 'selected' : ''}`}
+                                        onClick={() => handleTopicToggle(topic)}
+                                    >
+                                        {topic.topicName}
+                                        {selectedTopics.includes(topic.idTopic) && " (Selected)"}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
 
-                <button type="submit">Vytvořit</button>
-                <button className="create-form-close" onClick={props.setVisibility}>storno</button>
+                </div>
+
+                <div className="form-buttons">
+                    <button type="submit">Vytvořit</button>
+                    <button className="create-form-close" onClick={props.setVisibility}>Storno</button>
+                </div>
             </form>
         </div>
     );

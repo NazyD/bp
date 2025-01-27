@@ -6,6 +6,7 @@ import '../Popup.css';
 const defaultTopicForm = {
     topicName: ""
 };
+
 function TopicManagement(props) {
     const [newTopic, setNewTopic] = useState(defaultTopicForm);
 
@@ -20,6 +21,7 @@ function TopicManagement(props) {
                 setArticlesData={props.setArticlesData}/>
         })
     }
+
     const handleChange = (event) => {
         const {name, value} = event.target;
         setNewTopic((prevFormData) => ({...prevFormData, [name]: value}));
@@ -45,20 +47,26 @@ function TopicManagement(props) {
         setNewTopic(defaultTopicForm);
     }
 
-    return(
+    return (
         <div className="topic-management" id="createForm">
             <form className="create-form" onSubmit={handleSubmit}>
-                <label htmlFor="topicName">Název: </label>
-                <input type="text"
-                       id="topicName"
-                       name="topicName"
-                       placeholder="název topicu"
-                       value={newTopic.topicName}
-                       onChange={handleChange}
-                       required/>
+                <h1>Nový topic</h1>
 
-                <button type="submit">Vytvořit</button>
-                <button className="topic-management-close" onClick={props.setTopVisibility}>storno</button>
+                <div className="input-form">
+                    <label htmlFor="topicName">Název</label>
+                    <input type="text"
+                           id="topicName"
+                           name="topicName"
+                           placeholder="název topicu"
+                           value={newTopic.topicName}
+                           onChange={handleChange}
+                           required/>
+                </div>
+
+                <div className="form-buttons">
+                    <button type="submit">Vytvořit</button>
+                    <button className="topic-management-close" onClick={props.setTopVisibility}>Storno</button>
+                </div>
             </form>
 
             <div className="manage-topics-list">

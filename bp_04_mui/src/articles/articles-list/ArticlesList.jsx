@@ -143,9 +143,10 @@ const ArticlesList = (props) => {
                                 "&:hover": {
                                     backgroundColor: theme.palette.action.buttonHover,
                                 },
+                                textTransform: 'none',
                             }}
                         >
-                            vytvořit článek
+                            Vytvořit článek
                         </Button>
                         {props.visiblePopUp && (
                             <>
@@ -220,9 +221,10 @@ const ArticlesList = (props) => {
                                 "&:hover": {
                                     backgroundColor: theme.palette.action.buttonHover,
                                 },
+                                textTransform: 'none',
                             }}
                         >
-                            topics
+                            Topics
                         </Button>
                         {props.topVisibility && (
                             <>

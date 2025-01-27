@@ -1,23 +1,27 @@
-import {useState} from "react";
-import EditTopic from "./EditTopic.jsx";
+import React, {useState} from "react";
+import {
+    Dialog,
+    DialogTitle,
+    DialogContent,
+    DialogActions,
+    TextField,
+    Button,
+    Box,
+    Typography,
+    List,
+    ListItem,
+    ListItemText,
+    IconButton,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete"; // easy import of icons from own library
 
 const defaultTopicForm = {
     topicName: ""
 };
+
 function TopicManagement(props) {
     const [newTopic, setNewTopic] = useState(defaultTopicForm);
 
-
-    function getTopicsList(topicsData) {
-        return topicsData.map((topic) => {
-            return <EditTopic
-                topic={topic}
-                topicsData={props.topicsData}
-                setTopicsData={props.setTopicsData}
-                articlesData={props.articlesData}
-                setArticlesData={props.setArticlesData}/>
-        })
-    }
     const handleChange = (event) => {
         const {name, value} = event.target;
         setNewTopic((prevFormData) => ({...prevFormData, [name]: value}));
@@ -43,28 +47,128 @@ function TopicManagement(props) {
         setNewTopic(defaultTopicForm);
     }
 
+    const handleDelete = (topicId) => {
+        // step 1 delete topic
+        const updatedTopics = props.topicsData.filter(
+            (topic) => topic.idTopic !== topicId
+        );
+
+        props.setTopicsData(updatedTopics);
+        localStorage.setItem("topics.json", JSON.stringify(updatedTopics));
+
+        // step 2 remove topic from the articles
+        const updatedArticles = props.articlesData.map((article) => {
+            if(article.topics.includes(topicId)) {
+                return {
+                    ...article,
+                    topics: article.topics.filter((topId) => topId !== topicId),
+                };
+            }
+            return article;
+        });
+
+        props.setArticlesData(updatedArticles);
+        localStorage.setItem("articles.json", JSON.stringify(updatedArticles));
+    }
+
     return(
-        <div className="topic-management" id="createForm">
-            <form className="create-form" onSubmit={handleSubmit}>
-                <label htmlFor="topicName">Název: </label>
-                <input type="text"
-                       id="topicName"
-                       name="topicName"
-                       placeholder="název topicu"
-                       value={newTopic.topicName}
-                       onChange={handleChange}
-                       required/>
+        <Dialog
+            open={true}
+            onClose={props.setTopVisibility}
+            fullWidth
+            maxWidth="md"
+            sx={{
+                "& .MuiDialog-paper": {
+                    backgroundColor: "background.paper",
+                    padding: "15px",
+                    borderRadius: 2,
+                },
+                "& .MuiPaper-root": {
+                    "--Paper-shadow": "none",
+                    "--Paper-overlay": "none",
+                    boxShadow: "none",
+                    backgroundImage: "none",
+                },
+            }}
+        >
+            <DialogTitle>
+                <Typography variant="h4" color="text.primary">
+                    Manage Topics
+                </Typography>
+            </DialogTitle>
+            <DialogContent sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                {/* Add Topic Form */}
+                <Box component="form"
+                     onSubmit={handleSubmit}
+                     sx={{
+                         display: "flex",
+                         flexDirection: "column",
+                         gap: 2,
+                         marginTop: "8px"}}>
+                    <TextField
+                        label="Název"
+                        name="topicName"
+                        placeholder="název topicu"
+                        value={newTopic.topicName}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                        variant="outlined"
+                        slotProps={{
+                            inputLabel: {
+                                shrink: true,
+                            },
+                        }}
+                    />
+                    <DialogActions>
+                        <Button type="submit" variant="contained" sx={{ alignSelf: "flex-start", textTransform: 'none' }}>
+                            Vytvořit
+                        </Button>
+                        <Button
+                            onClick={props.setTopVisibility}
+                            variant="outlined"
+                            sx={{
+                                borderColor: "text.primary",
+                                color: "text.primary",
+                                "&:hover": {
+                                    backgroundColor: "action.hover",
+                                    borderColor: "text.primary",
+                                },
+                                textTransform: 'none',
+                            }}
+                        >
+                            Storno
+                        </Button>
+                    </DialogActions>
 
-                <button type="submit">Vytvořit</button>
-                <button className="topic-management-close" onClick={props.setTopVisibility}>storno</button>
-            </form>
-
-            <div className="manage-topics-list">
-                <div className="edit-topics-list">
-                    {getTopicsList(props.topicsData)}
-                </div>
-            </div>
-        </div>
+                </Box>
+                {/* List of Topics */}
+                <Typography variant="h6" color="text.primary">
+                    Existující topics
+                </Typography>
+                <List>
+                    {props.topicsData.map((topic) => (
+                        <ListItem
+                            key={topic.idTopic}
+                            secondaryAction={
+                                <IconButton
+                                    edge="end"
+                                    aria-label="delete"
+                                    onClick={() => handleDelete(topic.idTopic)}
+                                >
+                                    <DeleteIcon />
+                                </IconButton>
+                            }
+                        >
+                            <ListItemText
+                                primary={topic.topicName}
+                                primaryTypographyProps={{ color: "text.primary" }}
+                            />
+                        </ListItem>
+                    ))}
+                </List>
+            </DialogContent>
+        </Dialog>
     );
 
 }

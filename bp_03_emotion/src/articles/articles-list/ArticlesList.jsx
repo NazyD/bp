@@ -113,35 +113,24 @@ const PopupOverlay = styled.div`
 `;
 
 const PopupWindow = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
-  max-height: 78%;
-  background-color: ${({ theme }) => theme.componentBackground};
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  overflow-y: auto;
-  z-index: 1000;
-`;
-
-const PopupCloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.textColor};
-  background: none;
-  border: none;
-  transition: color 0.5s ease;
-
-  &:hover {
-    color: ${({ theme }) => theme.componentBackgroundHover};
-  }
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 900px;
+    height: auto;
+    max-height: 78%;
+    background-color: ${({theme}) => theme.componentBackground};
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    z-index: 1000;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;
 
 const ArticlesList = (props) => {
@@ -194,10 +183,10 @@ const ArticlesList = (props) => {
                 {props.creationForms ? (
                     <ActionButtons>
                         <ActionButton onClick={props.setVisibility}>
-                            vytvořit článek
+                            Vytvořit článek
                         </ActionButton>
                         <ActionButton onClick={props.setTopVisibility}>
-                            topics
+                            Topics
                         </ActionButton>
                     </ActionButtons>
                 ) : null}
@@ -207,7 +196,6 @@ const ArticlesList = (props) => {
                     <>
                         <PopupOverlay onClick={props.setVisibility}></PopupOverlay>
                         <PopupWindow>
-                            <PopupCloseButton onClick={props.setVisibility}>X</PopupCloseButton>
                             <CreateForm
                                 articlesData={props.articlesData}
                                 setVisibility={props.setVisibility}
@@ -222,7 +210,6 @@ const ArticlesList = (props) => {
                     <>
                         <PopupOverlay onClick={props.setTopVisibility}></PopupOverlay>
                         <PopupWindow>
-                            <PopupCloseButton onClick={props.setTopVisibility}>X</PopupCloseButton>
                             <TopicManagement
                                 setTopVisibility={props.setTopVisibility}
                                 setTopicsData={props.setTopicsData}

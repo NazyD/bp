@@ -1,3 +1,4 @@
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
 /* Overlay */
 .popup-overlay {
     position: fixed;
@@ -14,11 +15,12 @@
 
 /* Popup Window */
 .popup-window {
-    position: fixed; /* Detach it from the normal document flow */
+    position: fixed;
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Center alignment */
-    width: 50%;
+    width: 85%;
+    max-width: 900px;
     height: auto;
     max-height: 78%;
     background-color: var(--component-background);
@@ -27,7 +29,19 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     overflow-y: auto; /* Scroll if content exceeds height */
     z-index: 1000;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
+/* Title */
+.popup-window h1 {
+    font-size: 34px;
+    color: var(--text-color);
+    margin: 0;
+}
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
 
 /* Form Elements Styling */
 .create-form,
@@ -35,28 +49,57 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    padding: 10px 16px;
 }
 
-.create-form label,
-.topic-management label {
-    font-weight: bold;
-    color: var(--text-color);
+.input-form {
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px; /* Adjust as needed */
 }
 
-.create-form input,
-.create-form textarea,
-.topic-management input {
-    padding: 8px;
-    font-size: 14px;
+.input-form label {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    background-color: var(--component-background);
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
     color: var(--text-color);
-    background-color: var(--short-article-bg);
+    font-size: 12px;
+    z-index: 999;
+}
+.input-form input {
+    width: 100%;
+    position: relative;
+    padding: 16px 14px;
+    background-color: var(--component-background);
+    font-size: 16px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+.input-form textarea {
+    width: 100%;
+    position: relative;
+    padding: 16px 14px;
+    background-color: var(--component-background);
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    resize: none; /* Disable resizing */
+    min-height: 120px;
+    box-sizing: border-box;
 }
 
-.create-form textarea {
-    resize: none; /* Disable resizing */
-}
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
 
 .create-form button,
 .topic-management button {
@@ -71,22 +114,123 @@
     transition: background-color 0.5s ease, border-color 0.5s ease;
 }
 
+.create-form-close,
+.topic-management-close {
+    border: 1px solid white !important;
+    background-color: var(--component-background) !important;
+}
+
+.create-form-close:hover,
+.topic-management-close:hover {
+    background-color: var(--button-background-color-hover) !important;
+    transition: background-color 0.5s ease, color 0.5s ease !important;
+}
+
 .create-form button:hover,
 .topic-management button:hover {
     background-color: var(--button-background-color-hover);
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* Close Button */
-.popup-close {
+.form-buttons {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Add spacing between buttons */
+}
+
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
+.autocomplete {
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px; /* Adjust as needed */
+}
+.autocomplete label {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
+    left: 10px;
+    top: 0;
+    background-color: var(--component-background);
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
     color: var(--text-color);
-    background: none;
-    border: none;
-    transition: color 0.5s ease;
+    font-size: 12px;
+    z-index: 999;
+}
+.input-with-dropdown input {
+    width: 100%;
+    position: relative;
+    padding: 16px 14px;
+    background-color: var(--component-background);
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+/*xxxxxxxxxxx*/
+
+.selected-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: auto;
+    margin-bottom: 10px;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    transform: translateY(-50%);
+    z-index: 999;
+}
+
+.selected-topics .topic-chip {
+    display: flex;
+    align-items: center;
+    background-color: var(--component-background-hover);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    color: var(--text-color);
+    margin-right: 5px;
+}
+
+.selected-topics .topic-chip .remove {
+    margin-left: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/*xxxxxxxxx*/
+.input-with-dropdown {
+    position: relative;
+}
+.dropdown {
+    position: absolute;
+    top: 90%;
+    left: 0;
+    right: 0;
+    background-color: var(--component-background);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.dropdown .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dropdown .dropdown-item:hover {
+    background-color: var(--button-background-color-hover);
+}
+
+.dropdown .dropdown-item.selected {
+    background-color: var(--button-background-color-hover);
 }

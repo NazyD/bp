@@ -55,15 +55,12 @@ const ArticlesList = (props) => {
                 {props.creationForms ?
                     <div className="creation-forms">
                         <button className="action-button" onClick={props.setVisibility}>
-                            vytvořit článek
+                            Vytvořit článek
                         </button>
                         {props.visiblePopUp && (
                             <>
                                 <div className="popup-overlay" onClick={props.setVisibility}></div>
                                 <div className="popup-window">
-                                    <button className="popup-close" onClick={props.setVisibility}>
-                                        X
-                                    </button>
                                     <CreateForm
                                         articlesData={props.articlesData}
                                         setVisibility={props.setVisibility}
@@ -75,15 +72,12 @@ const ArticlesList = (props) => {
                         )}
 
                         <button className="action-button" onClick={props.setTopVisibility}>
-                            topics
+                            Topics
                         </button>
                         {props.topVisibility && (
                             <>
                                 <div className="popup-overlay" onClick={props.setTopVisibility}></div>
                                 <div className="popup-window">
-                                    <button className="popup-close" onClick={props.setTopVisibility}>
-                                        X
-                                    </button>
                                     <TopicManagement
                                         setTopVisibility={props.setTopVisibility}
                                         setTopicsData={props.setTopicsData}

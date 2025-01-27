@@ -45,6 +45,18 @@ export const light = createTheme({
                 },
             },
         },
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#393939", // Focus border color
+                    },
+                    "& .MuiInputLabel-root.Mui-focused": {
+                        color: "#393939", // Focus label color
+                    },
+                },
+            },
+        },
     },
 });
 
@@ -91,6 +103,18 @@ export const dark = createTheme({
                     backgroundColor: '#121212', // Dark theme background
                     color: '#e0e0e0', // Dark theme text color
                     transition: 'background-color 0.5s ease, color 0.5s ease', // Transition added
+                },
+            },
+        },
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#b3b3b3", // Focus border color
+                    },
+                    "& .MuiInputLabel-root.Mui-focused": {
+                        color: "#b3b3b3", // Focus label color
+                    },
                 },
             },
         },
