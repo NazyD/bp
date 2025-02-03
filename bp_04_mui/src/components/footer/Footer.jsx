@@ -35,7 +35,10 @@ const Footer = () => {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 fontSize: '14px',
-                boxSizing: 'border-box'
+                boxSizing: 'border-box',
+                position: 'absolute',
+                bottom: '0',
+                height: '45px',
             }}
         >
             {/* Left Section */}

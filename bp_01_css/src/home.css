@@ -1,17 +1,28 @@
-
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 /* Home Component */
 .home {
-    width: 100%;
-    margin: 30px auto;
+    width: 79%;
+    margin-top: 30px;
     background-color: var(--component-background);
     transition: background-color 0.5s ease, color 0.5s ease;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
     border-radius: 5px;
-    padding: 20px;
+    /*background: linear-gradient(to right, transparent, var(--component-background) 5%, var(--component-background) 90%, transparent);*/
+    padding: 80px;
     box-sizing: border-box;
     text-align: center;
     position: relative;
+    /*border-width: 1px;*/
+    /*border-style: solid;*/
+    /*border-image-source: linear-gradient(to right, transparent, var(--border-color), transparent);*/
+    /*border-image-slice: 1;*/
+    z-index: 999;
 }
 
 /* Welcome Title Animation*/
@@ -47,6 +58,31 @@
     0% {
         opacity: 0;
         transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home-information {
+    font-size: 16px;
+    width: 60%;
+    background-color: var(--component-background-hover);
+    padding: 15px;
+    text-align: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    opacity: 0;
+    transform: translateY(-100%);
+    animation: slideDown 1s ease-out 1s forwards;
+    z-index: 1;
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
     }
     100% {
         opacity: 1;

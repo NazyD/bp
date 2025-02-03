@@ -12,7 +12,7 @@ import Rank from "./rank/Rank.jsx";
 import RankMovies from "./rank/RankMovies.jsx";
 import RankShows from "./rank/RankShows.jsx";
 
-import {ThemeProvider, CssBaseline} from "@mui/material";
+import {ThemeProvider, CssBaseline, Box} from "@mui/material";
 import {light, dark} from './styles/createTheme.jsx'
 import ScrollbarStyles from "./styles/ScrollbarStyles.jsx";
 
@@ -65,7 +65,11 @@ function App() {
                 <CssBaseline/>
                 <ScrollbarStyles/>
                 <Navbar theme={theme} toggleTheme={toggleTheme}/>
-                <div className="container">
+                <Box
+                    sx={{
+                        paddingBottom: '45px',
+                    }}
+                >
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                         <Route path="/articles-list" element={
@@ -121,7 +125,7 @@ function App() {
                                 setShowsData={setShowsData}/>
                         }/>
                     </Routes>
-                </div>
+                </Box>
                 <Footer/>
             </ThemeProvider>
         </>

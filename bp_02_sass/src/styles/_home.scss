@@ -1,71 +1,108 @@
 @use './variables' as *;
 
-.home {
-  width: 100%;
-  margin: 30px auto;
-  @include theme($light-component-bg, $light-text-color); // Use light theme
-  border-top: 1px solid $light-border;
-  border-bottom: 1px solid $light-border;
-  border-radius: 5px;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: center;
-  position: relative;
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  // Welcome Title Animation
-  &-title {
-    font-size: 36px;
-    margin: 0 0 20px;
-    color: $light-text-color;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: slideUpFade 1s ease forwards;
+  .home {
+    width: 79%;
+    margin-top: 30px;
+    @include theme($light-component-bg, $light-text-color); // Use light theme
+    border-top: 1px solid $light-border;
+    border-bottom: 1px solid $light-border;
+    border-radius: 5px;
+    padding: 80px;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    z-index: 999;
+
+    // Welcome Title Animation
+    &-title {
+      font-size: 36px;
+      margin: 0 0 20px;
+      color: $light-text-color;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUpFade 1s ease forwards;
+    }
+
+    // Description Animation
+    &-description {
+      font-size: 18px;
+      margin: 0;
+      color: $light-text-color;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease 0.5s forwards;
+    }
   }
 
-  // Description Animation
-  &-description {
-    font-size: 18px;
-    margin: 0;
-    color: $light-text-color;
+  .home-information {
+    font-size: 16px;
+    width: 60%;
+    background-color: $light-component-bg-hover;
+    padding: 15px;
+    text-align: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 1s ease 0.5s forwards;
+    transform: translateY(-100%);
+    animation: slideDown 1s ease-out 1s forwards;
+    z-index: 1;
   }
 }
 
-// dark theme
-[data-theme='dark'] .home {
-  @include theme($dark-component-bg, $dark-text-color);
-  border-top: 1px solid $dark-border;
-  border-bottom: 1px solid $dark-border;
+  // dark theme
+  [data-theme='dark'] .home-container {
+    .home{
+      @include theme($dark-component-bg, $dark-text-color);
+      border-top: 1px solid $dark-border;
+      border-bottom: 1px solid $dark-border;
 
-  &-title {
-    color: $dark-text-color;
-  }
-  &-description {
-    color: $dark-text-color;
-  }
+      &-title {
+        color: $dark-text-color;
+      }
+      &-description {
+        color: $dark-text-color;
+      }
+    }
+    .home-information{
+      background-color: $dark-component-bg-hover;
+    }
 }
 
-// Keyframes for Animations
-@keyframes slideUpFade {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
+  // Keyframes for Animations
+  @keyframes slideUpFade {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-}

@@ -16,6 +16,9 @@ const FooterContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    bottom: 0;
+    height: 45px;
 `;
 
 const FooterLeft = styled.div`

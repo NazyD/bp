@@ -14,6 +14,10 @@
   justify-content: space-between;
   align-items: center;
 
+  position: absolute;
+  bottom: 0;
+  height: 45px;
+
   // Left Section
   &-left {
     text-align: left;

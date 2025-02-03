@@ -35,6 +35,7 @@ export const light = createTheme({
                     boxSizing: 'border-box',
                     fontFamily: 'Arial, sans-serif',
                     transition: 'background-color 0.5s ease, color 0.5s ease', // Transition added
+                    height: '100%',
                 },
                 body: {
                     margin: 0,
@@ -42,7 +43,12 @@ export const light = createTheme({
                     backgroundColor: '#ffffff', // Light theme background
                     color: '#000000', // Light theme text color
                     transition: 'background-color 0.5s ease, color 0.5s ease', // Transition added
+                    height: '100%',
                 },
+                "#root": {
+                    minHeight: '100%',
+                    position: 'relative',
+                }
             },
         },
         MuiTextField: {
@@ -96,6 +102,7 @@ export const dark = createTheme({
                     boxSizing: 'border-box',
                     fontFamily: 'Arial, sans-serif',
                     transition: 'background-color 0.5s ease, color 0.5s ease', // Transition added
+                    height: '100%',
                 },
                 body: {
                     margin: 0,
@@ -103,7 +110,12 @@ export const dark = createTheme({
                     backgroundColor: '#121212', // Dark theme background
                     color: '#e0e0e0', // Dark theme text color
                     transition: 'background-color 0.5s ease, color 0.5s ease', // Transition added
+                    height: '100%',
                 },
+                "#root": {
+                    minHeight: '100%',
+                    position: 'relative',
+                }
             },
         },
         MuiTextField: {

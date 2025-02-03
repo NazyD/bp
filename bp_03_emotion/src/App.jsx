@@ -15,11 +15,16 @@ import RankShows from "./rank/RankShows.jsx";
 import {Global, ThemeProvider} from "@emotion/react";
 import {dark, light} from "./styles/theme.jsx";
 import globalStyles from "./styles/globalStyles.jsx";
+import styled from "@emotion/styled";
 
 const articles = JSON.parse(localStorage.getItem("articles.json"));
 const topics = JSON.parse(localStorage.getItem("topics.json"));
 const movies = JSON.parse(localStorage.getItem("movies.json"));
 const shows = JSON.parse(localStorage.getItem("shows.json"));
+
+const AppContainer = styled.div`
+    padding-bottom: 45px;;
+`;
 
 function App() {
     const [articlesData, setArticlesData] = useState(articles);
@@ -59,7 +64,7 @@ function App() {
           <ThemeProvider theme={theme === "light" ? light : dark}>
               <Global styles={globalStyles(theme === "light" ? light : dark)} />
               <Navbar theme={theme} toggleTheme={toggleTheme} />
-              <div className="container">
+              <AppContainer>
                   <Routes>
                       <Route path="/" element={<Home />} />
                       <Route path="/articles-list" element={
@@ -115,7 +120,7 @@ function App() {
                           setShowsData={setShowsData}/>
                       } />
                   </Routes>
-              </div>
+              </AppContainer>
           <Footer />
           </ThemeProvider>
       </>

@@ -4,4 +4,13 @@ html, body {
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+.container{
+  padding-bottom: 45px; /* height of the footer */
+}
+#root {
+  min-height: 100%;
+  position: relative;
 }
