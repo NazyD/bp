@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
 
   .home {
     width: 79%;
@@ -13,11 +14,12 @@
     border-top: 1px solid $light-border;
     border-bottom: 1px solid $light-border;
     border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     padding: 80px;
     box-sizing: border-box;
     text-align: center;
     position: relative;
-    z-index: 999;
+    z-index: 9;
 
     // Welcome Title Animation
     &-title {
@@ -42,9 +44,9 @@
 
   .home-information {
     font-size: 16px;
-    width: 60%;
+    width: 50%;
     background-color: $light-component-bg-hover;
-    padding: 15px;
+    padding: 50px;
     text-align: center;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;

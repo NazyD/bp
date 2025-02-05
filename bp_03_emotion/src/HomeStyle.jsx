@@ -41,6 +41,7 @@ export const HomeContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10px;
 `;
 
 // Home container
@@ -51,12 +52,13 @@ export const HomeSection = styled.div`
     transition: background-color 0.5s ease, color 0.5s ease;
     border-top: 1px solid ${({theme}) => theme.borderColor};
     border-bottom: 1px solid ${({theme}) => theme.borderColor};
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     padding: 80px;
     box-sizing: border-box;
     text-align: center;
     position: relative;
-    z-index: 999;
+    z-index: 9;
 `;
 
 // Title (with animation)
@@ -81,9 +83,9 @@ export const HomeDescription = styled.p`
 
 export const HomeInfo = styled.p`
     font-size: 16px;
-    width: 60%;
+    width: 50%;
     background-color: ${({theme}) => theme.componentBackgroundHover};
-    padding: 15px;
+    padding: 50px;
     margin: 0;
     text-align: center;
     color: ${({theme}) => theme.textColor};

@@ -14,6 +14,7 @@ import RankMovies from "./rank/RankMovies.jsx";
 import RankShows from "./rank/RankShows.jsx";
 
 import "./App.css";
+import Contact from "./contact/Contact.jsx";
 
 const articles = JSON.parse(localStorage.getItem("articles.json"));
 const topics = JSON.parse(localStorage.getItem("topics.json"));
@@ -98,6 +99,7 @@ function App() {
                       showsData={showsData}
                       setShowsData={setShowsData}/>
                   } />
+                  <Route path="/contact" element={<Contact />} />
               </Routes>
           </div>
           <Footer />

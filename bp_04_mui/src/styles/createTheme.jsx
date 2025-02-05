@@ -48,6 +48,9 @@ export const light = createTheme({
                 "#root": {
                     minHeight: '100%',
                     position: 'relative',
+                },
+                p: {
+                    textAlign: "justify",
                 }
             },
         },

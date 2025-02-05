@@ -15,6 +15,7 @@ import RankShows from "./rank/RankShows.jsx";
 import {ThemeProvider, CssBaseline, Box} from "@mui/material";
 import {light, dark} from './styles/createTheme.jsx'
 import ScrollbarStyles from "./styles/ScrollbarStyles.jsx";
+import Contact from "bp_01_css/src/contact/Contact.jsx";
 
 const articles = JSON.parse(localStorage.getItem("articles.json"));
 const topics = JSON.parse(localStorage.getItem("topics.json"));
@@ -124,6 +125,7 @@ function App() {
                                 showsData={showsData}
                                 setShowsData={setShowsData}/>
                         }/>
+                        <Route path="/contact" element={<Contact />} />
                     </Routes>
                 </Box>
                 <Footer/>

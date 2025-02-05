@@ -19,6 +19,10 @@ const globalStyles = (theme) => css`
         font-family: Arial, sans-serif;
         height: 100%;
     }
+
+    p {
+        text-align: justify;
+    }
     
     #root {
         min-height: 100%;

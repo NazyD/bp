@@ -52,6 +52,9 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </li>
+                    <li className="nav-item">
+                        <Link to="/contact">Kontakty</Link>
+                    </li>
                 </ul>
             </div>
             <div className="navbar-right">

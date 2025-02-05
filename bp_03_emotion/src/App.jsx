@@ -16,6 +16,7 @@ import {Global, ThemeProvider} from "@emotion/react";
 import {dark, light} from "./styles/theme.jsx";
 import globalStyles from "./styles/globalStyles.jsx";
 import styled from "@emotion/styled";
+import Contact from "bp_01_css/src/contact/Contact.jsx";
 
 const articles = JSON.parse(localStorage.getItem("articles.json"));
 const topics = JSON.parse(localStorage.getItem("topics.json"));
@@ -119,6 +120,7 @@ function App() {
                           showsData={showsData}
                           setShowsData={setShowsData}/>
                       } />
+                      <Route path="/contact" element={<Contact />} />
                   </Routes>
               </AppContainer>
           <Footer />

@@ -275,10 +275,50 @@ const Navbar = (props) => {
                             </li>
                         </Box>
                     </Box>
+                    <Box
+                        component="li"
+                        sx={{
+                            position: 'relative',
+                            margin: '0 20px',
+                            height: '100%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            '&:hover .submenu': {
+                                display: 'block', // Show submenu when hovering over parent
+                                height: 'auto',
+                            },
+                        }}
+                    >
+                        <Typography
+                            component={Link}
+                            to="/contact"
+                            sx={{
+                                textDecoration: 'none',
+                                fontSize: '16px',
+                                color: 'text.primary',
+                                padding: '0 10px',
+                                height: '100%',
+                                minWidth: '130px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                backgroundColor: 'background.paper',
+                                borderRadius: '5px',
+                                '&:hover': {
+                                    backgroundColor: 'action.hover',
+                                },
+                                transition: 'background-color 0.5s ease, color 0.5s ease',
+                            }}
+                        >
+                            Kontakty
+                        </Typography>
+                    </Box>
                 </Box>
             </Box>
 
-            {/* Right Section */}
+            {/* Right Section */
+            }
             <Box
                 sx={{
                     flex: 1,
@@ -313,7 +353,8 @@ const Navbar = (props) => {
                 </Button>
             </Box>
         </Box>
-    );
+    )
+        ;
 
 };
 

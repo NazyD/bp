@@ -9,6 +9,7 @@ import {
     Submenu,
     ThemeToggleButton
 } from "./NavbarStyle.jsx";
+import React from "react";
 
 const Navbar = (props) => {
     const currentTheme = useTheme();
@@ -43,6 +44,9 @@ const Navbar = (props) => {
                                 <Link to="/ranking/shows">Top seriály</Link>
                             </li>
                         </Submenu>
+                    </NavItem>
+                    <NavItem>
+                        <Link to="/contact">Kontakty</Link>
                     </NavItem>
                 </ul>
             </NavbarCenter>
