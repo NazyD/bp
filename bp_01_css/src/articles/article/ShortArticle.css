@@ -34,14 +34,14 @@
     color: var(--text-color);
     text-align: left;
 }
-.short-article-title a {
+.short-article a {
     color: var(--text-color);
     text-decoration: underline;
 }
-.short-article-title a:visited {
+.short-article a:visited {
     color: var(--text-color);
 }
-.short-article-title a:hover {
+.short-article a:hover {
     color: var(--text-color);
 }
 

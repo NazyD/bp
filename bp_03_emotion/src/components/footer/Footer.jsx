@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import styled from '@emotion/styled';
 
+import Logo from '/fimlogo.png';
+
 const FooterContainer = styled.div`
     width: 100%;
     background-color: ${({theme}) => theme.componentBackground};
@@ -18,19 +20,20 @@ const FooterContainer = styled.div`
     align-items: center;
     position: absolute;
     bottom: 0;
-    height: 45px;
+    height: 60px;
 `;
 
 const FooterLeft = styled.div`
     text-align: left;
+    display: flex;
+    flex-direction: column;
 `;
 
 const FooterRight = styled.div`
     text-align: right;
 
-    .uni-logo {
-        max-width: 100px;
-        height: auto;
+    .logo-image{
+        width: 50px;
     }
 `;
 
@@ -54,11 +57,12 @@ const Footer = () => {
     return (
         <FooterContainer>
             <FooterLeft>
-                <span> &copy; Bakalářká práce - ..., Nazy, 2024 </span>
+                <span> &copy; Bakalářká práce - Porovnání metodik stylování webových aplikací</span>
+                <span>Nazarij Dovžanyn, 2024-2025</span>
                 <span>{time}</span>
             </FooterLeft>
             <FooterRight>
-                logo uni ? {}
+                <img src={Logo} className="logo-image" alt="logo"/>
             </FooterRight>
         </FooterContainer>
     );

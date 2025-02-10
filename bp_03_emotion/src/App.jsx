@@ -24,7 +24,7 @@ const movies = JSON.parse(localStorage.getItem("movies.json"));
 const shows = JSON.parse(localStorage.getItem("shows.json"));
 
 const AppContainer = styled.div`
-    padding-bottom: 45px;;
+    padding-bottom: 60px;;
 `;
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
     const [moviesData, setMoviesData] = useState(movies);
     const [showsData, setShowsData] = useState(shows);
     const [visiblePopUp, setVisiblePopup] = useState(false);
-    const [visibleEdiPopUp, setVisibleEditPopup] = useState(false);
+    const [visibleEditPopUp, setVisibleEditPopup] = useState(false);
     const [topVisibility, setTopVisibilityPopup] = useState(false);
     const [theme, setTheme] = useState("light");
 
@@ -41,7 +41,7 @@ function App() {
         setVisiblePopup(!visiblePopUp);
     }
     function setEditVisibility () {
-        setVisibleEditPopup(!visibleEdiPopUp);
+        setVisibleEditPopup(!visibleEditPopUp);
     }
     function setTopVisibility () {
         setTopVisibilityPopup(!topVisibility);
@@ -106,7 +106,7 @@ function App() {
                           articlesData={articlesData}
                           setArticlesData={setArticlesData}
                           topicsData={topicsData}
-                          visibleEdiPopUp={visibleEdiPopUp}
+                          visibleEditPopUp={visibleEditPopUp}
                           setVisibleEditPopup={setEditVisibility}/>
                       } />
                       <Route path="/ranking" element={<Rank/>} />

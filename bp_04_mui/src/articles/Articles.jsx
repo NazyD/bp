@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import ArticlesList from "./articles-list/ArticlesList.jsx";
+import MoveUpButton from "../components/MoveUpButton.jsx";
 
 const Articles = (props) => {
 
@@ -14,6 +15,7 @@ const Articles = (props) => {
                 padding: "20px", // Optional for spacing
             }}
         >
+            <MoveUpButton/>
             <Typography
                 variant="h4" // MUI Typography for consistent heading styles
                 component="h2"

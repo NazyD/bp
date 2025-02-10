@@ -1,5 +1,6 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import Review from "./Review.jsx";
+import MoveUpButton from "../components/MoveUpButton.jsx";
 const RankMovies = (props) => {
 
     const getAverageReview = (revs) => {
@@ -26,6 +27,7 @@ const RankMovies = (props) => {
 
     return(
         <div className="rank-movies">
+            <MoveUpButton/>
             <h2>Žebříček filmů</h2>
 
             <table style={tableStyle}>

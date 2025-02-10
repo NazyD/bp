@@ -27,7 +27,7 @@ const fadeIn = keyframes`
 const slideDown = keyframes`
     0% {
         opacity: 0;
-        transform: translateY(-100%);
+        transform: translateY(-300px);
     }
     100% {
         opacity: 1;

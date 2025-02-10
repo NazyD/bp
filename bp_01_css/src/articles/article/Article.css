@@ -1,0 +1,94 @@
+/* General Page Styling */
+.article-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--component-background);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Title Section */
+.article-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.article-title-left {
+    padding-right: 10px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: right;
+    color: var(--text-color);
+}
+.article-title-left h1 {
+    margin: 0;
+}
+
+.article-title-right {
+    display: flex;
+    margin-left: 10px;
+    justify-content: end;
+}
+.article-metadata {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    text-align: left;
+    justify-content: end;
+    color: var(--border-color);
+}
+.article-image img{
+    height: 300px;
+    width: auto;
+}
+
+/* Article Text */
+.article-text {
+    display: flex;
+    gap: 20px;
+    padding: 50px;
+    flex: 2;
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.8;
+    overflow: auto;
+}
+
+/* Buttons Section */
+.article-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.article-footer button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Delete Button */
+.article-footer .delete-button {
+    background-color: #d9534f; /* Red */
+    color: white;
+}
+
+.article-footer .delete-button:hover {
+    background-color: #c9302c;
+}
+
+/* Update Button */
+.article-footer .update-button {
+    background-color: #5cb85c; /* Green */
+    color: white;
+}
+
+.article-footer .update-button:hover {
+    background-color: #4cae4c;
+}
+

@@ -1,10 +1,13 @@
 import {useParams, useNavigate} from "react-router-dom";
 
-import Comment from "../comment/Comment.jsx";
 import TopicsList from "../../topics/TopicsList.jsx";
 import EditForm from "../edit/EditForm.jsx";
+import MoveUpButton from "../../components/MoveUpButton.jsx";
+import React, {useEffect, useState} from "react";
+import '../../styles/styles.scss';
 
 const Article = (props) => {
+    const [articleText, setArticleText] = useState("");
     const {id} = useParams();
     const navigate = useNavigate();
 
@@ -12,6 +15,18 @@ const Article = (props) => {
     const articleTopics = article.topics.map((topic) => {
         return props.topicsData.find(top => top.idTopic === topic);
     });
+
+    useEffect(() => {
+        if (article.text && article.text.startsWith('/articles/')) {
+            // Fetch the text file
+            fetch(article.text)
+                .then((response) => response.text())
+                .then((data) => setArticleText(data))
+                .catch((error) => console.error("Error fetching article text:", error));
+        } else {
+            setArticleText(article.text);
+        }
+    }, [article.text]);
 
     const handleDelete = () => {
         const updatedArticles = props.articlesData.filter(
@@ -27,7 +42,8 @@ const Article = (props) => {
     }
 
     return (
-        <div className="article">
+        <div className="article-container">
+            <MoveUpButton/>
 
             {props.visibleEdiPopUp ? <EditForm
                 article={article}
@@ -37,31 +53,46 @@ const Article = (props) => {
                 setArticlesData={props.setArticlesData}
                 topicsData={props.topicsData}/> : null}
 
+
             <div className="article-title">
-                <h3>{article.title}</h3>
+                <div className="article-title-left">
+                    <h1>{article.title}</h1>
+                </div>
+                <div className="article-image">
+                    <img src={article.picture} alt="article image"/>
+                </div>
+                <div className="article-title-right">
+                    <div className="article-metadata">
+                        <span className="article-author">Autor:</span>
+                        <span className="article-author">{article.author}</span>
+                        <span className="article-creation">Vytvořeno:</span>
+                        <span className="article-creation">{article.creationDate}</span>
+                        <span className="article-topics">Kategorie:
+                            <TopicsList topicsList={article.topics} topicsData={props.topicsData}/>
+                        </span>
+                    </div>
+                </div>
             </div>
+
             <div className="article-text">
-                <p>{article.text}</p>
+                <div className="article-content" dangerouslySetInnerHTML={{__html: articleText}}/>
             </div>
+
             <div className="article-footer">
-                <div className="article-author">
-                    {article.author}
-                </div>
-                <div className="article-creation">
-                    {article.creationDate}
-                </div>
-                <div className="article-topics">
-                    <TopicsList topicsList={article.topics} topicsData={props.topicsData}/>
-                </div>
-                <div className="article-review">
-                    {article.review}
-                </div>
+                <button
+                    className="update-button"
+                    onClick={props.setVisibleEditPopup}
+                >
+                    Upravit
+                </button>
+                <button
+                    className="delete-button"
+                    onClick={handleDelete}
+                >
+                    Odstranit
+                </button>
             </div>
-            <div className="article-comments">
-                <Comment/>
-            </div>
-            <button className="article-edit-button" onClick={props.setVisibleEditPopup}>upravit</button>
-            <button className="article-delete-button" onClick={handleDelete}>odstranit</button>
+
         </div>
     );
 

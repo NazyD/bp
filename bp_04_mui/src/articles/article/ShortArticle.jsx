@@ -1,9 +1,27 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from 'react-router-dom';
 import TopicsList from "../../topics/TopicsList.jsx";
 import { Box, Typography, Card, CardContent, CardActions} from "@mui/material";
 
 const ShortArticle = (props) => {
+    const [articleText, setArticleText] = useState("");
+
+    useEffect(() => {
+        if (props.article.text && props.article.text.startsWith('/articles/')) {
+            console.log(props.article.text);
+            // Fetch the text file
+            fetch(props.article.text)
+                .then((response) => response.text())
+                .then((data) => setArticleText(data))
+                .catch((error) => console.error("Error fetching article text:", error));
+        } else {
+            setArticleText(props.article.text);
+        }
+    }, [props.article.text]);
+
+    const cutText = articleText.substring(0, props.cardSize === 'big' ? 900 : 300) +
+        `<a href="/articles-list/article/${props.article.idArticle}" style="text-decoration: none; color: inherit;"> ...</a>`;
+
 
     const cardSizeStyles =
         props.cardSize === "big"
@@ -20,6 +38,7 @@ const ShortArticle = (props) => {
                 borderRadius: "10px",
                 padding: "15px",
                 margin: "8px",
+                gap: 0,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -61,7 +80,7 @@ const ShortArticle = (props) => {
             <CardContent
                 sx={{
                     flex: 1,
-                    marginY: "10px",
+                    marginY: 0,
                     padding: 0,
                     color: "text.primary",
                     overflow: "hidden",
@@ -74,7 +93,7 @@ const ShortArticle = (props) => {
                 }}
             >
                 <Typography variant="body2" component="p" sx={{ margin: 0 }}>
-                    {props.article.text}{" "}
+                    <div className="article-content" dangerouslySetInnerHTML={{__html: cutText}}/>
                 </Typography>
             </CardContent>
 

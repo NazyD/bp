@@ -1,42 +1,79 @@
 [
   {
     "idArticle": 1,
-    "title": "Nízev článku mockup",
-    "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Ut tempus purus at lorem. Maecenas aliquet accumsan leo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Sed elit dui, pellentesque",
+    "title": "Tenet",
+    "text": "/articles/tenet-article.txt",
     "author": "nazarij dovžanyn",
     "creationDate": "30/8/2024 19:42:29",
     "editDate": "",
     "review": "1/5",
-    "topics": [1,2]
+    "topics": [1],
+    "picture": "/assets/images/tenet.jpg"
   },
   {
     "idArticle": 2,
-    "title": "Nízev článku 2 mockup",
-    "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Ut tempus purus at lorem. Maecenas aliquet accumsan leo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Sed elit dui, pellentesque",
+    "title": "Spiderman: Paralelní světy",
+    "text": "/articles/spiderman-article.txt",
     "author": "martin dyntr",
     "creationDate": "3/9/2024 15:49:29",
     "editDate": "",
     "review": "2/5",
-    "topics": [3, 4]
+    "topics": [3, 2],
+    "picture": "/assets/images/spidey.jpg"
   },
   {
     "idArticle": 3,
-    "title": "Nízev článku 3 mockup",
-    "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Ut tempus purus at lorem. Maecenas aliquet accumsan leo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Sed elit dui, pellentesque",
+    "title": "Sedm",
+    "text": "/articles/seven-article.txt",
     "author": "petr horejs",
     "creationDate": "3/1/2024 15:49:29",
     "editDate": "",
     "review": "",
-    "topics": [1, 4]
+    "topics": [1, 5],
+    "picture": "/assets/images/seven.jpg"
   },
   {
     "idArticle": 4,
-    "title": "Nízev článku 4 mockup",
-    "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus faucibus molestie nisl. Ut tempus purus at lorem. Maecenas aliquet accumsan leo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Sed elit dui, pellentesque",
+    "title": "Pulp Fiction",
+    "text": "/articles/pulpfiction-article.txt",
     "author": "petr lubas",
     "creationDate": "3/9/2021 15:49:29",
     "editDate": "",
     "review": "",
-    "topics": [3, 5]
+    "topics": [1, 5,2],
+    "picture": "/assets/images/pulpfiction.jpg"
+  },
+  {
+    "idArticle": 5,
+    "title": "Interstellar",
+    "text": "/articles/interstellar-article.txt",
+    "author": "petr lubas",
+    "creationDate": "3/12/2021 15:12:29",
+    "editDate": "",
+    "review": "",
+    "topics": [1, 5],
+    "picture": "/assets/images/interstellar.jpg"
+  },
+  {
+    "idArticle": 6,
+    "title": "Gladiator",
+    "text": "/articles/gladiator-article.txt",
+    "author": "petr lubas",
+    "creationDate": "3/9/2021 15:49:29",
+    "editDate": "",
+    "review": "",
+    "topics": [1, 5],
+    "picture": "/assets/images/gladiator.jpg"
+  },
+  {
+    "idArticle": 7,
+    "title": "Duna část druhá",
+    "text": "/articles/dune-article.txt",
+    "author": "petr lubas",
+    "creationDate": "3/9/2021 15:49:29",
+    "editDate": "",
+    "review": "",
+    "topics": [1, 5],
+    "picture": "/assets/images/dune.jpg"
   }
 ]

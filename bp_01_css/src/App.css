@@ -12,7 +12,7 @@ p {
 }
 
 .container{
-  padding-bottom: 45px; /* height of the footer */
+  padding-bottom: 60px; /* height of the footer */
 }
 #root {
   min-height: 100%;

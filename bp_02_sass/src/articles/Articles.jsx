@@ -3,11 +3,13 @@ import React from "react";
 import ArticlesList from './articles-list/ArticlesList.jsx';
 
 import '../styles/styles.scss';
+import MoveUpButton from "../components/MoveUpButton.jsx";
 
 const Articles = (props) => {
 
     return (
         <div className="articles">
+            <MoveUpButton/>
             <h2>Seznam článků</h2>
             <ArticlesList
                 articlesData={props.articlesData}

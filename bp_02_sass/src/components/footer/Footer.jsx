@@ -2,6 +2,8 @@ import React, {useEffect} from "react";
 import {useState} from "react";
 import "../../styles/styles.scss"
 
+import Logo from '/fimlogo.png';
+
 const Footer = () => {
     const [time, setTime] = useState();
 
@@ -21,11 +23,12 @@ const Footer = () => {
     return(
         <div className="footer">
             <div className="footer-left">
-                <span> &copy; Bakalářká práce - ..., Nazy, 2024 </span>
+                <span> &copy; Bakalářká práce - Porovnání metodik stylování webových aplikací</span>
+                <span>Nazarij Dovžanyn, 2024-2025</span>
                 <span>{time}</span>
             </div>
             <div className="footer-right">
-                logo uni ?
+                <img src={Logo} className="logo-image" alt="logo"/>
             </div>
         </div>
     );

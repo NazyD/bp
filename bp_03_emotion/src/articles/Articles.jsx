@@ -2,6 +2,7 @@ import React from "react";
 
 import ArticlesList from './articles-list/ArticlesList.jsx';
 import styled from "@emotion/styled";
+import MoveUpButton from "../components/MoveUpButton.jsx";
 
 const ArticlesMainContainer = styled.div`
     display: flex;
@@ -15,6 +16,7 @@ const Articles = (props) => {
 
     return (
         <ArticlesMainContainer>
+            <MoveUpButton/>
             <h2>Seznam článků</h2>
             <ArticlesList
                 articlesData={props.articlesData}

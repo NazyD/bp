@@ -1,10 +1,12 @@
 import React from "react";
 import {HomeContainer, HomeTitle, HomeDescription, HomeSection, HomeInfo} from "./HomeStyle.jsx";
+import MoveUpButton from "./components/MoveUpButton.jsx";
 
 const Home = () => {
 
     return (
         <HomeContainer>
+            <MoveUpButton/>
             <HomeSection>
                 <HomeTitle>Vítejte</HomeTitle>
                 <HomeDescription>

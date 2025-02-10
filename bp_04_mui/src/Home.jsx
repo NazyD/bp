@@ -1,6 +1,7 @@
 import React from "react";
 import {Box, Typography} from "@mui/material";
 import {keyframes} from "@mui/system";
+import MoveUpButton from "./components/MoveUpButton.jsx";
 
 const slideUpFade = keyframes`
     0% {
@@ -27,7 +28,7 @@ const fadeIn = keyframes`
 const slideDown = keyframes`
     0% {
         opacity: 0;
-        transform: translateY(-100%);
+        transform: translateY(-300px);
     }
     100% {
         opacity: 1;
@@ -46,6 +47,7 @@ const Home = () => {
                 marginBottom: "10px",
             }}
         >
+            <MoveUpButton/>
             <Box
                 sx={{
                     width: "79%",

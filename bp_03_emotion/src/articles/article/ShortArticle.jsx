@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 import TopicsList from "../../topics/TopicsList.jsx";
 import styled from "@emotion/styled";
+import {useEffect, useState} from "react";
 
 const ShortArticleContainer = styled.div`
   background-color: ${({ theme }) => theme.componentBackground};
@@ -74,6 +75,24 @@ const ShortArticleFooter = styled.div`
 `;
 
 const ShortArticle = (props) => {
+    const [articleText, setArticleText] = useState("");
+
+    useEffect(() => {
+        if (props.article.text && props.article.text.startsWith('/articles/')) {
+            console.log(props.article.text);
+            // Fetch the text file
+            fetch(props.article.text)
+                .then((response) => response.text())
+                .then((data) => setArticleText(data))
+                .catch((error) => console.error("Error fetching article text:", error));
+        } else {
+            setArticleText(props.article.text);
+        }
+    }, [props.article.text]);
+
+    const cutText = articleText.substring(0, props.cardSize === 'big' ? 1400 : 400) +
+        `<a href="/articles-list/article/${props.article.idArticle}" style="text-decoration: none; color: inherit;"> ...</a>`;
+
 
     return(
         <ShortArticleContainer className={props.cardSize === "big" ? "big-card" : "small-card"}>
@@ -83,9 +102,7 @@ const ShortArticle = (props) => {
                 </Link>
             </ShortArticleTitle>
             <ShortArticleText>
-                <p>
-                    {props.article.text}{" "}
-                </p>
+                <div className="article-content" dangerouslySetInnerHTML={{__html: cutText}}/>
             </ShortArticleText>
             <ShortArticleFooter>
                 <div>{props.article.author}</div>

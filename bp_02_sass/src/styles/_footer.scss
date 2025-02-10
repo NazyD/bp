@@ -16,11 +16,13 @@
 
   position: absolute;
   bottom: 0;
-  height: 45px;
+  height: 60px;
 
   // Left Section
   &-left {
     text-align: left;
+    display: flex;
+    flex-direction: column;
 
     p {
       margin: 0;
@@ -32,9 +34,8 @@
   &-right {
     text-align: right;
 
-    .uni-logo {
-      max-width: 100px;
-      height: auto;
+    .logo-image{
+      width: 50px;
     }
   }
 

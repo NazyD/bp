@@ -18,7 +18,7 @@
 
     position: absolute;
     bottom: 0;
-    height: 45px;
+    height: 60px;
 }
 
 /* Optional styling for footer text */
@@ -29,7 +29,14 @@
 /* Left Section */
 .footer-left {
     text-align: left;
+    display: flex;
+    flex-direction: column;
 }
+
+.logo-image{
+    width: 50px;
+}
+
 .footer-left p {
     margin: 0;
     line-height: 1.5;
@@ -38,8 +45,4 @@
 /* Right Section */
 .footer-right {
     text-align: right;
-}
-.uni-logo {
-    max-width: 100px;
-    height: auto;
 }

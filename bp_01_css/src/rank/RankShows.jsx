@@ -1,4 +1,5 @@
 import Review from "./Review.jsx";
+import MoveUpButton from "../components/MoveUpButton.jsx";
 
 const RankShows = (props) => {
 
@@ -26,6 +27,7 @@ const RankShows = (props) => {
 
     return(
         <div className="rank-shows">
+            <MoveUpButton/>
             <h2>Žebříček seriálů</h2>
 
             <table style={tableStyle}>

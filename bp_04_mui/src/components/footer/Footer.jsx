@@ -2,6 +2,8 @@ import React, {useEffect} from "react";
 import {useState} from "react";
 import {Box, Typography, useTheme} from '@mui/material';
 
+import Logo from '/fimlogo.png';
+
 const Footer = () => {
     const [time, setTime] = useState();
     const theme = useTheme();
@@ -38,7 +40,7 @@ const Footer = () => {
                 boxSizing: 'border-box',
                 position: 'absolute',
                 bottom: '0',
-                height: '45px',
+                height: '60px',
             }}
         >
             {/* Left Section */}
@@ -46,8 +48,9 @@ const Footer = () => {
                 sx={{
                     textAlign: 'left',
                     display: 'flex',
-                    alignItems: 'center',
-                    gap: '5px'
+                    flexDirection: 'column',
+                    alignItems: 'left',
+                    gap: '0'
                 }}
             >
                 <Typography
@@ -60,7 +63,19 @@ const Footer = () => {
                         margin: 0,
                     }}
                 >
-                    &copy; Bakalářká práce - ..., Nazy, 2024
+                    &copy; Bakalářká práce - Porovnání metodik stylování webových aplikací
+                </Typography>
+                <Typography
+                    variant="body2"
+                    component="span"
+                    sx={{
+                        fontSize: '14px',
+                        lineHeight: 1.5,
+                        color: theme.palette.text.primary,
+                        margin: 0,
+                    }}
+                >
+                    Nazarij Dovžanyn, 2024-2025
                 </Typography>
                 <Typography
                     variant="body3"
@@ -78,17 +93,14 @@ const Footer = () => {
 
             {/* Right Section */}
             <Box
+                component="img"
+                src={Logo}
+                alt="logo image"
                 sx={{
-                    textAlign: 'right'
+                    width: "50px",
+                    height: "auto",
                 }}
-            >
-                logo uni ?
-                {/*<img*/}
-                {/*    src="/path/to/logo.png"*/}
-                {/*    alt="University Logo"*/}
-                {/*    style={{ maxWidth: '100px', height: 'auto' }}*/}
-                {/*/>*/}
-            </Box>
+            />
         </Box>
     );
 
