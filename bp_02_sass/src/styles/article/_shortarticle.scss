@@ -11,7 +11,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: background-color 0.5s ease, border-color 0.5s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease;
+  position: relative;
+  overflow: hidden;
 
   // Default Card (Small)
   &.small-card {
@@ -21,15 +23,35 @@
 
   // Big Card
   &.big-card {
-    width: 100%; // Full width
+    width: 100%;
     height: 300px;
+  }
+
+  .sliding-image {
+    position: absolute;
+    top: 0;
+    right: -50%;
+    height: 100%;
+    width: auto;
+    border: 1px solid black;
+    z-index: 100;
+    transition: right 0.9s ease, opacity 0.8s ease;
+    opacity: 0;
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 95%);
   }
 
   // Hover Effect
   &:hover {
-    background-color: $light-short-article-bg-hover;
-    border-color: $light-text-color;
+    transform: translateY(-2px) translateX(-1px); /* Makes the card "float" slightly */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Adds a shadow */
+    background-color: $light-component-bg;
+    .sliding-image{
+      right: 0; /* Slide into the card */
+      opacity: 0.5; /* Slightly visible for the overlay effect */
+      mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 95%); /* Gradual opacity effect when sliding */
+    }
   }
+
 }
 
 // Title Section
@@ -57,21 +79,15 @@
   flex: 1;
   margin: 10px 0;
   color: $light-text-color;
-  overflow: hidden; // Enforce content clipping
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
   line-height: 1.5; // Match the line height
-  max-height: calc(1.5em * 9); // Max height = 6 lines
   white-space: normal;
+  position: relative;
+  z-index: 2;
+  background: transparent;
 
   p {
     margin: 0;
     font-size: 14px;
-    overflow: inherit;
-    text-overflow: inherit;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
     line-height: 1.5;
     max-height: calc(1.5em * 9);
     white-space: normal; // Wrap text to multiple lines
@@ -85,6 +101,9 @@
   align-items: center;
   font-size: 12px;
   color: $light-text-color;
+  position: relative;
+  z-index: 2;
+  background: transparent;
 
   > div {
     display: flex;
@@ -103,7 +122,6 @@
 
     &:hover {
       background-color: $dark-short-article-bg-hover;
-      border-color: $dark-text-color;
     }
   }
 

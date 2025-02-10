@@ -8,7 +8,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: background-color 0.5s ease, border-color 0.5s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease;
+    position: relative;
+    overflow: hidden;
 }
 /* Default Card (Small) */
 .short-article.small-card {
@@ -23,8 +25,28 @@
 
 /* Hover Effect */
 .short-article:hover {
+    transform: translateY(-2px) translateX(-1px); /* Makes the card "float" slightly */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Adds a shadow */
     background-color: var(--short-article-bg-hover);
-    border-color: var(--text-color);
+}
+
+/* Sliding Image */
+.sliding-image {
+    position: absolute;
+    top: 0;
+    right: -50%;
+    height: 100%;
+    width: auto;
+    z-index: 1;
+    transition: right 0.9s ease, opacity 0.8s ease;
+    opacity: 0;
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 95%); /* Gradual opacity effect */
+}
+
+.short-article:hover .sliding-image {
+    right: 0;
+    opacity: 0.5;
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 95%); /* Gradual opacity effect when sliding */
 }
 
 /* Title Section */
@@ -49,25 +71,19 @@
     flex: 1;
     margin: 10px 0;
     color: var(--text-color);
-    overflow: hidden; /* Enforce content clipping */
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    line-height: 1.5; /* Match the line height */
-    max-height: calc(1.5em * 9); /* Max height = 6 lines */
+    line-height: 1.5;
     white-space: normal;
+    position: relative;
+    z-index: 2;
+    background: transparent;
 }
 /* Text Section */
 .short-article-text p{
     margin: 0;
     font-size: 14px;
-    overflow: inherit;
-    text-overflow: inherit; /* Add "..." for long text */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
     line-height: 1.5;
     max-height: calc(1.5em * 9);
-    white-space: normal; /* Wrap text to multiple lines */
+    white-space: normal;
 }
 
 /* Footer Section */
@@ -77,6 +93,9 @@
     align-items: center;
     font-size: 12px;
     color: var(--text-color);
+    position: relative;
+    z-index: 2;
+    background: transparent;
 }
 
 /* Footer Subsections */

@@ -13,7 +13,9 @@ const ShortArticleContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: background-color 0.5s ease, border-color 0.5s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease;
+    position: relative;
+    overflow: hidden;
 
   &.small-card {
     width: 400px;
@@ -27,8 +29,26 @@ const ShortArticleContainer = styled.div`
 
   &:hover {
     background-color: ${({ theme }) => theme.componentBackgroundHover};
-    border-color: ${({ theme }) => theme.textColor};
+      transform: translateY(-2px) translateX(-1px); 
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); 
   }
+    &:hover .sliding-image{
+        right: 0; 
+        opacity: 0.5; 
+        mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 95%);
+    }
+`;
+
+const ImageSlide = styled.img`
+    position: absolute;
+    top: 0;
+    right: -50%; 
+    height: 100%;
+    width: auto;
+    z-index: 1; 
+    transition: right 0.9s ease, opacity 0.8s ease; 
+    opacity: 0; 
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 95%);
 `;
 
 const ShortArticleTitle = styled.h3`
@@ -52,13 +72,12 @@ const ShortArticleText = styled.div`
   flex: 1;
   margin: 10px 0;
   color: ${({ theme }) => theme.textColor};
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
   line-height: 1.5;
   max-height: calc(1.5em * 8);
   white-space: normal;
+    position: relative;
+    z-index: 2;
+    background: transparent;
 
   p {
     margin: 0;
@@ -72,6 +91,9 @@ const ShortArticleFooter = styled.div`
   align-items: center;
   font-size: 12px;
   color: ${({ theme }) => theme.textColor};
+    position: relative;
+    z-index: 2;
+    background: transparent;
 `;
 
 const ShortArticle = (props) => {
@@ -96,6 +118,11 @@ const ShortArticle = (props) => {
 
     return(
         <ShortArticleContainer className={props.cardSize === "big" ? "big-card" : "small-card"}>
+
+            <ImageSlide src={props.article.picture}
+                        alt="..."
+                        className="sliding-image"/>
+
             <ShortArticleTitle>
                 <Link to={`/articles-list/article/${props.article.idArticle}`}>
                     {props.article.title}

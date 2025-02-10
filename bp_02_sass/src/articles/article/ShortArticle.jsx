@@ -31,6 +31,12 @@ const ShortArticle = (props) => {
                 <h3><Link to={`/articles-list/article/${props.article.idArticle}`}>{props.article.title}</Link></h3>
             </div>
 
+            <img
+                src={props.article.picture}
+                alt="..."
+                className="sliding-image"
+            />
+
             <div className="short-article-text">
                 <div className="article-content" dangerouslySetInnerHTML={{__html: cutText}}/>
             </div>

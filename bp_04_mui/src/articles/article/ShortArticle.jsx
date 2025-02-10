@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Link} from 'react-router-dom';
 import TopicsList from "../../topics/TopicsList.jsx";
-import { Box, Typography, Card, CardContent, CardActions} from "@mui/material";
+import {Box, Typography, Card, CardContent, CardActions} from "@mui/material";
+import {Image} from "@mui/icons-material";
 
 const ShortArticle = (props) => {
     const [articleText, setArticleText] = useState("");
@@ -42,15 +43,39 @@ const ShortArticle = (props) => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                transition: "background-color 0.5s ease, border-color 0.5s ease",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease",
+                position: "relative",
+                overflow: "hidden",
                 "&:hover": {
+                    transform: "translateY(-2px) translateX(-1px)",
+                    boxShadow: "0 5px 10px rgba(0, 0, 0, 0.15)",
                     backgroundColor: "action.shortArticleHover",
-                    borderColor: "text.primary",
+                },
+                "&:hover .sliding-image": {
+                    right: "0",
+                    opacity: "0.5",
+                    maskImage: "linear-gradient(to left, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 95%)",
                 },
             }}
         >
+
+            <Box
+                component="img"
+                sx={{
+                    position: "absolute",
+                    top: "0",
+                    right: "-50%",
+                    height: "100%",
+                    width: "auto",
+                    zIndex: "1",
+                    transition: "right 0.9s ease, opacity 0.8s ease",
+                    opacity: "0",
+                    maskImage: "linear-gradient(to left, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 95%)",
+                }} src={props.article.picture} alt="..." className="sliding-image"/>
+
+
             {/* Title Section */}
-            <CardContent sx={{ padding: 0 }}>
+            <CardContent sx={{padding: 0}}>
                 <Typography
                     variant="h6"
                     component="h3"
@@ -65,8 +90,8 @@ const ShortArticle = (props) => {
                         "& a": {
                             textDecoration: "underline",
                             color: "text.primary",
-                            "&:visited": { color: "text.primary" },
-                            "&:hover": { color: "text.primary" },
+                            "&:visited": {color: "text.primary"},
+                            "&:hover": {color: "text.primary"},
                         },
                     }}
                 >
@@ -76,28 +101,27 @@ const ShortArticle = (props) => {
                 </Typography>
             </CardContent>
 
-            {/* Text Section */}
+                {/* Text Section */}
             <CardContent
                 sx={{
                     flex: 1,
                     marginY: 0,
                     padding: 0,
                     color: "text.primary",
-                    overflow: "hidden",
-                    textOverflow: "inherit",
-                    display: "-webkit-box",
-                    WebkitBoxOrient: "vertical",
                     lineHeight: 1.5,
                     maxHeight: "calc(1.4em * 7)", // 6 lines max
                     whiteSpace: "normal",
+                    position: "relative",
+                    zIndex: "2",
+                    background: "transparent",
                 }}
             >
-                <Typography variant="body2" component="p" sx={{ margin: 0 }}>
+                <Typography variant="body2" component="p" sx={{margin: 0}}>
                     <div className="article-content" dangerouslySetInnerHTML={{__html: cutText}}/>
                 </Typography>
             </CardContent>
 
-            {/* Footer Section */}
+                {/* Footer Section */}
             <CardActions
                 sx={{
                     display: "flex",
@@ -105,6 +129,9 @@ const ShortArticle = (props) => {
                     alignItems: "center",
                     fontSize: "12px",
                     color: "text.primary",
+                    position: "relative",
+                    zIndex: "2",
+                    background: "transparent",
                     "& > div": {
                         display: "flex",
                         alignItems: "center",
