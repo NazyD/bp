@@ -16,9 +16,9 @@
 /* Popup Window */
 .popup-window {
     position: fixed;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center alignment */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 85%;
     max-width: 900px;
     height: auto;
@@ -27,7 +27,7 @@
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    overflow-y: auto; /* Scroll if content exceeds height */
+    overflow-y: auto;
     z-index: 1000;
     gap: 20px;
     display: flex;
@@ -45,7 +45,8 @@
 
 /* Form Elements Styling */
 .create-form,
-.topic-management {
+.topic-management,
+.edit-form{
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -55,7 +56,7 @@
 .input-form {
     width: 100%;
     position: relative;
-    margin-bottom: 10px; /* Adjust as needed */
+    margin-bottom: 10px;
 }
 
 .input-form label {
@@ -94,15 +95,16 @@
     border: 1px solid var(--border-color);
     border-radius: 5px;
     color: var(--text-color);
-    resize: none; /* Disable resizing */
-    min-height: 120px;
+    resize: none;
+    min-height: 150px;
     box-sizing: border-box;
 }
 
 /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
 
 .create-form button,
-.topic-management button {
+.topic-management button,
+.edit-form button{
     padding: 10px 15px;
     font-size: 14px;
     font-weight: bold;
@@ -115,34 +117,40 @@
 }
 
 .create-form-close,
-.topic-management-close {
+.topic-management-close,
+.edit-form-close{
     border: 1px solid white !important;
     background-color: var(--component-background) !important;
 }
 
 .create-form-close:hover,
-.topic-management-close:hover {
+.topic-management-close:hover,
+.edit-form-close:hover{
     background-color: var(--button-background-color-hover) !important;
     transition: background-color 0.5s ease, color 0.5s ease !important;
 }
 
 .create-form button:hover,
-.topic-management button:hover {
+.topic-management button:hover,
+.edit-form button:hover{
     background-color: var(--button-background-color-hover);
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .form-buttons {
     display: flex;
-    justify-content: flex-end; /* Align buttons to the right */
-    gap: 10px; /* Add spacing between buttons */
+    justify-content: flex-end;
+    gap: 10px;
 }
 
 /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
 .autocomplete {
     width: 100%;
     position: relative;
-    margin-bottom: 10px; /* Adjust as needed */
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .autocomplete label {
     position: absolute;
@@ -178,7 +186,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    width: auto;
+    width: max-content;
     margin-bottom: 10px;
     position: absolute;
     top: 50%;

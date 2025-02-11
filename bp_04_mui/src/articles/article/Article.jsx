@@ -4,10 +4,11 @@ import TopicsList from "../../topics/TopicsList.jsx";
 import EditForm from "../edit/EditForm.jsx";
 import MoveUpButton from "../../components/MoveUpButton.jsx";
 import React, {useEffect, useState} from "react";
-import {Box, Button, Paper, Typography} from "@mui/material";
+import {Box, Button, Paper, Typography, useTheme} from "@mui/material";
 import {Grid} from "@mui/system";
 
 const Article = (props) => {
+    const theme = useTheme();
     const [articleText, setArticleText] = useState("");
     const {id} = useParams();
     const navigate = useNavigate();
@@ -55,14 +56,6 @@ const Article = (props) => {
             }}
         >
             <MoveUpButton/>
-
-            {props.visibleEdiPopUp ? <EditForm
-                article={article}
-                articleTopics={articleTopics}
-                articlesData={props.articlesData}
-                setVisibleEditPopup={props.setVisibleEditPopup}
-                setArticlesData={props.setArticlesData}
-                topicsData={props.topicsData}/> : null}
 
             <Box
                 sx={{
@@ -171,6 +164,69 @@ const Article = (props) => {
                 >
                     Upravit
                 </Button>
+                {props.visibleEditPopUp && (
+                    <>
+                        <Box
+                            sx={{
+                                position: "fixed",
+                                top: 0,
+                                left: 0,
+                                width: "100%",
+                                height: "100%",
+                                backgroundColor: "rgba(0, 0, 0, 0.7)",
+                                zIndex: 999,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                            onClick={props.setVisibleEditPopup}
+                        ></Box>
+                        <Box
+                            sx={{
+                                position: "fixed",
+                                top: "50%",
+                                left: "50%",
+                                transform: "translate(-50%, -50%)",
+                                width: "50%",
+                                maxHeight: "78%",
+                                backgroundColor: theme.palette.background.paper,
+                                borderRadius: "10px",
+                                padding: "15px",
+                                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
+                                overflowY: "auto",
+                                zIndex: 1000,
+                            }}
+                        >
+                            <Button
+                                onClick={props.setVisibleEditPopup}
+                                sx={{
+                                    position: "absolute",
+                                    top: "10px",
+                                    right: "10px",
+                                    fontSize: "18px",
+                                    fontWeight: "bold",
+                                    color: theme.palette.text.primary,
+                                    background: "none",
+                                    border: "none",
+                                    cursor: "pointer",
+                                    "&:hover": {
+                                        color: theme.palette.action.hover,
+                                    },
+                                }}
+                            >
+                                X
+                            </Button>
+                            <EditForm
+                                article={article}
+                                articleTopics={articleTopics}
+                                articlesData={props.articlesData}
+                                setVisibleEditPopup={props.setVisibleEditPopup}
+                                setArticlesData={props.setArticlesData}
+                                topicsData={props.topicsData}
+                            />
+                        </Box>
+                    </>
+                )}
                 <Button
                     variant="contained"
                     onClick={handleDelete}

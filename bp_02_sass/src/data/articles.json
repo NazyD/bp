@@ -18,7 +18,7 @@
     "creationDate": "3/9/2024 15:49:29",
     "editDate": "",
     "review": "2/5",
-    "topics": [3, 2],
+    "topics": [1, 2],
     "picture": "/assets/images/spidey.jpg"
   },
   {
@@ -75,5 +75,49 @@
     "review": "",
     "topics": [1, 5],
     "picture": "/assets/images/dune.jpg"
+  },
+  {
+    "idArticle": 8,
+    "title": "Shogun",
+    "text": "/articles/shogun-article.txt",
+    "author": "petr lubas",
+    "creationDate": "3/9/2021 15:49:29",
+    "editDate": "",
+    "review": "",
+    "topics": [1, 5],
+    "picture": "/assets/images/shogun.jpg"
+  },
+  {
+    "idArticle": 9,
+    "title": "Arcane",
+    "text": "/articles/arcane-article.txt",
+    "author": "petr lubas",
+    "creationDate": "3/9/2021 15:49:29",
+    "editDate": "",
+    "review": "",
+    "topics": [1, 5],
+    "picture": "/assets/images/arcane.jpg"
+  },
+  {
+    "idArticle": 10,
+    "title": "Demon slayer",
+    "text": "/articles/demon-article.txt",
+    "author": "petr lubas",
+    "creationDate": "3/9/2021 15:49:29",
+    "editDate": "",
+    "review": "",
+    "topics": [1, 5],
+    "picture": "/assets/images/demon.jpg"
+  },
+  {
+    "idArticle": 11,
+    "title": "Hra o trůny",
+    "text": "/articles/got-article.txt",
+    "author": "petr lubas",
+    "creationDate": "3/9/2021 15:49:29",
+    "editDate": "",
+    "review": "",
+    "topics": [1, 5],
+    "picture": "/assets/images/got.jpg"
   }
 ]

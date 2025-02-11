@@ -48,7 +48,8 @@
 
 /* Form Elements Styling */
 .create-form,
-.topic-management {
+.topic-management,
+.edit-form{
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -57,7 +58,7 @@
   .input-form {
     width: 100%;
     position: relative;
-    margin-bottom: 10px; /* Adjust as needed */
+    margin-bottom: 10px;
     label {
       position: absolute;
       left: 10px;
@@ -96,8 +97,8 @@
       border: 1px solid $light-border;
       border-radius: 5px;
       color: $light-text-color;
-      resize: none; /* Disable resizing */
-      min-height: 120px;
+      resize: none;
+      min-height: 150px;
       box-sizing: border-box;
     }
   }
@@ -120,7 +121,8 @@
   }
 
   .create-form-close,
-  .topic-management-close {
+  .topic-management-close,
+  .edit-form-close{
     border: 1px solid white !important;
     background-color: $light-component-bg !important;
 
@@ -132,14 +134,17 @@
 
   .form-buttons {
     display: flex;
-    justify-content: flex-end; /* Align buttons to the right */
-    gap: 10px; /* Add spacing between buttons */
+    justify-content: flex-end;
+    gap: 10px;
   }
 
   .autocomplete {
     width: 100%;
     position: relative;
-    margin-bottom: 10px; /* Adjust as needed */
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     label {
       position: absolute;
       left: 10px;
@@ -176,6 +181,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+    width: max-content;
     margin-bottom: 10px;
     position: absolute;
     top: 50%;
@@ -247,7 +253,7 @@
 }
 
 [data-theme='dark'] .create-form,
-.topic-management {
+.topic-management, .edit-form {
   .input-form {
     label {
       background-color: $dark-component-bg;
@@ -278,7 +284,8 @@
   }
 
   .create-form-close,
-  .topic-management-close {
+  .topic-management-close,
+  .edit-form-close{
     border: 1px solid white !important;
     background-color: $dark-component-bg !important;
 

@@ -28,14 +28,14 @@ function App() {
     const [moviesData, setMoviesData] = useState(movies);
     const [showsData, setShowsData] = useState(shows);
     const [visiblePopUp, setVisiblePopup] = useState(false);
-    const [visibleEdiPopUp, setVisibleEditPopup] = useState(false);
+    const [visibleEditPopUp, setVisibleEditPopup] = useState(false);
     const [topVisibility, setTopVisibilityPopup] = useState(false);
 
     function setVisibility () {
         setVisiblePopup(!visiblePopUp);
     }
     function setEditVisibility () {
-        setVisibleEditPopup(!visibleEdiPopUp);
+        setVisibleEditPopup(!visibleEditPopUp);
     }
     function setTopVisibility () {
         setTopVisibilityPopup(!topVisibility);
@@ -85,7 +85,7 @@ function App() {
                       articlesData={articlesData}
                       setArticlesData={setArticlesData}
                       topicsData={topicsData}
-                      visibleEdiPopUp={visibleEdiPopUp}
+                      visibleEditPopUp={visibleEditPopUp}
                       setVisibleEditPopup={setEditVisibility}/>
                   } />
                   <Route path="/ranking" element={<Rank/>} />

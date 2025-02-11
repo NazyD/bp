@@ -44,18 +44,6 @@ const Article = (props) => {
         <div className="article-container">
             <MoveUpButton/>
 
-            {/* Edit Form Popup */}
-            {props.visibleEditPopUp ? (
-                <EditForm
-                    article={article}
-                    articleTopics={articleTopics}
-                    articlesData={props.articlesData}
-                    setVisibleEditPopup={props.setVisibleEditPopup}
-                    setArticlesData={props.setArticlesData}
-                    topicsData={props.topicsData}
-                />
-            ) : null}
-
             {/* Article Title Section */}
             <div className="article-title">
                 <div className="article-title-left">
@@ -90,6 +78,22 @@ const Article = (props) => {
                 >
                     Upravit
                 </button>
+                {props.visibleEditPopUp && (
+                    <>
+                        <div className="popup-overlay" onClick={props.setVisibleEditPopup}></div>
+                        <div className="popup-window">
+                            <EditForm
+                                article={article}
+                                articleTopics={articleTopics}
+                                articlesData={props.articlesData}
+                                setVisibleEditPopup={props.setVisibleEditPopup}
+                                setArticlesData={props.setArticlesData}
+                                topicsData={props.topicsData}
+                            />
+                        </div>
+                    </>
+                )}
+
                 <button
                     className="delete-button"
                     onClick={handleDelete}

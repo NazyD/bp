@@ -104,6 +104,41 @@ const ArticleDeleteButton = styled.div`
     }
 `;
 
+// Styled Components for Popup
+const PopupOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const PopupWindow = styled.div`
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 900px;
+    height: auto;
+    max-height: 78%;
+    background-color: ${({theme}) => theme.componentBackground};
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    z-index: 1000;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+`;
+
 const Article = (props) => {
     const [articleText, setArticleText] = useState("");
     const {id} = useParams();
@@ -142,18 +177,6 @@ const Article = (props) => {
         <ArticleContainer>
             <MoveUpButton/>
 
-            {/* Edit Form Popup */}
-            {props.visibleEditPopUp ? (
-                <EditForm
-                    article={article}
-                    articleTopics={articleTopics}
-                    articlesData={props.articlesData}
-                    setVisibleEditPopup={props.setVisibleEditPopup}
-                    setArticlesData={props.setArticlesData}
-                    topicsData={props.topicsData}
-                />
-            ) : null}
-
             {/* Article Title Section */}
             <ArticleTitle>
                 <ArticleTitleLeft>
@@ -185,6 +208,22 @@ const Article = (props) => {
                 <ArticleUpdateButton onClick={props.setVisibleEditPopup}>
                     Upravit
                 </ArticleUpdateButton>
+                {props.visibleEditPopUp && (
+                    <>
+                        <PopupOverlay onClick={props.setVisibleEditPopup}/>
+                        <PopupWindow>
+                            <EditForm
+                                article={article}
+                                articleTopics={articleTopics}
+                                articlesData={props.articlesData}
+                                setVisibleEditPopup={props.setVisibleEditPopup}
+                                setArticlesData={props.setArticlesData}
+                                topicsData={props.topicsData}
+                            />
+                        </PopupWindow>
+                    </>
+                )}
+
                 <ArticleDeleteButton onClick={handleDelete}>
                     Odstranit
                 </ArticleDeleteButton>
