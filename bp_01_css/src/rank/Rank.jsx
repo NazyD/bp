@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
 import React from "react";
+import './Rank.css';
 
 const Rank = () => {
 
@@ -8,12 +9,12 @@ const Rank = () => {
             <h3>Vyberte si žebříček: </h3>
             <div>
                 <Link to="/ranking/movies" className="title">
-                    žebříček filmů
+                    Žebříček filmů
                 </Link>
             </div>
             <div>
                 <Link to="/ranking/shows" className="title">
-                    žebříček seriálů
+                    Žebříček seriálů
                 </Link>
             </div>
         </div>

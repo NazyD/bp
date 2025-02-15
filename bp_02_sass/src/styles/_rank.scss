@@ -1,0 +1,50 @@
+@use './variables' as *;
+
+.rank {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+
+  h3 {
+    font-size: 24px;
+    color: $light-text-color;
+    margin-bottom: 20px;
+  }
+
+  div {
+    margin: 15px 0;
+  }
+
+  .title {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    color: $light-text-color;
+    text-decoration: none;
+    background-color: $light-component-bg;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: $light-component-bg-hover;
+      transform: scale(1.3);
+    }
+  }
+}
+
+// dark theme updates
+[data-theme='dark'] .rank {
+  h3 {
+    color: $dark-text-color;
+  }
+  .title{
+    color: $dark-text-color;
+    background-color: $dark-component-bg;
+    &:hover {
+      background-color: $dark-component-bg-hover;
+    }
+  }
+}

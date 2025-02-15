@@ -57,7 +57,7 @@ const Footer = () => {
     return (
         <FooterContainer>
             <FooterLeft>
-                <span> &copy; Bakalářká práce - Porovnání metodik stylování webových aplikací</span>
+                <span> &copy; Bakalářká práce - Moderní metody stylování webových aplikací</span>
                 <span>Nazarij Dovžanyn, 2024-2025</span>
                 <span>{time}</span>
             </FooterLeft>

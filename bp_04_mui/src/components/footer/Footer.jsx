@@ -63,7 +63,7 @@ const Footer = () => {
                         margin: 0,
                     }}
                 >
-                    &copy; Bakalářká práce - Porovnání metodik stylování webových aplikací
+                    &copy; Bakalářká práce - Moderní metody stylování webových aplikací
                 </Typography>
                 <Typography
                     variant="body2"
