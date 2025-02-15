@@ -1,6 +1,6 @@
 [
   {
-    "idMovie": 1,
+    "id": 1,
     "movieTitle": "Tenet",
     "director": "Christopher Nolan",
     "writer": "Christopher Nolan",
@@ -11,7 +11,7 @@
     "picture": "/assets/images/tenet.jpg"
   },
   {
-    "idMovie": 2,
+    "id": 2,
     "movieTitle": "Sedm",
     "director": "David Fincher",
     "writer": "Andrew Kevin Walker",
@@ -22,7 +22,7 @@
     "picture": "/assets/images/seven.jpg"
   },
   {
-    "idMovie": 3,
+    "id": 3,
     "movieTitle": "Interstellar",
     "director": "Christopher Nolan",
     "writer": "Christopher Nolan",
@@ -33,7 +33,7 @@
     "picture": "/assets/images/interstellar.jpg"
   },
   {
-    "idMovie": 4,
+    "id": 4,
     "movieTitle": "Pulp Fiction: Historky z podsvětí",
     "director": "Quentin Tarantino",
     "writer": "Quentin Tarantino",
@@ -44,7 +44,7 @@
     "picture": "/assets/images/pulpfiction.jpg"
   },
   {
-    "idMovie": 5,
+    "id": 5,
     "movieTitle": "Osm hrozných",
     "director": "Quentin Tarantino",
     "writer": "Quentin Tarantino",
@@ -55,7 +55,7 @@
     "picture": "/assets/images/eightful.jpg"
   },
   {
-    "idMovie": 6,
+    "id": 6,
     "movieTitle": "Přelet nad kukaččím hnízdem",
     "director": "Miloš Forman",
     "writer": "Ken Kesey",
@@ -66,7 +66,7 @@
     "picture": "/assets/images/kukacka.jpg"
   },
   {
-    "idMovie": 7,
+    "id": 7,
     "movieTitle": "Spider-Man: Paralelní světy",
     "director": "Bob Persichetti",
     "writer": "Phil Lord",
@@ -77,7 +77,7 @@
     "picture": "/assets/images/spidey.jpg"
   },
   {
-    "idMovie": 8,
+    "id": 8,
     "movieTitle": "Gladiátor",
     "director": "Ridley Scott",
     "writer": "David Franzoni",
@@ -88,7 +88,7 @@
     "picture": "/assets/images/gladiator.jpg"
   },
   {
-    "idMovie": 9,
+    "id": 9,
     "movieTitle": "Troja",
     "director": "Wolfgang Petersen",
     "writer": "David Benioff",
@@ -99,7 +99,7 @@
     "picture": "/assets/images/troja.jpg"
   },
   {
-    "idMovie": 10,
+    "id": 10,
     "movieTitle": "Duna: Část druhá",
     "director": "Denis Villeneuve",
     "writer": "Jon Spaihts",

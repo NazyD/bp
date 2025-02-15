@@ -1,14 +1,14 @@
 import Review from "./Review.jsx";
 import MoveUpButton from "../components/MoveUpButton.jsx";
 
-const RankShows = (props) => {
+const RankDef = (props) => {
 
     const getAverageReview = (revs) => {
         const total = revs.reduce((acc, score) => acc + score, 0);
         return (total / revs.length).toFixed(1);
-    };
+    }
 
-    const sortedShows = [...props.showsData].sort((a, b) => {
+    const sortedData = [...props.rankingData].sort((a, b) => {
         const avgA = parseFloat(getAverageReview(a.reviews));
         const avgB = parseFloat(getAverageReview(b.reviews));
         return avgB - avgA;
@@ -26,9 +26,9 @@ const RankShows = (props) => {
     };
 
     return(
-        <div className="rank-shows">
+        <div className="rank-movies">
             <MoveUpButton/>
-            <h2>Žebříček seriálů</h2>
+            <h2>Žebříček filmů</h2>
 
             <table style={tableStyle}>
                 <thead>
@@ -43,31 +43,31 @@ const RankShows = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {sortedShows.map((show, index) => (
-                    <tr key={show.idMovie}>
+                {sortedData.map((movie, index) => (
+                    <tr key={movie.id}>
                         <td style={cellStyle}>{index + 1}</td>
                         <td style={cellStyle}>
                             <img
-                                src={show.picture}
-                                alt={show.movieTitle}
+                                src={movie.picture}
+                                alt={movie.movieTitle}
                                 style={{width: '100px'}}/>
                         </td>
-                        <td style={cellStyle}>{show.movieTitle}</td>
+                        <td style={cellStyle}>{movie.movieTitle}</td>
                         <td style={cellStyle}>
-                            <strong>Year:</strong> {show.yearOfRelease} <br/>
-                            <strong>Režisér:</strong> {show.director} <br/>
-                            <strong>Scénárista:</strong> {show.writer} <br/>
-                            <strong>Žánr:</strong> {show.genre.join(', ')} <br/>
-                            <strong>Herci:</strong> {show.actors.join(', ')} <br/>
+                            <strong>Year:</strong> {movie.yearOfRelease} <br/>
+                            <strong>Režisér:</strong> {movie.director} <br/>
+                            <strong>Scénárista:</strong> {movie.writer} <br/>
+                            <strong>Žánr:</strong> {movie.genre.join(', ')} <br/>
+                            <strong>Herci:</strong> {movie.actors.join(', ')} <br/>
                         </td>
                         <td style={cellStyle}>ocenění</td>
-                        <td style={cellStyle}>{getAverageReview(show.reviews)}</td>
+                        <td style={cellStyle}>{getAverageReview(movie.reviews)}</td>
                         <td style={cellStyle}>
                             <Review
-                                revType="shows"
-                                dataId={show.idShow}
-                                data={props.showsData}
-                                setData={props.setShowsData}
+                                revType="movies"
+                                dataId={movie.id}
+                                data={props.rankingData}
+                                setData={props.setRankingData}
                             />
                         </td>
                     </tr>
@@ -80,4 +80,4 @@ const RankShows = (props) => {
 
 };
 
-export default RankShows;
+export default RankDef;

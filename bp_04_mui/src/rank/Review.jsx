@@ -8,7 +8,7 @@ const Review = (props) => {
 
     const handleAddReview = (movieId, review) => {
       const updatedMovies = props.data.map(movie => {
-          if((movie.idMovie || movie.idShow) === movieId) {
+          if(movie.id === movieId) {
               const updatedReviews = [...movie.reviews, review];
               return {...movie, reviews: updatedReviews};
           }

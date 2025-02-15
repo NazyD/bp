@@ -1,14 +1,14 @@
-import React, {useState} from "react";
 import Review from "./Review.jsx";
 import MoveUpButton from "../components/MoveUpButton.jsx";
-const RankMovies = (props) => {
+
+const RankDef = (props) => {
 
     const getAverageReview = (revs) => {
         const total = revs.reduce((acc, score) => acc + score, 0);
         return (total / revs.length).toFixed(1);
     }
 
-    const sortedMovies = [...props.moviesData].sort((a, b) => {
+    const sortedData = [...props.rankingData].sort((a, b) => {
         const avgA = parseFloat(getAverageReview(a.reviews));
         const avgB = parseFloat(getAverageReview(b.reviews));
         return avgB - avgA;
@@ -43,8 +43,8 @@ const RankMovies = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {sortedMovies.map((movie, index) => (
-                    <tr key={movie.idMovie}>
+                {sortedData.map((movie, index) => (
+                    <tr key={movie.id}>
                         <td style={cellStyle}>{index + 1}</td>
                         <td style={cellStyle}>
                             <img
@@ -65,9 +65,9 @@ const RankMovies = (props) => {
                         <td style={cellStyle}>
                             <Review
                                 revType="movies"
-                                dataId={movie.idMovie}
-                                data={props.moviesData}
-                                setData={props.setMoviesData}
+                                dataId={movie.id}
+                                data={props.rankingData}
+                                setData={props.setRankingData}
                             />
                         </td>
                     </tr>
@@ -80,4 +80,4 @@ const RankMovies = (props) => {
 
 };
 
-export default RankMovies;
+export default RankDef;

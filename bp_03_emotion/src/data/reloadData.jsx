@@ -148,7 +148,7 @@ const topics = [
 ];
 const movies = [
     {
-        "idMovie": 1,
+        "id": 1,
         "movieTitle": "Tenet",
         "director": "Christopher Nolan",
         "writer": "Christopher Nolan",
@@ -159,7 +159,7 @@ const movies = [
         "picture": "/assets/images/tenet.jpg"
     },
     {
-        "idMovie": 2,
+        "id": 2,
         "movieTitle": "Sedm",
         "director": "David Fincher",
         "writer": "Andrew Kevin Walker",
@@ -170,7 +170,7 @@ const movies = [
         "picture": "/assets/images/seven.jpg"
     },
     {
-        "idMovie": 3,
+        "id": 3,
         "movieTitle": "Interstellar",
         "director": "Christopher Nolan",
         "writer": "Christopher Nolan",
@@ -181,7 +181,7 @@ const movies = [
         "picture": "/assets/images/interstellar.jpg"
     },
     {
-        "idMovie": 4,
+        "id": 4,
         "movieTitle": "Pulp Fiction: Historky z podsvětí",
         "director": "Quentin Tarantino",
         "writer": "Quentin Tarantino",
@@ -192,7 +192,7 @@ const movies = [
         "picture": "/assets/images/pulpfiction.jpg"
     },
     {
-        "idMovie": 5,
+        "id": 5,
         "movieTitle": "Osm hrozných",
         "director": "Quentin Tarantino",
         "writer": "Quentin Tarantino",
@@ -203,7 +203,7 @@ const movies = [
         "picture": "/assets/images/eightful.jpg"
     },
     {
-        "idMovie": 6,
+        "id": 6,
         "movieTitle": "Přelet nad kukaččím hnízdem",
         "director": "Miloš Forman",
         "writer": "Ken Kesey",
@@ -214,7 +214,7 @@ const movies = [
         "picture": "/assets/images/kukacka.jpg"
     },
     {
-        "idMovie": 7,
+        "id": 7,
         "movieTitle": "Spider-Man: Paralelní světy",
         "director": "Bob Persichetti",
         "writer": "Phil Lord",
@@ -225,7 +225,7 @@ const movies = [
         "picture": "/assets/images/spidey.jpg"
     },
     {
-        "idMovie": 8,
+        "id": 8,
         "movieTitle": "Gladiátor",
         "director": "Ridley Scott",
         "writer": "David Franzoni",
@@ -236,7 +236,7 @@ const movies = [
         "picture": "/assets/images/gladiator.jpg"
     },
     {
-        "idMovie": 9,
+        "id": 9,
         "movieTitle": "Troja",
         "director": "Wolfgang Petersen",
         "writer": "David Benioff",
@@ -247,7 +247,7 @@ const movies = [
         "picture": "/assets/images/troja.jpg"
     },
     {
-        "idMovie": 10,
+        "id": 10,
         "movieTitle": "Duna: Část druhá",
         "director": "Denis Villeneuve",
         "writer": "Jon Spaihts",
@@ -260,7 +260,7 @@ const movies = [
 ];
 const shows = [
     {
-        "idShow": 1,
+        "id": 1,
         "movieTitle": "Jak jsem poznal vaši matku",
         "director": "Carter Bays",
         "writer": "Carter Bays",
@@ -271,7 +271,7 @@ const shows = [
         "picture": "/assets/images/himym.jpg"
     },
     {
-        "idShow": 2,
+        "id": 2,
         "movieTitle": "Hra o trůny",
         "director": "David Benioff",
         "writer": "George R.R. Martin",
@@ -282,7 +282,7 @@ const shows = [
         "picture": "/assets/images/got.jpg"
     },
     {
-        "idShow": 3,
+        "id": 3,
         "movieTitle": "Šógun",
         "director": "Justin Marks",
         "writer": "Justin Marks",
@@ -293,7 +293,7 @@ const shows = [
         "picture": "/assets/images/shogun.jpg"
     },
     {
-        "idShow": 4,
+        "id": 4,
         "movieTitle": "Kimecu no jaiba",
         "director": "Haruo Sotozaki",
         "writer": "Kojoharu Gotóge",
@@ -304,7 +304,7 @@ const shows = [
         "picture": "/assets/images/demon.jpg"
     },
     {
-        "idShow": 5,
+        "id": 5,
         "movieTitle": "Arcane ",
         "director": "Christian Linke",
         "writer": "Christian Linke",
@@ -315,7 +315,7 @@ const shows = [
         "picture": "/assets/images/arcane.jpg"
     },
     {
-        "idShow": 6,
+        "id": 6,
         "movieTitle": "Temný případ",
         "director": "Nic Pizzolatto",
         "writer": "Nic Pizzolatto",
@@ -326,7 +326,7 @@ const shows = [
         "picture": "/assets/images/detective.jpg"
     },
     {
-        "idShow": 7,
+        "id": 7,
         "movieTitle": "Dr. House",
         "director": "David Shore",
         "writer": "Garrett Lerner",

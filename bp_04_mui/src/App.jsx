@@ -9,8 +9,7 @@ import Article from "./articles/article/Article.jsx";
 import Movies from './movies/Movies';
 import Shows from './shows/Shows';
 import Rank from "./rank/Rank.jsx";
-import RankMovies from "./rank/RankMovies.jsx";
-import RankShows from "./rank/RankShows.jsx";
+import RankDef from "./rank/RankDef.jsx";
 
 import {ThemeProvider, CssBaseline, Box} from "@mui/material";
 import {light, dark} from './styles/createTheme.jsx'
@@ -116,14 +115,14 @@ function App() {
                         }/>
                         <Route path="/ranking" element={<Rank/>}/>
                         <Route path="/ranking/movies" element={
-                            <RankMovies
-                                moviesData={moviesData}
-                                setMoviesData={setMoviesData}/>
+                            <RankDef
+                                rankingData={moviesData}
+                                setRankingData={setMoviesData}/>
                         }/>
                         <Route path="/ranking/shows" element={
-                            <RankShows
-                                showsData={showsData}
-                                setShowsData={setShowsData}/>
+                            <RankDef
+                                rankingData={showsData}
+                                setRankingData={setShowsData}/>
                         }/>
                         <Route path="/contact" element={<Contact />} />
                     </Routes>

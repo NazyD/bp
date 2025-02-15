@@ -10,8 +10,8 @@ import Article from "./articles/article/Article.jsx";
 import Movies from './movies/Movies';
 import Shows from './shows/Shows';
 import Rank from "./rank/Rank.jsx";
-import RankMovies from "./rank/RankMovies.jsx";
-import RankShows from "./rank/RankShows.jsx";
+import RankDef from "./rank/RankDef.jsx";
+
 
 import "./App.scss";
 import Contact from "bp_01_css/src/contact/Contact.jsx";
@@ -31,80 +31,82 @@ function App() {
     const [visibleEditPopUp, setVisibleEditPopup] = useState(false);
     const [topVisibility, setTopVisibilityPopup] = useState(false);
 
-    function setVisibility () {
+    function setVisibility() {
         setVisiblePopup(!visiblePopUp);
     }
-    function setEditVisibility () {
+
+    function setEditVisibility() {
         setVisibleEditPopup(!visibleEditPopUp);
     }
-    function setTopVisibility () {
+
+    function setTopVisibility() {
         setTopVisibilityPopup(!topVisibility);
     }
 
-  return (
-      <>
-          <Navbar />
-          <div className="container">
-              <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/articles-list" element={
-                      <Articles
-                      articlesData={articlesData}
-                      topicsData={topicsData}
-                      visiblePopUp={visiblePopUp}
-                      setVisibility={setVisibility}
-                      topVisibility={topVisibility}
-                      setTopVisibility={setTopVisibility}
-                      setArticlesData={setArticlesData}
-                      setTopicsData={setTopicsData}/>
-                  } />
-                  <Route path="/articles-list/movies" element={
-                      <Movies
-                      articlesData={articlesData}
-                      topicsData={topicsData}
-                      visiblePopUp={visiblePopUp}
-                      setVisibility={setVisibility}
-                      topVisibility={topVisibility}
-                      setTopVisibility={setTopVisibility}
-                      setArticlesData={setArticlesData}
-                      setTopicsData={setTopicsData}/>
-                  } />
-                  <Route path="/articles-list/shows" element={
-                      <Shows
-                      articlesData={articlesData}
-                      topicsData={topicsData}
-                      visiblePopUp={visiblePopUp}
-                      setVisibility={setVisibility}
-                      topVisibility={topVisibility}
-                      setTopVisibility={setTopVisibility}
-                      setArticlesData={setArticlesData}
-                      setTopicsData={setTopicsData}/>
-                  } />
-                  <Route path="/articles-list/article/:id" element={
-                      <Article
-                      articlesData={articlesData}
-                      setArticlesData={setArticlesData}
-                      topicsData={topicsData}
-                      visibleEditPopUp={visibleEditPopUp}
-                      setVisibleEditPopup={setEditVisibility}/>
-                  } />
-                  <Route path="/ranking" element={<Rank/>} />
-                  <Route path="/ranking/movies" element={
-                      <RankMovies
-                      moviesData={moviesData}
-                      setMoviesData={setMoviesData}/>
-                  } />
-                  <Route path="/ranking/shows" element={
-                      <RankShows
-                      showsData={showsData}
-                      setShowsData={setShowsData}/>
-                  } />
-                  <Route path="/contact" element={<Contact />} />
-              </Routes>
-          </div>
-          <Footer />
-      </>
-  )
+    return (
+        <>
+            <Navbar/>
+            <div className="container">
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/articles-list" element={
+                        <Articles
+                            articlesData={articlesData}
+                            topicsData={topicsData}
+                            visiblePopUp={visiblePopUp}
+                            setVisibility={setVisibility}
+                            topVisibility={topVisibility}
+                            setTopVisibility={setTopVisibility}
+                            setArticlesData={setArticlesData}
+                            setTopicsData={setTopicsData}/>
+                    }/>
+                    <Route path="/articles-list/movies" element={
+                        <Movies
+                            articlesData={articlesData}
+                            topicsData={topicsData}
+                            visiblePopUp={visiblePopUp}
+                            setVisibility={setVisibility}
+                            topVisibility={topVisibility}
+                            setTopVisibility={setTopVisibility}
+                            setArticlesData={setArticlesData}
+                            setTopicsData={setTopicsData}/>
+                    }/>
+                    <Route path="/articles-list/shows" element={
+                        <Shows
+                            articlesData={articlesData}
+                            topicsData={topicsData}
+                            visiblePopUp={visiblePopUp}
+                            setVisibility={setVisibility}
+                            topVisibility={topVisibility}
+                            setTopVisibility={setTopVisibility}
+                            setArticlesData={setArticlesData}
+                            setTopicsData={setTopicsData}/>
+                    }/>
+                    <Route path="/articles-list/article/:id" element={
+                        <Article
+                            articlesData={articlesData}
+                            setArticlesData={setArticlesData}
+                            topicsData={topicsData}
+                            visibleEditPopUp={visibleEditPopUp}
+                            setVisibleEditPopup={setEditVisibility}/>
+                    }/>
+                    <Route path="/ranking" element={<Rank/>}/>
+                    <Route path="/ranking/movies" element={
+                        <RankDef
+                            rankingData={moviesData}
+                            setRankingData={setMoviesData}/>
+                    }/>
+                    <Route path="/ranking/shows" element={
+                        <RankDef
+                            rankingData={showsData}
+                            setRankingData={setShowsData}/>
+                    }/>
+                    <Route path="/contact" element={<Contact/>}/>
+                </Routes>
+            </div>
+            <Footer/>
+        </>
+    )
 }
 
 export default App
