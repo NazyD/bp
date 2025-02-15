@@ -2,11 +2,14 @@
 @use './footer';
 @use './navbar';
 @use './home';
-@use './rank';
-
 @use './popup';
+
 @use './article/articleslist';
 @use './article/article';
 @use './article/articles';
 @use './article/shortarticle';
+
 @use './topic/edittopic';
+
+@use './rank/rank';
+@use './rank/rankDef';

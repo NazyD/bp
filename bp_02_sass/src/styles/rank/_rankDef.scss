@@ -1,0 +1,125 @@
+@use '../variables' as *;
+
+.rank-movies {
+  margin: 40px 150px;
+  text-align: center;
+
+  h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: $light-text-color;
+    margin-bottom: 20px;
+  }
+
+  .rank-table {
+    width: 100%;
+    border: 1px solid $light-border;
+    border-collapse: collapse;
+    background-color: $light-component-bg;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    thead {
+      background-color: $light-border;
+      color: $light-text-color;
+    }
+
+    tbody tr:hover {
+      background-color: $light-short-article-bg-hover;
+    }
+
+    th {
+      padding: 12px;
+      text-transform: uppercase;
+      font-size: 14px;
+      border: 1px solid $light-border;
+      border-bottom: 2px solid $light-text-color;
+    }
+
+    tr {
+      transition: background-color 0.3s ease;
+
+      &:nth-child(even) {
+        background-color: $light-short-article-bg;
+      }
+    }
+
+    td {
+      padding: 12px;
+      font-size: 16px;
+      color: $light-text-color;
+      text-align: center;
+      border-bottom: 1px solid $light-border;
+
+      &:first-child {
+        text-align: center;
+        font-weight: bold;
+      }
+
+      &:nth-child(4) {
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: left;
+      }
+
+      &:nth-child(6) {
+        font-weight: bold;
+        color: #d9534f;
+      }
+
+      img {
+        display: block;
+        width: 80px !important;
+        height: auto;
+        border-radius: 5px;
+        margin: 0 auto;
+      }
+    }
+
+    td:last-child {
+      text-align: center;
+    }
+  }
+}
+
+// dark theme updates
+[data-theme='dark'] .rank-movies {
+
+  h2 {
+    color: $dark-text-color;
+  }
+
+  .rank-table {
+    border: 1px solid $dark-border;
+    background-color: $dark-component-bg;
+
+    thead {
+      background-color: $dark-border;
+      color: $dark-text-color;
+    }
+
+    th {
+      border: 1px solid $dark-border;
+      border-bottom: 2px solid $dark-text-color;
+    }
+
+    tr {
+      &:nth-child(even) {
+        background-color: $dark-short-article-bg;
+      }
+
+      &:hover {
+        background-color: $dark-short-article-bg-hover;
+      }
+    }
+
+    td {
+      color: $dark-text-color;
+      border-bottom: 1px solid $dark-border;
+      &:nth-child(6) {
+        color: #d9534f;
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+
+.rank-movies {
+    margin: 40px 150px;
+    text-align: center;
+}
+
+.rank-movies h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.rank-table {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-collapse: collapse;
+    background-color: var(--component-background);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.rank-table thead {
+    background-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.rank-table th {
+    padding: 12px;
+    text-transform: uppercase;
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--text-color);
+}
+
+.rank-table tr {
+    transition: background-color 0.3s ease;
+}
+
+.rank-table tbody tr:nth-child(even) {
+    background-color: var(--short-article-bg);
+}
+
+.rank-table tbody tr:hover {
+    background-color: var(--short-article-bg-hover);
+}
+
+.rank-table td {
+    padding: 12px;
+    font-size: 16px;
+    color: var(--text-color);
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.rank-table td:first-child {
+    text-align: center;
+    font-weight: bold;
+}
+
+.rank-table td img {
+    display: block;
+    width: 80px !important;
+    height: auto;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.rank-table td:nth-child(4) {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.rank-table td:nth-child(6) {
+    font-weight: bold;
+    color: #d9534f;
+}
+
+.rank-movies td:last-child {
+    text-align: center;
+}

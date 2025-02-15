@@ -1,5 +1,6 @@
 import Review from "./Review.jsx";
 import MoveUpButton from "../components/MoveUpButton.jsx";
+import './RankDef.css';
 
 const RankDef = (props) => {
 
@@ -14,55 +15,44 @@ const RankDef = (props) => {
         return avgB - avgA;
     });
 
-    const tableStyle = {
-        border: '1px solid black',
-        width: '100%',
-        borderCollapse: 'collapse'
-    };
-
-    const cellStyle = {
-        border: '1px solid black',
-        padding: '5px'
-    };
-
     return(
         <div className="rank-movies">
             <MoveUpButton/>
             <h2>Žebříček filmů</h2>
 
-            <table style={tableStyle}>
+            <table className="rank-table">
                 <thead>
                 <tr>
-                    <th style={cellStyle}>Pořadí</th>
-                    <th style={cellStyle}>Plakát</th>
-                    <th style={cellStyle}>Název</th>
-                    <th style={cellStyle}>Informace</th>
-                    <th style={cellStyle}>Ocenění</th>
-                    <th style={cellStyle}>Hodnocení</th>
-                    <th style={cellStyle}>...</th>
+                    <th>Pořadí</th>
+                    <th>Plakát</th>
+                    <th>Název</th>
+                    <th>Informace</th>
+                    <th>Ocenění</th>
+                    <th>Hodnocení</th>
+                    <th>...</th>
                 </tr>
                 </thead>
                 <tbody>
                 {sortedData.map((movie, index) => (
                     <tr key={movie.id}>
-                        <td style={cellStyle}>{index + 1}</td>
-                        <td style={cellStyle}>
+                        <td>{index + 1}</td>
+                        <td>
                             <img
                                 src={movie.picture}
                                 alt={movie.movieTitle}
                                 style={{width: '100px'}}/>
                         </td>
-                        <td style={cellStyle}>{movie.movieTitle}</td>
-                        <td style={cellStyle}>
-                            <strong>Year:</strong> {movie.yearOfRelease} <br/>
+                        <td>{movie.movieTitle}</td>
+                        <td>
+                            <strong>Rok vydání:</strong> {movie.yearOfRelease} <br/>
                             <strong>Režisér:</strong> {movie.director} <br/>
                             <strong>Scénárista:</strong> {movie.writer} <br/>
                             <strong>Žánr:</strong> {movie.genre.join(', ')} <br/>
                             <strong>Herci:</strong> {movie.actors.join(', ')} <br/>
                         </td>
-                        <td style={cellStyle}>ocenění</td>
-                        <td style={cellStyle}>{getAverageReview(movie.reviews)}</td>
-                        <td style={cellStyle}>
+                        <td>N/A</td>
+                        <td>{getAverageReview(movie.reviews)}</td>
+                        <td>
                             <Review
                                 revType="movies"
                                 dataId={movie.id}

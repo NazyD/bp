@@ -1,5 +1,87 @@
 import Review from "./Review.jsx";
 import MoveUpButton from "../components/MoveUpButton.jsx";
+import styled from "@emotion/styled";
+
+const RankContainer = styled.div`
+  margin: 40px 150px;
+  text-align: center;
+`;
+
+const Title = styled.h2`
+  font-size: 28px;
+  font-weight: bold;
+  color: ${({theme}) => theme.textColor};
+  margin-bottom: 20px;
+`;
+
+const RankTable = styled.table`
+  width: 100%;
+  border: 1px solid ${({theme}) => theme.borderColor};
+  border-collapse: collapse;
+  background-color: ${({theme}) => theme.componentBackground};
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+`;
+
+const TableHead = styled.thead`
+  background-color: ${({theme}) => theme.borderColor};
+  color: ${({theme}) => theme.textColor};
+`;
+
+const TableRow = styled.tr`
+  transition: background-color 0.3s ease;
+    border: none;
+  &:nth-child(even) {
+    background-color: ${({theme}) => theme.shortArticleBg};
+  }
+  &:hover {
+    background-color: ${({theme}) => theme.shortArticleBgHover};
+  }
+`;
+
+const TableHeaderCell = styled.th`
+  padding: 12px;
+  text-transform: uppercase;
+  font-size: 14px;
+  border: 1px solid ${({theme}) => theme.borderColor};
+  border-bottom: 2px solid ${({theme}) => theme.textColor};
+`;
+
+const TableCell = styled.td`
+    padding: 12px !important;
+    font-size: 16px;
+    color: ${({theme}) => theme.textColor};
+    text-align: center;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid ${({theme}) => theme.borderColor} !important;
+
+    &:first-child {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    &:nth-child(4) {
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    &:nth-child(6) {
+        font-weight: bold;
+        color: #d9534f;
+    }
+`;
+
+const PosterImage = styled.img`
+  display: block;
+  width: 80px !important;
+  height: auto;
+  border-radius: 5px;
+  margin: 0 auto;
+`;
 
 const RankDef = (props) => {
 
@@ -26,56 +108,55 @@ const RankDef = (props) => {
     };
 
     return(
-        <div className="rank-movies">
+        <RankContainer>
             <MoveUpButton/>
-            <h2>Žebříček filmů</h2>
+            <Title>Žebříček filmů</Title>
 
-            <table style={tableStyle}>
-                <thead>
+            <RankTable style={tableStyle}>
+                <TableHead>
                 <tr>
-                    <th style={cellStyle}>Pořadí</th>
-                    <th style={cellStyle}>Plakát</th>
-                    <th style={cellStyle}>Název</th>
-                    <th style={cellStyle}>Informace</th>
-                    <th style={cellStyle}>Ocenění</th>
-                    <th style={cellStyle}>Hodnocení</th>
-                    <th style={cellStyle}>...</th>
+                    <TableHeaderCell>Pořadí</TableHeaderCell>
+                    <TableHeaderCell>Plakát</TableHeaderCell>
+                    <TableHeaderCell>Název</TableHeaderCell>
+                    <TableHeaderCell>Informace</TableHeaderCell>
+                    <TableHeaderCell>Ocenění</TableHeaderCell>
+                    <TableHeaderCell>Hodnocení</TableHeaderCell>
+                    <TableHeaderCell>...</TableHeaderCell>
                 </tr>
-                </thead>
+                </TableHead>
                 <tbody>
                 {sortedData.map((movie, index) => (
-                    <tr key={movie.id}>
-                        <td style={cellStyle}>{index + 1}</td>
-                        <td style={cellStyle}>
-                            <img
+                    <TableRow key={movie.id}>
+                        <TableCell style={cellStyle}>{index + 1}</TableCell>
+                        <TableCell style={cellStyle}>
+                            <PosterImage
                                 src={movie.picture}
                                 alt={movie.movieTitle}
                                 style={{width: '100px'}}/>
-                        </td>
-                        <td style={cellStyle}>{movie.movieTitle}</td>
-                        <td style={cellStyle}>
-                            <strong>Year:</strong> {movie.yearOfRelease} <br/>
+                        </TableCell>
+                        <TableCell style={cellStyle}>{movie.movieTitle}</TableCell>
+                        <TableCell style={cellStyle}>
+                            <strong>Rok vydání:</strong> {movie.yearOfRelease} <br/>
                             <strong>Režisér:</strong> {movie.director} <br/>
                             <strong>Scénárista:</strong> {movie.writer} <br/>
                             <strong>Žánr:</strong> {movie.genre.join(', ')} <br/>
                             <strong>Herci:</strong> {movie.actors.join(', ')} <br/>
-                        </td>
-                        <td style={cellStyle}>ocenění</td>
-                        <td style={cellStyle}>{getAverageReview(movie.reviews)}</td>
-                        <td style={cellStyle}>
+                        </TableCell>
+                        <TableCell style={cellStyle}>N/A</TableCell>
+                        <TableCell style={cellStyle}>{getAverageReview(movie.reviews)}</TableCell>
+                        <TableCell style={cellStyle}>
                             <Review
                                 revType="movies"
                                 dataId={movie.id}
                                 data={props.rankingData}
                                 setData={props.setRankingData}
                             />
-                        </td>
-                    </tr>
+                        </TableCell>
+                    </TableRow>
                 ))}
                 </tbody>
-            </table>
-
-        </div>
+            </RankTable>
+        </RankContainer>
     );
 
 };
