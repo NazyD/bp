@@ -1,0 +1,115 @@
+@use '../variables' as *;
+
+.review-expanded {
+  td, tr {
+    padding: 5px !important;
+    border: none !important;
+  }
+
+  .review-form-container {
+    padding: 5px;
+    text-align: center;
+    background-color: $light-short-article-bg;
+    border-radius: 5px;
+
+    h5 {
+      margin: 5px;
+      font-size: 18px;
+      color: $light-text-color;
+    }
+
+    .review-action {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .review-slider {
+        width: 60%;
+        margin: 5px auto;
+        display: block;
+      }
+
+      .review-score {
+        font-size: 15px;
+        font-weight: bold;
+        margin: 5px auto;
+        color: $light-text-color;
+      }
+    }
+
+    .review-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+
+      .submit-btn {
+        background-color: #5cb85c;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #4cae4c;
+        }
+      }
+
+      .cancel-btn {
+        background-color: #d9534f;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #c9302c;
+        }
+      }
+    }
+  }
+}
+
+.review-button-cell {
+  text-align: center;
+  border: none !important;
+
+  .review-button {
+    padding: 6px 12px;
+    background-color: $light-bg;
+    color: $light-text-color;
+    border: 1px solid $light-border;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+}
+
+// dark theme updates
+[data-theme='dark'] .review-expanded {
+  .review-form-container {
+    background-color: $dark-short-article-bg;
+
+    h5 {
+      color: $dark-text-color;
+    }
+
+    .review-action {
+      .review-score {
+        color: $dark-text-color;
+      }
+    }
+  }
+}
+
+[data-theme='dark'] .review-button-cell {
+  .review-button {
+    background-color: $dark-bg;
+    color: $dark-text-color;
+    border: 1px solid $dark-border;
+  }
+}
