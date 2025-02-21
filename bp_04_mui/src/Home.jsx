@@ -52,7 +52,7 @@ const Home = () => {
                 sx={{
                     width: "79%",
                     marginTop: "30px",
-                    backgroundColor: "background.paper", // Dynamic theme-based color
+                    backgroundColor: "background.paper",
                     transition: "background-color 0.5s ease, color 0.5s ease",
                     borderTop: "1px solid",
                     borderBottom: "1px solid",
@@ -197,6 +197,10 @@ const Home = () => {
                         hodnocení pro daný
                         dílo a aplikace vypočítá nové hodnocení a seřadí dle nového hodnocení.
                     </p>
+                    <h3>Kontakty</h3>
+                    <p>Tato stránka slouží pouze jako seznam mých kontaktů s odkazem na instagram a možností odeslání
+                        zpětné vazby
+                        na můj email.</p>
                 </Typography>
             </Box>
         </Box>

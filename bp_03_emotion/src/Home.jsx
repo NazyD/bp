@@ -74,9 +74,14 @@ const Home = () => {
                     článku.</p>
                 <h3>4.Žebříček</h3>
                 <p>Žebříček je ve formě tabulky, zde je 10 děl z kategorie filmů a seriálů. V tabulce jsou sežazeny dle
-                    daného hodnocení. Každý řádek díla má na konci možnost hodnocení kde uživatel může vybrat hodnocení pro daný
+                    daného hodnocení. Každý řádek díla má na konci možnost hodnocení kde uživatel může vybrat hodnocení
+                    pro daný
                     dílo a aplikace vypočítá nové hodnocení a seřadí dle nového hodnocení.
                 </p>
+                <h3>Kontakty</h3>
+                <p>Tato stránka slouží pouze jako seznam mých kontaktů s odkazem na instagram a možností odeslání zpětné
+                    vazby
+                    na můj email.</p>
             </HomeInfo>
         </HomeContainer>
     );

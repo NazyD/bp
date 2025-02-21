@@ -78,6 +78,9 @@ const Home = () => {
                 daného hodnocení. Každý řádek díla má na konci možnost hodnocení kde uživatel může vybrat hodnocení pro daný
                 dílo a aplikace vypočítá nové hodnocení a seřadí dle nového hodnocení.
                 </p>
+                <h3>Kontakty</h3>
+                <p>Tato stránka slouží pouze jako seznam mých kontaktů s odkazem na instagram a možností odeslání zpětné vazby
+                na můj email.</p>
 
             </div>
         </div>

@@ -1,0 +1,86 @@
+@use './variables' as *;
+
+.contact-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: $light-component-bg;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  color: $light-text-color;
+  transition: background-color 0.5s ease, color 0.5s ease;
+
+  .contact-container h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: $light-text-color;
+  }
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 15px;
+      background-color: $light-short-article-bg;
+      padding: 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        background-color: $light-short-article-bg-hover;
+      }
+
+      .contact-icon {
+        font-size: 24px;
+        color: $light-text-color;
+      }
+
+      .contact-link {
+        text-decoration: none;
+        font-size: 18px;
+        color: $light-text-color;
+        transition: color 0.3s ease;
+        &:hover {
+          color: $light-text-color;
+        }
+      }
+    }
+  }
+}
+
+
+[data-theme='dark'] .contact-container {
+  background-color: $dark-component-bg;
+  color: $dark-text-color;
+
+  .contact-container h2 {
+    color: $dark-text-color;
+  }
+
+  .contact-list {
+    .contact-item {
+      background-color: $dark-short-article-bg;
+      &:hover {
+        background-color: $dark-short-article-bg-hover;
+      }
+      .contact-icon {
+        color: $dark-text-color;
+      }
+      .contact-link {
+        color: $dark-text-color;
+        &:hover {
+          color: $dark-text-color;
+        }
+      }
+    }
+  }
+}
+
+
