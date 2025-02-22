@@ -6,12 +6,33 @@ import {useEffect, useState} from "react";
 
 const ShortArticle = (props) => {
     const [articleText, setArticleText] = useState("");
+    const [charLimit, setCharLimit] = useState(400);
 
-    const bigCardChars = screen.width <= 426 ? 1400 : 700;
+    const calculateCharLimit = () => {
+        const width = window.innerWidth;
+
+        if (props.cardSize === 'big') {
+            if (width <= 530) return 700;
+            if (width <= 830) return 1000;
+            if (width <= 1190) return 1200;
+            return 1400;
+        } else {
+            if (width <= 425) return 200;
+            if (width <= 768) return 300;
+            if (width <= 1024) return 350;
+            return 400;
+        }
+    };
+    useEffect(() => {
+        const updateCharLimit = () => setCharLimit(calculateCharLimit());
+        updateCharLimit();
+
+        window.addEventListener('resize', updateCharLimit);
+        return () => window.removeEventListener('resize', updateCharLimit);
+    }, [props.cardSize]);
 
     useEffect(() => {
         if (props.article.text && props.article.text.startsWith('/articles/')) {
-            // Fetch the text file
             fetch(props.article.text)
                 .then((response) => response.text())
                 .then((data) => setArticleText(data))
@@ -21,7 +42,7 @@ const ShortArticle = (props) => {
         }
     }, [props.article.text]);
 
-    const cutText = articleText.substring(0, props.cardSize === 'big' ? bigCardChars : 400) +
+    const cutText = articleText.substring(0, charLimit) +
         `<a href="/articles-list/article/${props.article.idArticle}" style="text-decoration: none; color: inherit;"> ...</a>`;
 
     return (
