@@ -18,3 +18,211 @@ body {
     @include theme($dark-bg, $dark-text-color); // Apply dark theme
   }
 }
+
+/* -------- Laptop Responsiveness -------- */
+@media (max-width: 1024px) {
+  .rank-movies {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .short-article {
+    &.small-card {
+      flex: 1 1 calc(45% - 20px);
+      margin-bottom: 20px;
+      height: 275px;
+    }
+
+    &.big-card {
+      width: 100%;
+      height: 350px;
+    }
+  }
+
+  .article-image img {
+    width: 220px;
+    height: auto;
+  }
+
+  .rank-table td:nth-child(4) {
+    font-size: 12px;
+  }
+}
+
+/* -------- Tablet Responsiveness -------- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+    .navbar-center ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .submenu {
+      display: block;
+      position: static;
+      background-color: var(--component-background);
+    }
+  }
+
+  .articles-container  {
+    margin: 3px 0;
+    padding: 3px 0;
+    width: 100%;
+    .tools-container {
+      flex-direction: column;
+      .search-input {
+        width: 250px;
+      }
+    }
+    .short-article {
+      &.small-card {
+        flex: 1 1 100%;
+        margin-bottom: 10px;
+        height: 210px;
+      }
+
+      &.big-card {
+        flex: 1 1 100%;
+        margin-bottom: 10px;
+        height: 410px;
+      }
+    }
+  }
+
+  .article-title {
+    h1 {
+      font-size: 32px;
+    }
+    .article-image img {
+      width: 170px;
+    }
+  }
+
+  .rank-table {
+    thead {
+      display: none;
+    }
+
+    tr {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    td {
+      text-align: center;
+    }
+  }
+
+  .contact-list {
+    flex-direction: column;
+    align-items: center;
+    .contact-item {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    height: 135px;
+  }
+  .container{
+    padding-bottom: 135px; /* height of the footer */
+  }
+}
+
+/* -------- Phone Responsiveness -------- */
+@media (max-width: 425px) {
+
+  .home-container {
+    .home {
+      padding: 13px;
+      width: 87%;
+    }
+    .home-information {
+      padding: 13px;
+      width: 79%;
+    }
+  }
+
+
+  .articles-container  {
+    margin: 3px 0;
+    padding: 3px 0;
+    width: 100%;
+    .tools-container {
+      flex-direction: column;
+      .search-input {
+        width: 250px;
+      }
+    }
+    .short-article.small-card {
+      flex: 1 1 100%;
+      margin-bottom: 10px;
+      height: 210px;
+    }
+    .short-article.big-card {
+      flex: 1 1 100%;
+      margin-bottom: 10px;
+      height: 410px;
+    }
+  }
+
+  .article-container {
+    .article-title {
+      flex-direction: column;
+      align-items: center;
+    }
+    .article-image img {
+      width: 160px;
+    }
+    .article-text {
+      margin: 5px 0;
+      padding: 5px 0;
+      font-size: 12px;
+    }
+  }
+
+  .rank-movies {
+    margin: 5px 0;
+    padding: 5px 0;
+    .rank-table {
+      width: 100%;
+      thead {
+        display: none;
+      }
+      tr {
+        display: block;
+        padding: 10px 0;
+        margin-bottom: 20px;
+        border-radius: 10px;
+      }
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+      }
+      td:nth-child(4) {
+        flex-direction: column;
+      }
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+      }
+    }
+  }
+  .review-form-container {
+    flex-direction: column;
+    margin: 5px 0;
+    padding: 5px 0 !important;
+    h5 {
+      margin: auto 5px;
+    }
+    .review-buttons {
+      margin: auto 5px;
+    }
+  }
+}

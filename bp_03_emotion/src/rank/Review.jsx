@@ -13,12 +13,20 @@ const ReviewFormContainer = styled.td`
     text-align: center;
     background-color: ${({ theme }) => theme.shortArticleBg};
     border-radius: 5px;
+    @media (max-width: 425px) {
+        flex-direction: column;
+        margin: 5px 0;
+        padding: 5px 0 !important;
+    }
 `;
 
 const ReviewTitle = styled.h5`
     margin: 5px;
     font-size: 18px;
     color: ${({ theme }) => theme.textColor};
+    @media (max-width: 425px) {
+        margin: auto 5px;
+    }
 `;
 
 const ReviewAction = styled.div`
@@ -55,6 +63,9 @@ const SubmitButton = styled.button`
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    @media (max-width: 425px) {
+        margin: auto 5px;
+    }
 
     &:hover {
         background-color: #4cae4c;

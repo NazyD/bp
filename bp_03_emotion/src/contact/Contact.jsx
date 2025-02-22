@@ -12,6 +12,10 @@ const ContactContainer = styled.div`
     text-align: center;
     color: ${({ theme }) => theme.textColor};
     transition: background-color 0.5s ease, color 0.5s ease;
+    @media (max-width: 425px) {
+        width: 100%;
+        padding: 5px 0;
+    }
     h2{
         font-size: 32px;
         margin-bottom: 20px;
@@ -24,6 +28,14 @@ const ContactList = styled.div`
     flex-direction: column;
     gap: 20px;
     margin-top: 20px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
+    @media (max-width: 425px) {
+        flex-direction: column;
+        width: 100%;
+    }
 `;
 const ContactItem = styled.div`
     display: flex;
@@ -35,6 +47,14 @@ const ContactItem = styled.div`
     border-radius: 8px;
     transition: background-color 0.3s ease;
     cursor: pointer;
+    @media (max-width: 768px) {
+        width: 100%;
+        text-align: center;
+    }
+    @media (max-width: 425px) {
+        width: 90%;
+        padding: 10px 4px;
+    }
     &:hover {
         background-color: ${({ theme }) => theme.shortArticleBgHover};
     }

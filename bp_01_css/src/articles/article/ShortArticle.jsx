@@ -7,7 +7,7 @@ import {useEffect, useState} from "react";
 const ShortArticle = (props) => {
     const [articleText, setArticleText] = useState("");
 
-    const bigCardChars = screen.width >= 426 ? 1400 : 700;
+    const bigCardChars = screen.width <= 426 ? 1400 : 700;
 
     useEffect(() => {
         if (props.article.text && props.article.text.startsWith('/articles/')) {

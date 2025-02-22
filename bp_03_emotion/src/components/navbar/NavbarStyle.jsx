@@ -15,6 +15,16 @@ export const NavbarContainer = styled.div`
     padding: 0 20px;
     position: relative;
     z-index: 10;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        height: auto;
+        gap: 10px
+    }
+    @media (max-width: 425px) {
+        flex-direction: column;
+        height: auto;
+        gap: 10px
+    }
 `;
 
 export const NavbarLeft = styled.div`
@@ -49,6 +59,16 @@ export const NavbarCenter = styled.div`
         justify-content: center;
         align-items: center;
         height: 100%;
+        @media (max-width: 768px) {
+            flex-direction: column;
+            height: auto;
+            gap: 10px
+        }
+        @media (max-width: 425px) {
+            flex-direction: column;
+            height: auto;
+            gap: 10px
+        }
     }
 `;
 
@@ -82,10 +102,10 @@ export const NavItem = styled.li`
 
     &:hover > ul {
         display: block;
-        flex-direction: column; /* Stack items in a column */
-        opacity: 1; /* this need to be here for submenu to be shown */
-        visibility: visible; /* this need to be here for submenu to be shown */
-        height: auto; /* This allows it to grow properly */
+        flex-direction: column; 
+        opacity: 1; 
+        visibility: visible; 
+        height: auto; 
     }
 `;
 
@@ -105,6 +125,12 @@ export const Submenu = styled.ul`
     padding: 0;
     z-index: 20;
     min-width: 100%;
+    @media (max-width: 768px) {
+        display: block;
+    }
+    @media (max-width: 425px) {
+        display: block;
+    }
 
     li {
         height: 60px;

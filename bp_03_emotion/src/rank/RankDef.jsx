@@ -3,8 +3,20 @@ import MoveUpButton from "../components/MoveUpButton.jsx";
 import styled from "@emotion/styled";
 
 const RankContainer = styled.div`
-  margin: 40px 150px;
-  text-align: center;
+    margin: 40px 150px;
+    text-align: center;
+    @media (max-width: 1024px) {
+        margin: 20px;
+        padding: 15px;
+    }
+    @media (max-width: 768px) {
+        margin: 10px;
+        padding: 10px;
+    }
+    @media (max-width: 425px) {
+        margin: 5px 0;
+        padding: 5px 0;
+    }
 `;
 
 const Title = styled.h2`
@@ -15,23 +27,39 @@ const Title = styled.h2`
 `;
 
 const RankTable = styled.table`
-  width: 100%;
-  border: 1px solid ${({theme}) => theme.borderColor};
-  border-collapse: collapse;
-  background-color: ${({theme}) => theme.componentBackground};
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    border: 1px solid ${({theme}) => theme.borderColor};
+    border-collapse: collapse;
+    background-color: ${({theme}) => theme.componentBackground};
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    @media (max-width: 425px) {
+        width: 100%;
+    }
 `;
 
 const TableHead = styled.thead`
   background-color: ${({theme}) => theme.borderColor};
   color: ${({theme}) => theme.textColor};
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 const TableRow = styled.tr`
   transition: background-color 0.3s ease;
     border: none;
+    @media (max-width: 768px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 425px) {
+        display: block;
+        padding: 10px 0;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
   &:nth-child(even) {
     background-color: ${({theme}) => theme.shortArticleBg};
   }
@@ -57,6 +85,14 @@ const TableCell = styled.td`
     border-left: none !important;
     border-right: none !important;
     border-bottom: 1px solid ${({theme}) => theme.borderColor} !important;
+    @media (max-width: 768px) {
+        text-align: center;
+    }
+    @media (max-width: 425px) {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+    }
 
     &:first-child {
         text-align: center;
@@ -67,11 +103,23 @@ const TableCell = styled.td`
         font-size: 14px;
         line-height: 1.5;
         text-align: left;
+        @media (max-width: 1024px) {
+            font-size: 12px;
+        }
+        @media (max-width: 425px) {
+            flex-direction: column;
+        }
     }
 
     &:nth-child(6) {
         font-weight: bold;
         color: #d9534f;
+    }
+    &:last-child{
+        @media (max-width: 768px) {
+            text-align: center;
+            width: 100%;
+        }
     }
 `;
 

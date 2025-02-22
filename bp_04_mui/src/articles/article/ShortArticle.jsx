@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {Link} from 'react-router-dom';
 import TopicsList from "../../topics/TopicsList.jsx";
-import {Box, Typography, Card, CardContent, CardActions} from "@mui/material";
+import {Box, Typography, Card, CardContent, CardActions, useTheme} from "@mui/material";
 import {Image} from "@mui/icons-material";
 
 const ShortArticle = (props) => {
     const [articleText, setArticleText] = useState("");
+    const theme = useTheme();
 
     useEffect(() => {
         if (props.article.text && props.article.text.startsWith('/articles/')) {
@@ -26,8 +27,33 @@ const ShortArticle = (props) => {
 
     const cardSizeStyles =
         props.cardSize === "big"
-            ? {width: "100%", height: 300}
-            : {width: 400, height: 300};
+            ? {
+                width: "100%",
+                height: 300,
+                [theme.breakpoints.down('lg')]: {
+                    width: "100%",
+                    height: "350px",
+                },
+                [theme.breakpoints.down('md')]: {
+                    flex: "1 1 100%",
+                    marginBottom: "10px",
+                    height: "410px",
+                },
+            }
+            : {
+                width: 400,
+                height: 300,
+                [theme.breakpoints.down('lg')]: {
+                    flex: "1 1 calc(45% - 20px)",
+                    marginBottom: "20px",
+                    height: "275px",
+                },
+                [theme.breakpoints.down('md')]: {
+                    flex: "1 1 100%",
+                    marginBottom: "10px",
+                    height: "210px",
+                },
+            };
 
     return (
         <Card
@@ -101,7 +127,7 @@ const ShortArticle = (props) => {
                 </Typography>
             </CardContent>
 
-                {/* Text Section */}
+            {/* Text Section */}
             <CardContent
                 sx={{
                     flex: 1,
@@ -121,7 +147,7 @@ const ShortArticle = (props) => {
                 </Typography>
             </CardContent>
 
-                {/* Footer Section */}
+            {/* Footer Section */}
             <CardActions
                 sx={{
                     display: "flex",

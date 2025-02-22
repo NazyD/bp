@@ -1,8 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Box, Typography, Button} from "@mui/material";
+import {Box, Typography, Button, useTheme} from "@mui/material";
 
 const Navbar = (props) => {
+    const theme = useTheme();
 
     return (
         <Box
@@ -23,6 +24,11 @@ const Navbar = (props) => {
                 position: 'relative',
                 zIndex: 10,
                 boxSizing: 'border-box',
+                [theme.breakpoints.down('md')]: {
+                    flexDirection: "column",
+                    height: "auto",
+                    gap: "10px"
+                },
             }}
         >
             {/* Left Section */}
@@ -72,6 +78,11 @@ const Navbar = (props) => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         height: '100%',
+                        [theme.breakpoints.down('md')]: {
+                            flexDirection: "column",
+                            height: "auto",
+                            gap: "10px",
+                        },
                     }}
                 >
                     {/* Main Nav Item */}

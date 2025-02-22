@@ -4,37 +4,57 @@ import styled from "@emotion/styled";
 import {useEffect, useState} from "react";
 
 const ShortArticleContainer = styled.div`
-  background-color: ${({ theme }) => theme.componentBackground};
-  border: 1px solid ${({ theme }) => theme.borderColor};
-  border-radius: 10px;
-  padding: 15px;
-  margin: 10px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    background-color: ${({theme}) => theme.componentBackground};
+    border: 1px solid ${({theme}) => theme.borderColor};
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease;
     position: relative;
     overflow: hidden;
 
-  &.small-card {
-    width: 400px;
-    height: 300px;
-  }
+    &.small-card {
+        width: 400px;
+        height: 300px;
+        @media (max-width: 1024px) {
+            flex: 1 1 calc(45% - 20px);
+            margin-bottom: 20px;
+            height: 275px;
+        }
+        @media (max-width: 768px) {
+            flex: 1 1 100%;
+            margin-bottom: 10px;
+            height: 210px;
+        }
+    }
 
-  &.big-card {
-    width: 100%; /* Full width */
-    height: 300px;
-  }
+    &.big-card {
+        width: 100%; 
+        height: 300px;
+        @media (max-width: 1024px) {
+            width: 100%;
+            height: 350px;
+        }
+        @media (max-width: 768px) {
+            flex: 1 1 100%;
+            margin-bottom: 10px;
+            height: 410px;
+        }
+    }
 
-  &:hover {
-    background-color: ${({ theme }) => theme.componentBackgroundHover};
-      transform: translateY(-2px) translateX(-1px); 
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); 
-  }
-    &:hover .sliding-image{
-        right: 0; 
-        opacity: 0.5; 
+    &:hover {
+        background-color: ${({theme}) => theme.componentBackgroundHover};
+        transform: translateY(-2px) translateX(-1px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    &:hover .sliding-image {
+        right: 0;
+        opacity: 0.5;
         mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 95%);
     }
 `;

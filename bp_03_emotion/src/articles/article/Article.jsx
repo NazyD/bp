@@ -13,12 +13,20 @@ const ArticleContainer = styled.div`
     background-color: ${({ theme }) => theme.componentBackground};
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    @media (max-width: 768px) {
+        margin: 10px;
+        padding: 10px;
+    }
 `;
 
 const ArticleTitle = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    @media (max-width: 425px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 const ArticleTitleLeft = styled.div`
@@ -29,6 +37,9 @@ const ArticleTitleLeft = styled.div`
     color: ${({ theme }) => theme.textColor};
     h1{
         margin: 0;
+        @media (max-width: 768px) {
+            font-size: 32px;
+        }
     }
 `;
 
@@ -36,6 +47,18 @@ const ArticleTitleImage = styled.div`
   img{
       height: 300px;
       width: auto;
+      @media (max-width: 1024px) {
+          width: 220px;
+          height: auto;
+      }
+      @media (max-width: 768px) {
+          width: 170px;
+          height: auto;
+      }
+      @media (max-width: 425px) {
+          width: 160px;
+          height: auto;
+      }
   }
 `;
 
@@ -63,6 +86,11 @@ const ArticleText = styled.div`
     font-size: 18px;
     line-height: 1.8;
     overflow: auto;
+    @media (max-width: 425px) {
+        margin: 5px 0;
+        padding: 5px 0;
+        font-size: 12px;
+    }
 `;
 
 const ArticleContent = styled.div`

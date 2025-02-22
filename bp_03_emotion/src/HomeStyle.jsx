@@ -59,6 +59,10 @@ export const HomeSection = styled.div`
     text-align: center;
     position: relative;
     z-index: 9;
+    @media (max-width: 425px) {
+        padding: 13px;
+        width: 87%;
+    }
 `;
 
 // Title (with animation)
@@ -95,4 +99,8 @@ export const HomeInfo = styled.p`
     transform: translateY(-100%);
     animation: ${slideDown} 1s ease-out 1s forwards;
     z-index: 1;
+    @media (max-width: 425px) {
+        padding: 13px;
+        width: 79%;
+    }
 `;

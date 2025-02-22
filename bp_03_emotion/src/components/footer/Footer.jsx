@@ -21,6 +21,12 @@ const FooterContainer = styled.div`
     position: absolute;
     bottom: 0;
     height: 60px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        height: 135px;
+    }
 `;
 
 const FooterLeft = styled.div`

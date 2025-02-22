@@ -1,8 +1,9 @@
 import React from 'react';
-import {Box, Typography, Link} from "@mui/material";
+import {Box, Typography, Link, useTheme} from "@mui/material";
 import { FaInstagram, FaEnvelope, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Contact = () => {
+    const theme = useTheme();
 
     return (
         <Box
@@ -16,6 +17,10 @@ const Contact = () => {
                 textAlign: "center",
                 color: "text.primary",
                 transition: "background-color 0.5s ease, color 0.5s ease",
+                [theme.breakpoints.down('sm')]: {
+                    width: "100%",
+                    padding: "5px 0",
+                },
             }}
         >
             <Typography
@@ -35,6 +40,14 @@ const Contact = () => {
                     flexDirection: "column",
                     gap: "20px",
                     mt: "20px",
+                    [theme.breakpoints.down('md')]: {
+                        flexDirection: "column",
+                        alignItems: "center",
+                    },
+                    [theme.breakpoints.down('sm')]: {
+                        flexDirection: "column",
+                        width: "100%",
+                    },
                 }}
             >
                 <Box
@@ -48,6 +61,14 @@ const Contact = () => {
                         borderRadius: "8px",
                         transition: "background-color 0.3s ease",
                         cursor: "pointer",
+                        [theme.breakpoints.down('md')]: {
+                            width: "100%",
+                            textAlign: "center",
+                        },
+                        [theme.breakpoints.down('sm')]: {
+                            width: "90%",
+                            padding: "10px 4px",
+                        },
                         '&:hover': {
                             backgroundColor: 'action.shortArticleHover',
                         },
@@ -88,6 +109,14 @@ const Contact = () => {
                         borderRadius: "8px",
                         transition: "background-color 0.3s ease",
                         cursor: "pointer",
+                        [theme.breakpoints.down('md')]: {
+                            width: "100%",
+                            textAlign: "center",
+                        },
+                        [theme.breakpoints.down('sm')]: {
+                            width: "90%",
+                            padding: "10px 4px",
+                        },
                         '&:hover': {
                             backgroundColor: 'action.shortArticleHover',
                         },
@@ -128,6 +157,14 @@ const Contact = () => {
                         borderRadius: "8px",
                         transition: "background-color 0.3s ease",
                         cursor: "pointer",
+                        [theme.breakpoints.down('md')]: {
+                            width: "100%",
+                            textAlign: "center",
+                        },
+                        [theme.breakpoints.down('sm')]: {
+                            width: "90%",
+                            padding: "10px 4px",
+                        },
                         '&:hover': {
                             backgroundColor: 'action.shortArticleHover',
                         },
@@ -166,6 +203,14 @@ const Contact = () => {
                         borderRadius: "8px",
                         transition: "background-color 0.3s ease",
                         cursor: "pointer",
+                        [theme.breakpoints.down('md')]: {
+                            width: "100%",
+                            textAlign: "center",
+                        },
+                        [theme.breakpoints.down('sm')]: {
+                            width: "90%",
+                            padding: "10px 4px",
+                        },
                         '&:hover': {
                             backgroundColor: 'action.shortArticleHover',
                         },

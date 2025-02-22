@@ -9,15 +9,28 @@ import styled from "@emotion/styled";
 // Styled Components
 const ArticlesContainer = styled.div`
   padding: 0 30px;
+    @media (max-width: 768px) {
+        margin: 3px 0;
+        padding: 3px 0;
+        width: 100%;
+    }
+    @media (max-width: 425px) {
+        margin: 3px 0;
+        padding: 3px 0;
+        width: 100%;
+    }
 `;
 
 const ToolsContainer = styled.div`
-  min-height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 20px;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 const SearchInput = styled.input`
@@ -31,7 +44,10 @@ const SearchInput = styled.input`
   border-radius: 20px;
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
   transition: border-color 0.5s ease, box-shadow 0.5s ease;
-
+    @media (max-width: 768px) {
+        width: 250px;
+    }
+    
   &:focus {
     outline: none;
     border-color: ${({ theme }) => theme.textColor};

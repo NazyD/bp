@@ -42,6 +42,11 @@ const ArticlesList = (props) => {
                 display: "flex",
                 flexDirection: "column",
                 gap: 2,
+                [theme.breakpoints.down('md')]: {
+                    margin: "3px 0",
+                    padding: "3px 0",
+                    width: "100%",
+                },
             }}
         >
             {/* Tools Container */}
@@ -53,6 +58,9 @@ const ArticlesList = (props) => {
                     alignItems: "center",
                     gap: "20px",
                     marginBottom: "20px",
+                    [theme.breakpoints.down('md')]: {
+                        flexDirection: "column",
+                    },
                 }}
             >
                 {/* Search Input */}
@@ -66,6 +74,9 @@ const ArticlesList = (props) => {
                         width: "400px",
                         backgroundColor: theme.palette.background.paper,
                         borderRadius: "20px",
+                        [theme.breakpoints.down('md')]: {
+                            width: "250px",
+                        },
                         "& .MuiOutlinedInput-root": {
                             padding: "5px 10px",
                             fontSize: "14px",

@@ -23,7 +23,10 @@ const movies = JSON.parse(localStorage.getItem("movies.json"));
 const shows = JSON.parse(localStorage.getItem("shows.json"));
 
 const AppContainer = styled.div`
-    padding-bottom: 60px;;
+    padding-bottom: 60px;
+    @media (max-width: 768px) {
+        padding-bottom: 135px;
+    }
 `;
 
 function App() {

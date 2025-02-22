@@ -21,7 +21,7 @@ const Footer = () => {
     }, []);
 
 
-    return(
+    return (
         <Box
             component="footer"
             sx={{
@@ -32,7 +32,10 @@ const Footer = () => {
                 borderBottom: `1px solid ${theme.palette.divider}`,
                 borderRadius: '5px',
                 padding: '10px 20px',
-                textAlign: 'center',
+                textAlign: {
+                    md: 'center',
+                    xs: 'center',
+                },
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -40,7 +43,17 @@ const Footer = () => {
                 boxSizing: 'border-box',
                 position: 'absolute',
                 bottom: '0',
-                height: '60px',
+                height: {
+                    md: '60px',
+                    xs: '145px'
+                },
+                gap: {
+                    xs: '10px'
+                },
+                flexDirection: {
+                    md: "row",
+                    xs: "column"
+                }
             }}
         >
             {/* Left Section */}

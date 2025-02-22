@@ -53,6 +53,10 @@ const Article = (props) => {
                 backgroundColor: "background.paper",
                 borderRadius: "10px",
                 boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+                [theme.breakpoints.down('md')]: {
+                    margin: "10px",
+                    padding: "10px",
+                },
             }}
         >
             <MoveUpButton/>
@@ -63,6 +67,10 @@ const Article = (props) => {
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
+                    [theme.breakpoints.down('sm')]: {
+                        flexDirection: "column",
+                        alignItems: "center",
+                    },
                 }}
             >
                 <Grid container spacing={0} sx={{alignCenter: "true"}}>
@@ -77,6 +85,9 @@ const Article = (props) => {
                                 marginBottom: "10px",
                                 textAlign: "right",
                                 pr: 1,
+                                [theme.breakpoints.down('md')]: {
+                                    fontSize: "32px",
+                                },
                             }}
                         >
                             {article.title}
@@ -92,6 +103,18 @@ const Article = (props) => {
                                 height: "300px",
                                 width: "auto",
                                 objectFit: "cover",
+                                [theme.breakpoints.down('lg')]: {
+                                    width: "220px",
+                                    height: "auto",
+                                },
+                                [theme.breakpoints.down('md')]: {
+                                    width: "170px",
+                                    height: "auto",
+                                },
+                                [theme.breakpoints.down('sm')]: {
+                                    width: "160px",
+                                    height: "auto",
+                                },
                             }}
                         />
                     </Grid>
@@ -139,6 +162,11 @@ const Article = (props) => {
                     fontSize: "18px",
                     lineHeight: "1.8",
                     overflow: "auto",
+                    [theme.breakpoints.down('sm')]: {
+                        margin: "5px 0",
+                        padding: "5px 0",
+                        fontSize: "12px",
+                    },
                 }}
                 dangerouslySetInnerHTML={{__html: articleText}}
             />

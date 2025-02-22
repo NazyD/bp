@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Typography} from "@mui/material";
+import {Box, Typography, useTheme} from "@mui/material";
 import {keyframes} from "@mui/system";
 import MoveUpButton from "./components/MoveUpButton.jsx";
 
@@ -37,6 +37,8 @@ const slideDown = keyframes`
 `;
 
 const Home = () => {
+    const theme = useTheme();
+
     return (
         <Box
             sx={{
@@ -64,6 +66,10 @@ const Home = () => {
                     textAlign: "center",
                     position: "relative",
                     zIndex: 9,
+                    [theme.breakpoints.down('sm')]: {
+                        padding: "13px",
+                        width: "87%",
+                    },
                 }}
             >
                 <Typography
@@ -111,6 +117,10 @@ const Home = () => {
                     transform: "translateY(-100%)",
                     animation: `${slideDown} 1s ease-out 1s forwards`,
                     zIndex: 1,
+                    [theme.breakpoints.down('sm')]: {
+                        padding: "13px",
+                        width: "79%",
+                    },
                 }}
                 >
                 <Typography

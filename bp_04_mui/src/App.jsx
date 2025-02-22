@@ -67,7 +67,10 @@ function App() {
                 <Navbar theme={theme} toggleTheme={toggleTheme}/>
                 <Box
                     sx={{
-                        paddingBottom: '60px',
+                        paddingBottom: {
+                            md: '60px',
+                            xs: '145px'
+                        }
                     }}
                 >
                     <Routes>

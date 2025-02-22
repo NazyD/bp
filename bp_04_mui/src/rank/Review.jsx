@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { TableCell, TableRow, Button, Slider, Typography, Box } from "@mui/material";
+import {TableCell, TableRow, Button, Slider, Typography, Box, useTheme} from "@mui/material";
 
 const Review = (props) => {
     const [selectedReview, setSelectedReview] = useState(5);
     const [visibleReview, setVisibleReview] = useState(null);
+    const theme = useTheme();
 
     const isFormOpen = visibleReview === props.dataId;
 
@@ -41,6 +42,11 @@ const Review = (props) => {
                             borderRadius: "5px",
                             transition: "background-color 0.5s ease, color 0.5s ease",
                             border: "none",
+                            [theme.breakpoints.down('sm')]: {
+                                flexDirection: "column",
+                                margin: "5px 0",
+                                padding: "5px 0 !important",
+                            },
                         }}
                     >
                         <Typography variant="h6"
@@ -48,6 +54,9 @@ const Review = (props) => {
                                         margin: "5px",
                                         fontWeight: "bold",
                                         color: "text.primary",
+                                        [theme.breakpoints.down('sm')]: {
+                                            margin: "auto 5px",
+                                        },
                                     }}>
                             Hodnocení
                         </Typography>
