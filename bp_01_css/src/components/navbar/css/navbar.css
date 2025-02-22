@@ -81,7 +81,7 @@
 .navbar-center .submenu {
     display: none;
     position: absolute;
-    top: 100%; /* Align below navbar */
+    top: 100%;
     left: 50%;
     transform: translate(-50%);
     background-color: var(--component-background);

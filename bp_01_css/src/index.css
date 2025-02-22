@@ -78,3 +78,249 @@ body {
 [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
+
+
+
+/* -------- Laptop Responsiveness -------- */
+@media (max-width: 1024px) {
+  .rank-movies {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .short-article.small-card {
+    flex: 1 1 calc(45% - 20px);
+    margin-bottom: 20px;
+    height: 275px;
+  }
+  .short-article.big-card {
+    width: 100%;
+    height: 350px;
+  }
+
+  .article-image img {
+    width: 220px;
+    height: auto;
+  }
+
+  .rank-table td:nth-child(4) {
+    font-size: 12px;
+  }
+}
+
+/* -------- Tablet Responsiveness -------- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    gap: 10px
+  }
+  .navbar-center ul {
+    flex-direction: column;
+    height: auto;
+    gap: 10px
+  }
+  .submenu {
+    display: block;
+    position: static;
+    background-color: var(--component-background);
+  }
+  nav li {
+    width: 100%;
+  }
+
+  .rank-movies, .article-container {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .articles-container  {
+    margin: 3px 0;
+    padding: 3px 0;
+    width: 100%;
+  }
+  .tools-container {
+    flex-direction: column;
+  }
+  .search-input {
+    width: 250px;
+  }
+  .short-article.small-card {
+    flex: 1 1 100%;
+    margin-bottom: 10px;
+    height: 210px;
+  }
+  .short-article.big-card {
+    flex: 1 1 100%;
+    margin-bottom: 10px;
+    height: 410px;
+  }
+
+  .article-title {
+    h1{
+      font-size: 32px;
+    }
+  }
+  .article-image img {
+    width: 170px;
+    height: auto;
+  }
+
+
+  .rank-table thead {
+    display: none;
+  }
+  .rank-table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .rank-table td {
+    border-top: 1px solid var(--border-color);
+    border-bottom: none;
+    text-align: center;
+  }
+  .rank-movies td:last-child {
+    text-align: center;
+    width: 100%;
+  }
+
+  .contact-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-item {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* -------- Phone Responsiveness (max-width: 425px) -------- */
+@media (max-width: 425px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    gap: 10px
+  }
+  .navbar-center ul {
+    flex-direction: column;
+    height: auto;
+    gap: 10px
+  }
+  .submenu {
+    display: block;
+    position: static;
+    background-color: var(--component-background);
+  }
+  nav li {
+    width: 100%;
+  }
+
+  .home {
+    padding: 13px;
+    width: 87%;
+  }
+  .home-information {
+    padding: 13px;
+    width: 79%;
+  }
+
+  .articles-container  {
+    margin: 3px 0;
+    padding: 3px 0;
+    width: 100%;
+  }
+  .tools-container {
+    flex-direction: column;
+  }
+  .search-input {
+    width: 250px;
+  }
+  .short-article.small-card {
+    flex: 1 1 100%;
+    margin-bottom: 10px;
+    height: 280px;
+  }
+  .short-article.big-card {
+    flex: 1 1 100%;
+    margin-bottom: 10px;
+    height: 440px;
+  }
+
+
+  .article-title {
+    flex-direction: column;
+    align-items: center;
+  }
+  .article-image img {
+    width: 160px;
+  }
+  .article-text {
+    margin: 5px 0;
+    padding: 5px 0;
+    font-size: 12px;
+  }
+
+  .rank-movies {
+    margin: 5px 0;
+    padding: 5px 0;
+  }
+  .rank-table {
+    width: 100%;
+  }
+  .rank-table thead {
+    display: none;
+  }
+  .rank-table tr {
+    display: block;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  .rank-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+  }
+  .rank-table td:nth-child(4) {
+    flex-direction: column;
+  }
+  .rank-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+  }
+  .review-form-container {
+    flex-direction: column;
+    margin: 5px 0;
+    padding: 5px 0 !important;
+  }
+  .review-form-container h5 {
+    margin: auto 5px;
+  }
+  .review-buttons {
+    margin: auto 5px;
+  }
+
+
+  .contact-container {
+    width: 100%;
+    padding: 5px 0;
+  }
+  .contact-list {
+    flex-direction: column;
+    width: 100%;
+  }
+  .contact-item {
+    width: 90%;
+    padding: 10px 4px;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    height: 135px;
+  }
+  .container{
+    padding-bottom: 135px; /* height of the footer */
+  }
+}

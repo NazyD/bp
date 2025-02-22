@@ -7,9 +7,10 @@ import {useEffect, useState} from "react";
 const ShortArticle = (props) => {
     const [articleText, setArticleText] = useState("");
 
+    const bigCardChars = screen.width >= 426 ? 1400 : 700;
+
     useEffect(() => {
         if (props.article.text && props.article.text.startsWith('/articles/')) {
-            console.log(props.article.text);
             // Fetch the text file
             fetch(props.article.text)
                 .then((response) => response.text())
@@ -20,7 +21,7 @@ const ShortArticle = (props) => {
         }
     }, [props.article.text]);
 
-    const cutText = articleText.substring(0, props.cardSize === 'big' ? 1400 : 400) +
+    const cutText = articleText.substring(0, props.cardSize === 'big' ? bigCardChars : 400) +
         `<a href="/articles-list/article/${props.article.idArticle}" style="text-decoration: none; color: inherit;"> ...</a>`;
 
     return (
