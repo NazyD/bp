@@ -55,7 +55,7 @@ const EditTopic = (props) => {
     return(
         <TopicCheckboxContainer>
             {props.topic.topicName}
-            <DeleteButton className="topic-delete-button" onClick={handleDelete}>odstranit</DeleteButton>
+            <DeleteButton className="topic-delete-button" onClick={handleDelete}>Odstranit</DeleteButton>
         </TopicCheckboxContainer>
     );
 }

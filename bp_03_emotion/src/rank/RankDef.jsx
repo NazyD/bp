@@ -158,7 +158,7 @@ const RankDef = (props) => {
     return(
         <RankContainer>
             <MoveUpButton/>
-            <Title>Žebříček filmů</Title>
+            <Title>Žebříček {props.isMovie ? "filmů" : "seriálů"}</Title>
 
             <RankTable style={tableStyle}>
                 <TableHead>

@@ -50,14 +50,14 @@ function TopicManagement(props) {
     return (
         <div className="topic-management" id="createForm">
             <form className="create-form" onSubmit={handleSubmit}>
-                <h1>Nový topic</h1>
+                <h1>Nová kategorie</h1>
 
                 <div className="input-form">
                     <label htmlFor="topicName">Název</label>
                     <input type="text"
                            id="topicName"
                            name="topicName"
-                           placeholder="název topicu"
+                           placeholder="název kategorie"
                            value={newTopic.topicName}
                            onChange={handleChange}
                            required/>

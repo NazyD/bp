@@ -29,7 +29,7 @@ const EditTopic = (props) => {
     return(
         <div className="edit-topic">
             {props.topic.topicName}
-            <button className="topic-delete-button" onClick={handleDelete}>odstranit</button>
+            <button className="topic-delete-button" onClick={handleDelete}>Odstranit</button>
         </div>
     );
 }

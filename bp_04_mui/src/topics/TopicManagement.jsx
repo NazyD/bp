@@ -93,7 +93,7 @@ function TopicManagement(props) {
         >
             <DialogTitle>
                 <Typography variant="h4" color="text.primary">
-                    Manage Topics
+                    Nová kategorie
                 </Typography>
             </DialogTitle>
             <DialogContent sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -108,7 +108,7 @@ function TopicManagement(props) {
                     <TextField
                         label="Název"
                         name="topicName"
-                        placeholder="název topicu"
+                        placeholder="název kategorie"
                         value={newTopic.topicName}
                         onChange={handleChange}
                         required

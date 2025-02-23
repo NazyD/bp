@@ -235,7 +235,7 @@ const ArticlesList = (props) => {
                                 textTransform: 'none',
                             }}
                         >
-                            Topics
+                            Kategorie
                         </Button>
                         {props.topVisibility && (
                             <>

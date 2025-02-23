@@ -141,7 +141,7 @@ function TopicManagement(props) {
     return (
         <div>
             <StyledForm onSubmit={handleSubmit}>
-                <FormTitle>Nový topic</FormTitle>
+                <FormTitle>Nová kategorie</FormTitle>
 
                 <OneInputContainer>
                     <FormLabel htmlFor="topicName">Název:</FormLabel>
@@ -149,7 +149,7 @@ function TopicManagement(props) {
                         type="text"
                         id="topicName"
                         name="topicName"
-                        placeholder="název topicu"
+                        placeholder="název kategorie"
                         value={newTopic.topicName}
                         onChange={handleChange}
                         required

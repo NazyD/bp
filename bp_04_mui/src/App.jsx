@@ -120,12 +120,14 @@ function App() {
                         <Route path="/ranking/movies" element={
                             <RankDef
                                 rankingData={moviesData}
-                                setRankingData={setMoviesData}/>
+                                setRankingData={setMoviesData}
+                                isMovie={true}/>
                         }/>
                         <Route path="/ranking/shows" element={
                             <RankDef
                                 rankingData={showsData}
-                                setRankingData={setShowsData}/>
+                                setRankingData={setShowsData}
+                                isMovie={false}/>
                         }/>
                         <Route path="/contact" element={<Contact />} />
                     </Routes>

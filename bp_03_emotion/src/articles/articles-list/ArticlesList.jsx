@@ -195,19 +195,17 @@ const ArticlesList = (props) => {
                     </ViewButton>
                 </ViewButtons>
 
-                {/* Action Buttons */}
                 {props.creationForms ? (
                     <ActionButtons>
                         <ActionButton onClick={props.setVisibility}>
                             Vytvořit článek
                         </ActionButton>
                         <ActionButton onClick={props.setTopVisibility}>
-                            Topics
+                            Kategorie
                         </ActionButton>
                     </ActionButtons>
                 ) : null}
 
-                {/* Popup for Article Creation */}
                 {props.visiblePopUp && (
                     <>
                         <PopupOverlay onClick={props.setVisibility}></PopupOverlay>

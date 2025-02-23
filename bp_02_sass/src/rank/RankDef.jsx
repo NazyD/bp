@@ -18,7 +18,7 @@ const RankDef = (props) => {
     return(
         <div className="rank-movies">
             <MoveUpButton/>
-            <h2>Žebříček filmů</h2>
+            <h2>Žebříček {props.isMovie ? "filmů" : "seriálů"}</h2>
 
             <table className="rank-table">
                 <thead>

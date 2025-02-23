@@ -72,7 +72,7 @@ const ArticlesList = (props) => {
                         )}
 
                         <button className="action-button" onClick={props.setTopVisibility}>
-                            Topics
+                            Kategorie
                         </button>
                         {props.topVisibility && (
                             <>

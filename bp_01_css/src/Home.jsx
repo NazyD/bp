@@ -16,8 +16,6 @@ const Home = () => {
             </div>
 
             <div className="home-information">
-                <p>||| VĚTŠÍ ODSAZENÍ OD KRAJŮ DÍK A NA STRÁNCE ČLÁNKU TAKY||| NE TOPIC ALE KATEGORIE PŘEJMENOVAT |||
-                    NEFUNFUJE TOPIC UPRAVA PRI UPRAVE CLANKU |||</p>
                 <h2>Účel aplikace</h2>
                 <p>Aplikace slouží jako podklad pro bakalářskou práci. Tato aplikace byla vytvořena jako blog, aby
                     obsahovala

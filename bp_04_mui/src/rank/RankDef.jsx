@@ -51,7 +51,7 @@ const RankDef = (props) => {
                 marginBottom: 2,
                 fontWeight: "bold"
             }}>
-                Žebříček filmů
+                Žebříček {props.isMovie ? "filmů" : "seriálů"}
             </Typography>
 
             <TableContainer
